@@ -1,8 +1,8 @@
 import ColorMatching from "@/src/components/ColorMatching";
 import FinalCTA from "@/src/components/FinalCTA";
-import Footer from "@/src/components/Footer";
+import Footer from "@/components/Footer";
 import Hero from "@/src/components/Hero";
-import Navbar from "@/src/components/Navbar";
+import Navbar from "@/components/Navbar";
 import PartnershipProgram from "@/src/components/PartnershipProgram";
 import PerformanceSection from "@/src/components/PerformanceSection";
 import TeamGallery from "@/src/components/TeamGallery";
@@ -15,7 +15,6 @@ export default function Home() {
   return (
     <main>
       <TopBanner />
-      <Navbar/>
       <Hero/>
       <PerformanceSection/>
       <TeamPackages/>
@@ -25,7 +24,6 @@ export default function Home() {
       <Testimonials/>
       <FinalCTA/>
       <TeamGallery/>
-      <Footer/>
     </main>
   );
 }

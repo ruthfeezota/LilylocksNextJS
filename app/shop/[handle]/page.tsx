@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ShoppingBag, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { notFound } from "next/navigation";
 import ProductGallery from "../../../components/shop/ProductGallery";
 
@@ -79,18 +79,18 @@ export default async function ProductPage({
   if (!product) notFound();
 
   return (
-    <main className="min-h-screen bg-[#faf8f4] px-6 py-12 lg:px-20">
-      {/* Back Link */}
+    <main className="min-h-screen bg-black text-white px-6 py-12 lg:px-20">
+      {/* Back */}
       <Link
         href="/shop"
-        className="mb-10 inline-flex items-center gap-2 text-sm text-gray-700 hover:text-black"
+        className="mb-10 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white"
       >
         <ArrowLeft size={16} />
         Back to Shop
       </Link>
 
-      {/* SHOPIFY STYLE LAYOUT */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      {/* PDP LAYOUT */}
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-start">
         {/* LEFT */}
         <div>
           <ProductGallery
@@ -101,57 +101,158 @@ export default async function ProductPage({
 
         {/* RIGHT */}
         <div className="sticky top-10">
-          <h1 className="text-5xl font-light tracking-tight mb-4">
+          {/* Badge */}
+          <span className="rounded-full bg-[#E8FF00] px-4 py-2 text-xs font-bold uppercase text-black">
+            Premium Ponytail
+          </span>
+
+          {/* Name */}
+          <h1 className="heading-font mt-6 text-5xl uppercase md:text-6xl leading-tight">
             {product.name}
           </h1>
 
-          <p className="text-xl text-gray-500 mb-6">
+          <p className="mt-4 text-xl text-white/70">
             {product.subtitle}
           </p>
 
-          <p className="text-3xl font-semibold mb-8">
+          {/* Price */}
+          <p className="mt-8 text-4xl font-bold text-[#ff0a8a]">
             {product.price}
           </p>
 
-          <p className="text-gray-700 leading-relaxed mb-10 max-w-xl">
+          {/* Description */}
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/80">
             {product.description}
           </p>
 
-          {/* Specs */}
-          <div className="space-y-4 mb-10 border-t border-b py-8">
-            <div className="flex justify-between">
-              <span className="text-gray-500">Length</span>
-              <span>{product.length}</span>
-            </div>
+          {/* Best For */}
+          <div className="mt-8 rounded-[24px] bg-[#0052cc] p-6">
+            <p className="text-sm uppercase tracking-wide text-white/70">
+              Best For
+            </p>
 
-            <div className="flex justify-between">
-              <span className="text-gray-500">Density</span>
-              <span>{product.density}</span>
-            </div>
+            <h3 className="heading-font mt-2 text-3xl uppercase text-[#E8FF00]">
+              {product.bestFor}
+            </h3>
+          </div>
 
-            <div className="flex justify-between">
-              <span className="text-gray-500">Bundles</span>
-              <span>{product.bundles}</span>
-            </div>
+          {/* Color swatches */}
+          <div className="mt-10">
+            <p className="mb-4 font-semibold">Available Shades</p>
 
-            <div className="flex justify-between">
-              <span className="text-gray-500">Best For</span>
-              <span>{product.bestFor}</span>
-            </div>
-
-            <div className="flex justify-between">
-              <span className="text-gray-500">Texture</span>
-              <span>{product.texture}</span>
+            <div className="flex gap-3">
+              {[
+                "#111111",
+                "#2f1f1f",
+                "#5b3b2a",
+                "#8a623d",
+                "#d4b48c",
+              ].map((color) => (
+                <span
+                  key={color}
+                  className="h-10 w-10 rounded-full border-2 border-white/20 cursor-pointer hover:scale-110 transition"
+                  style={{ backgroundColor: color }}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Add To Cart */}
-          <button className="w-full rounded-full bg-black py-4 text-white font-medium flex items-center justify-center gap-3 hover:opacity-90 transition">
-            <ShoppingBag size={18} />
-            Add to Cart
-          </button>
+          {/* Specs */}
+          <div className="mt-10 rounded-[32px] border border-white/10 bg-white/5 p-8">
+            <h3 className="heading-font text-2xl uppercase mb-6">
+              Product Details
+            </h3>
+
+            <div className="space-y-5">
+              <div className="flex justify-between">
+                <span className="text-white/60">Length</span>
+                <span>{product.length}</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span className="text-white/60">Density</span>
+                <span>{product.density}</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span className="text-white/60">Bundles</span>
+                <span>{product.bundles}</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span className="text-white/60">Texture</span>
+                <span>{product.texture}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <button className="flex items-center justify-center gap-3 rounded-full bg-[#ff0a8a] py-4 font-bold hover:scale-[1.02] transition">
+              <ShoppingBag size={18} />
+              Add To Cart
+            </button>
+
+            <button className="rounded-full border border-white py-4 font-bold hover:bg-white hover:text-black transition">
+              Buy Now
+            </button>
+          </div>
+
+          {/* Trust strip */}
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl bg-white/5 p-5 text-center">
+              <Sparkles
+                className="mx-auto text-[#E8FF00]"
+                size={22}
+              />
+              <p className="mt-3 text-sm font-semibold">
+                Premium Human Hair
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white/5 p-5 text-center">
+              <ShieldCheck
+                className="mx-auto text-[#E8FF00]"
+                size={22}
+              />
+              <p className="mt-3 text-sm font-semibold">
+                Secure Checkout
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white/5 p-5 text-center">
+              <Truck
+                className="mx-auto text-[#E8FF00]"
+                size={22}
+              />
+              <p className="mt-3 text-sm font-semibold">
+                Bulk Orders Available
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* RELATED CTA */}
+      <section className="mt-24 rounded-[40px] bg-[#E8FF00] px-10 py-20 text-center text-black">
+        <h2 className="heading-font text-4xl uppercase md:text-6xl">
+          Need Matching Ponytails
+          <br />
+          For Your Entire Team?
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-black/80">
+          Explore bulk ordering, team color matching,
+          and competition-ready LilyLocks production.
+        </p>
+
+        <Link
+          href="/team-orders"
+          className="mt-10 inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition"
+        >
+          Explore Team Orders
+        </Link>
+      </section>
     </main>
   );
 }

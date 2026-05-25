@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Holtwood_One_SC, Montserrat } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const holtwood = Holtwood_One_SC({
   weight: "400",
@@ -23,8 +25,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${holtwood.variable} ${montserrat.variable}`}>
-        {children}
+      <body
+        className={`${holtwood.variable} ${montserrat.variable} bg-black text-white antialiased`}
+      >
+        {/* Global Header */}
+        <Navbar />
+
+        {/* All Pages */}
+        <main className="min-h-screen">{children}</main>
+
+        {/* Global Footer */}
+        <Footer />
       </body>
     </html>
   );
