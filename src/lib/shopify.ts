@@ -1,33 +1,61 @@
-const domain = process.env.SHOPIFY_STORE_DOMAIN!;
-const storefrontToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
+const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
+const token = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
-const endpoint = `https://${domain}/api/2026-04/graphql.json`;
+const endpoint = `https://${domain}/api/2024-10/graphql.json`;
 
-export async function shopifyFetch<T>({
-  query,
-  variables = {},
-}: {
-  query: string;
-  variables?: Record<string, any>;
-}): Promise<T> {
-  const response = await fetch(endpoint, {
+export async function getPonytails() {
+  const query = `
+    {
+      collection(handle: "signature-ponytails") {
+        products(first: 10) {
+          edges {
+            node {
+              id
+              title
+              handle
+              description
+              featuredImage {
+                url
+              }
+              priceRange {
+                minVariantPrice {
+                  amount
+                }
+              }
+              variants(first: 20) {
+                edges {
+                  node {
+                    id
+                    title
+                    availableForSale
+                  }
+                }
+              }
+              metafields(identifiers: [
+                { namespace: "custom", key: "best_for" },
+                { namespace: "custom", key: "density" },
+                { namespace: "custom", key: "bundles" }
+              ]) {
+                key
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const res = await fetch(endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-Shopify-Storefront-Access-Token": storefrontToken,
+      "X-Shopify-Storefront-Access-Token": token,
     },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-    next: { revalidate: 60 },
+    body: JSON.stringify({ query }),
+    cache: "no-store",
   });
 
-  const json = await response.json();
-
-  if (json.errors) {
-    throw new Error(JSON.stringify(json.errors));
-  }
-
-  return json.data;
+  const json = await res.json();
+  return json.data.collection.products.edges.map((item: any) => item.node);
 }

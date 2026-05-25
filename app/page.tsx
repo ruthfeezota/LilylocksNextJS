@@ -1,23 +1,31 @@
-import { getProducts } from "../src/lib/get-products";
+import ColorMatching from "@/src/components/ColorMatching";
+import FinalCTA from "@/src/components/FinalCTA";
+import Footer from "@/src/components/Footer";
+import Hero from "@/src/components/Hero";
+import Navbar from "@/src/components/Navbar";
+import PartnershipProgram from "@/src/components/PartnershipProgram";
+import PerformanceSection from "@/src/components/PerformanceSection";
+import TeamGallery from "@/src/components/TeamGallery";
+import TeamPackages from "@/src/components/TeamPackages";
+import Testimonials from "@/src/components/Testimonials";
+import TopBanner from "@/src/components/TopBanner";
+import VideoShowcase from "@/src/components/VideoShowcase";
 
-export default async function Home() {
-  const products = await getProducts();
-
+export default function Home() {
   return (
-    <main className="p-10">
-      <h1 className="text-4xl font-bold mb-8">LilyLocks Products</h1>
-
-      <div className="space-y-4">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="rounded-xl border p-4 shadow-sm"
-          >
-            <h2 className="text-xl font-semibold">{product.title}</h2>
-            <p>{product.handle}</p>
-          </div>
-        ))}
-      </div>
+    <main>
+      <TopBanner />
+      <Navbar/>
+      <Hero/>
+      <PerformanceSection/>
+      <TeamPackages/>
+      <ColorMatching/>
+      <PartnershipProgram/>
+      <VideoShowcase/>
+      <Testimonials/>
+      <FinalCTA/>
+      <TeamGallery/>
+      <Footer/>
     </main>
   );
 }
