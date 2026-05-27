@@ -4,8 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import TopBanner from "@/src/components/TopBanner";
 
 const navLinks = [
+  { label: "Shop", href: "/shop" },
   { label: "Team Orders", href: "/team-orders" },
   { label: "Color Match", href: "/color-match" },
   { label: "About Us", href: "/about" },
@@ -19,8 +21,11 @@ export default function Navbar() {
   return (
     <>
       {/* GLOBAL NAV */}
+      <TopBanner />
+      
       <header className="sticky top-0 z-[100] w-full border-b border-white/10 bg-[#0052cc]/85 backdrop-blur-md">
         <nav className="mx-auto flex h-[110px] max-w-[1600px] items-center justify-between px-6 md:px-10 lg:px-14">
+          
           {/* Logo */}
           <Link
             href="/"
@@ -46,6 +51,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Bulk Orders Button */}
+            <Link
+              href="https://shopify.com/66851471426/account"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 rounded-full bg-[#ff0a8a] px-6 py-3 text-[15px] font-bold text-white transition hover:bg-white hover:text-[#0052cc]"
+            >
+              Start Bulk Orders
+            </Link>
           </div>
 
           {/* Mobile Menu */}
@@ -62,6 +77,7 @@ export default function Navbar() {
       {/* MOBILE DRAWER */}
       {menuOpen && (
         <div className="fixed inset-0 z-[120] bg-black/95 text-white">
+          
           {/* Close */}
           <div className="flex justify-end p-8">
             <button
@@ -84,6 +100,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Mobile Bulk Orders Button */}
+            <Link
+              href="https://shopify.com/66851471426/account"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold text-white transition hover:bg-white hover:text-[#0052cc]"
+            >
+              Start Bulk Orders
+            </Link>
           </div>
         </div>
       )}
