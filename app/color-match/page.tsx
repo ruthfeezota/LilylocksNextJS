@@ -77,19 +77,23 @@ export default function ColorMatchPage() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="https://shopify.com/66851471426/account">
             <button className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition">
-              Start Color Match
+              Start Group Order
             </button>
+            </a>
 
+            <a href="/color-match#color-match-consultation-form">
             <button className="rounded-full border-2 border-white px-8 py-4 text-lg font-bold hover:bg-white hover:text-black transition">
-              Book Consultation
+              Ask About Custom Match
             </button>
+            </a>
           </div>
         </div>
       </section>
 
       {/* COLOR SELECTOR */}
-      <section className="bg-[#0052cc] px-6 py-24">
+      <section className="bg-[#0052cc] px-6 py-24" id="color-match-selector">
         <div className="mx-auto max-w-7xl">
           <h2 className="heading-font text-center text-4xl md:text-6xl uppercase">
             Choose Your Shade
@@ -130,7 +134,7 @@ export default function ColorMatchPage() {
             >
               {/* Add real hair image later */}
               <div className="flex h-full items-center justify-center text-center text-white/70 text-xl font-bold">
-                Shade Photo Placeholder
+                Shade Photo Coming Soon
               </div>
             </div>
 
@@ -156,7 +160,7 @@ export default function ColorMatchPage() {
       </section>
 
       {/* CONSULTATION FORM */}
-      <section className="bg-[#ff0a8a] px-6 py-24">
+      <section className="bg-[#ff0a8a] px-6 py-24" id="color-match-consultation-form">
         <div className="mx-auto max-w-5xl rounded-[40px] bg-black p-10 md:p-16">
           <h2 className="heading-font text-center text-4xl md:text-6xl uppercase">
             Need A Custom Match?
@@ -238,30 +242,58 @@ export default function ColorMatchPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-[#0052cc] px-6 py-24">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="heading-font text-center text-4xl md:text-6xl uppercase">
-            FAQ
-          </h2>
+{/* FAQ */}
+<section className="bg-[#0052cc] px-6 py-24">
+  <div className="mx-auto max-w-4xl">
+    <h2 className="heading-font text-center text-4xl md:text-6xl uppercase">
+      FAQ
+    </h2>
 
-          <div className="mt-14 space-y-6">
-            {[
-              "Can I order for just one athlete?",
-              "Do you offer full team matching?",
-              "Can I request a custom blend?",
-              "How long does consultation take?",
-            ].map((q) => (
-              <div
-                key={q}
-                className="rounded-2xl bg-white/10 px-8 py-6 text-xl font-semibold"
-              >
-                {q}
-              </div>
-            ))}
+    <div className="mt-14 space-y-4">
+      {[
+        {
+          question: "Can I order for just one athlete?",
+          answer:
+            "Yes! We offer both individual and team orders. Whether you're shopping for one athlete or an entire squad, we’ve got you covered.",
+        },
+        {
+          question: "Do you offer full team matching?",
+          answer:
+            "Absolutely. We can create coordinated looks for full teams with matching colors, styles, and custom details.",
+        },
+        {
+          question: "Can I request a custom blend?",
+          answer:
+            "Yes — custom blends are available. We’ll work with you to create a unique formula tailored to your preferences and performance needs.",
+        },
+        {
+          question: "How long does consultation take?",
+          answer:
+            "Most consultations take around 15–30 minutes depending on the level of customization and team size.",
+        },
+      ].map((item, index) => (
+        <details
+          key={index}
+          className="group rounded-2xl bg-white/10 transition-all duration-300"
+        >
+          <summary className="flex cursor-pointer list-none items-center justify-between px-8 py-6 text-lg font-semibold md:text-xl">
+            {item.question}
+
+            <span className="ml-4 text-3xl transition-transform duration-300 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+
+          <div className="px-8 pb-6 pt-0 text-base leading-relaxed text-white/80 md:text-lg">
+            {item.answer}
           </div>
-        </div>
-      </section>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* FINAL CTA */}
       <section className="bg-[#f1ff00] px-6 py-24 text-center text-black">
@@ -270,10 +302,11 @@ export default function ColorMatchPage() {
           <br />
           Your Perfect Shade?
         </h2>
-
+        <a href="/color-match#color-match-selector">
         <button className="mt-10 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition">
           Start My Color Match
         </button>
+        </a>
       </section>
     </main>
   );

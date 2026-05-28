@@ -17,37 +17,43 @@ const ponytails = [
     id: 1,
     handle: "starter-spark",
     name: "The Starter Spark™",
-    subtitle: "Practice-ready confidence",
+    subtitle: "Practice-ready confidence 10inch Ponytail",
     bestFor: "Practice",
     price: "$99.99",
     image: "/ponytails/starter-spark.jpg",
     badge: "Starter Favorite",
     rating: "4.8",
     reviews: 124,
+    variantId:
+      "gid://shopify/ProductVariant/123456789",
   },
   {
     id: 2,
     handle: "extra-bounce",
     name: "The Extra Bounce™",
-    subtitle: "Competition-ready volume",
+    subtitle: "Competition-ready volume 14inch Ponytail",
     bestFor: "Competition",
     price: "$149.99",
     image: "/ponytails/extra-bounce.jpg",
     badge: "Best Seller",
     rating: "4.9",
     reviews: 231,
+    variantId:
+      "gid://shopify/ProductVariant/123456789",
   },
   {
     id: 3,
     handle: "main-character",
     name: "The Main Character™",
-    subtitle: "No blending in. Ever.",
+    subtitle: "No blending in. Ever. 18inch Ponytail",
     bestFor: "Luxury",
-    price: "$249.99",
+    price: "$199.99",
     image: "/ponytails/main-character.jpg",
     badge: "Luxury Pick",
     rating: "5.0",
     reviews: 87,
+    variantId:
+      "gid://shopify/ProductVariant/123456789",
   },
 ];
 
@@ -99,13 +105,12 @@ export default function ShopPage() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
+              <a href="/ponytails">
               <button className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition">
                 Shop All Styles
               </button>
+              </a>
 
-              <button className="rounded-full border-2 border-white px-8 py-4 text-lg font-bold hover:bg-white hover:text-black transition">
-                Compare Ponytails
-              </button>
             </div>
           </div>
         </div>
@@ -242,9 +247,9 @@ export default function ShopPage() {
                     <ArrowRight size={18} />
                   </Link>
 
-                  <button className="rounded-full border border-white py-4 font-bold hover:bg-white hover:text-black transition">
+                  {/* <button className="rounded-full border border-white py-4 font-bold hover:bg-white hover:text-black transition">
                     Add To Cart
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -299,6 +304,7 @@ export default function ShopPage() {
 
       {/* REVIEWS */}
       <section className="bg-[#0052cc] px-6 py-24">
+  
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="heading-font text-4xl uppercase md:text-6xl">
             Loved By Athletes
@@ -327,7 +333,6 @@ export default function ShopPage() {
           <br />
           For Your Squad?
         </h2>
-
         <Link
           href="/team-orders"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition"
@@ -336,6 +341,8 @@ export default function ShopPage() {
           <ArrowRight size={18} />
         </Link>
       </section>
+
     </main>
+    
   );
 }

@@ -30,9 +30,11 @@ export default function FinalCTA() {
         </p>
 
         {/* CTA Button */}
+        <a href="https://shopify.com/66851471426/account">
         <button className="mt-10 rounded-full bg-[#ff0a8a] px-10 py-5 text-md font-bold text-white transition hover:scale-105 md:px-20 md:py-6 md:text-2xl">
-          Book a Team Consultation
+          Start A Bulk Order
         </button>
+        </a>
       </div>
     </section>
   );

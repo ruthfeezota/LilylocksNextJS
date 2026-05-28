@@ -18,9 +18,11 @@ export default function ColorMatching() {
         </p>
 
         {/* CTA */}
+        <a href="/color-match">
         <button className="mt-10 rounded-full bg-[#0057d8] px-10 py-5 text-lg font-semibold text-white transition hover:scale-105 md:px-14 md:text-2xl">
           Start My Team Color Match
         </button>
+        </a>
       </div>
 
       {/* Floating Images */}

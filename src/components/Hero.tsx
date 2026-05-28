@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/hero-cheer.jpg"
+        src="/hero-cheer5.png"
         alt="LilyLocks cheer team"
         fill
         priority
@@ -34,13 +34,16 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="/contact#contact-form">
               <button className="rounded-full bg-[#ff0a8a] px-8 py-4 font-semibold text-white transition hover:scale-105">
                 Request a Bulk Quote
               </button>
-
+              </a>
+              <a href="/ponytails">
               <button className="rounded-full border-2 border-[#ff0a8a] px-8 py-4 font-semibold text-white transition hover:bg-[#ff0a8a]">
                 Shop Ponytails
               </button>
+              </a>
             </div>
           </div>
         </div>

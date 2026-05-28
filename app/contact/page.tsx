@@ -1,67 +1,178 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import {
+  ChevronDown,
   ArrowRight,
   Mail,
-  Phone,
-  Sparkles,
   Users,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 
+const faqGroups = [
+  {
+    title: "Shopping & Products",
+    questions: [
+      {
+        q: "What type of hair are LilyLocks ponytails made from?",
+        a: "LilyLocks ponytails are designed for premium wear, fullness, and performance-ready styling.",
+      },
+      {
+        q: "Can I choose different shades?",
+        a: "Yes. We offer multiple shades and custom color matching consultations.",
+      },
+      {
+        q: "Which ponytail is best for competitions?",
+        a: "Our fuller density ponytails are ideal for competitions and showcases.",
+      },
+    ],
+  },
+
+  {
+    title: "Team Orders",
+    questions: [
+      {
+        q: "Do you offer bulk ordering for cheer teams?",
+        a: "Yes. We support gyms, schools, dance teams, and large performance groups.",
+      },
+      {
+        q: "Can my team get matching ponytails?",
+        a: "Absolutely. We specialize in full-team consistency and color matching.",
+      },
+      {
+        q: "Do you offer bows too?",
+        a: "Yes. We offer bulk bows, rhinestones, spirit bows, and branded team styles.",
+      },
+    ],
+  },
+
+  {
+    title: "Shipping & Support",
+    questions: [
+      {
+        q: "How long do bulk orders take?",
+        a: "Bulk production varies based on quantity and customization requirements.",
+      },
+      {
+        q: "How do I contact LilyLocks?",
+        a: "You can use the contact form below for support, team orders, or color matching help.",
+      },
+    ],
+  },
+];
+
 export default function ContactPage() {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+
+  const toggleFAQ = (id: string) => {
+    setOpenItem(openItem === id ? null : id);
+  };
+
   return (
     <main className="bg-black text-white">
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#0052cc] px-6 py-28">
         <div className="mx-auto max-w-7xl text-center">
           <p className="mb-4 text-sm uppercase tracking-[0.25em] text-white/70">
-            Contact LilyLocks
+            LilyLocks Support
           </p>
 
           <h1 className="heading-font text-5xl uppercase leading-[0.95] md:text-8xl">
-            Let’s Build Your
+            Questions,
             <br />
-            Perfect Team Look
+            Support &
+            <br />
+            Team Help
           </h1>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/85 md:text-2xl">
-            Whether you’re ordering for one athlete
-            or an entire team, we’re here to help
-            you create a polished, competition-ready look.
+            Find answers, contact support,
+            request team help, or ask about
+            custom color matching.
           </p>
         </div>
       </section>
 
-      {/* CONTACT FORM + INFO */}
-      <section className="px-6 py-24">
+      {/* FAQ */}
+      <section className="bg-black px-6 py-24">
+        <div className="mx-auto max-w-5xl space-y-20">
+          {faqGroups.map((group) => (
+            <div key={group.title}>
+              <h2 className="heading-font text-4xl uppercase text-[#E8FF00] md:text-5xl">
+                {group.title}
+              </h2>
+
+              <div className="mt-10 space-y-5">
+                {group.questions.map((item, index) => {
+                  const id = `${group.title}-${index}`;
+                  const isOpen = openItem === id;
+
+                  return (
+                    <div
+                      key={id}
+                      className="overflow-hidden rounded-[30px] border border-white/10 bg-white/5"
+                    >
+                      <button
+                        onClick={() => toggleFAQ(id)}
+                        className="flex w-full items-center justify-between px-8 py-7 text-left"
+                      >
+                        <span className="text-lg font-semibold md:text-xl">
+                          {item.q}
+                        </span>
+
+                        <ChevronDown
+                          size={22}
+                          className={`transition-transform duration-300 ${
+                            isOpen
+                              ? "rotate-180 text-[#ff0a8a]"
+                              : ""
+                          }`}
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div className="border-t border-white/10 px-8 py-6 text-lg leading-relaxed text-white/80">
+                          {item.a}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section className="bg-[#ff0a8a] px-6 py-24" id="contact-form">
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2">
-          {/* LEFT INFO */}
+          {/* LEFT */}
           <div>
-            <div className="inline-flex items-center gap-3 rounded-full bg-[#ff0a8a] px-5 py-3 text-sm font-bold uppercase tracking-[0.15em]">
-              <Sparkles size={22} />
+            <div className="inline-flex items-center gap-3 rounded-full bg-black px-5 py-3 text-sm font-bold uppercase tracking-[0.15em]">
+              <Sparkles size={20} />
               Contact Support
             </div>
 
             <h2 className="heading-font mt-8 text-5xl uppercase leading-none md:text-7xl">
-              We’re Here
+              Still Need
               <br />
-              To Help
+              Help?
             </h2>
 
-            <p className="mt-8 max-w-xl text-xl leading-relaxed text-white/85">
-              Have questions about ponytails,
-              color matching, team orders, bows,
-              or bulk production? Reach out and
-              our team will guide you through it.
+            <p className="mt-8 max-w-xl text-xl leading-relaxed text-white/90">
+              Reach out for team orders,
+              color matching, product support,
+              or general LilyLocks questions.
             </p>
 
             {/* Support Cards */}
             <div className="mt-12 grid gap-6">
-              <div className="rounded-[32px] border border-white/10 bg-white/5 p-8">
+              <div className="rounded-[32px] bg-black p-8">
                 <Mail
-                  size={30}
+                  size={28}
                   className="text-[#E8FF00]"
                 />
 
@@ -69,14 +180,14 @@ export default function ContactPage() {
                   Email Support
                 </h3>
 
-                <p className="mt-4 text-white/80">
+                <p className="mt-4 text-white/75">
                   support@lilylocks.com
                 </p>
               </div>
 
-              <div className="rounded-[32px] border border-white/10 bg-white/5 p-8">
+              <div className="rounded-[32px] bg-black p-8">
                 <Users
-                  size={30}
+                  size={28}
                   className="text-[#E8FF00]"
                 />
 
@@ -84,15 +195,15 @@ export default function ContactPage() {
                   Team Orders
                 </h3>
 
-                <p className="mt-4 text-white/80">
-                  Bulk ordering, custom matching,
-                  and gym partnerships available.
+                <p className="mt-4 text-white/75">
+                  Bulk ordering available for
+                  gyms, schools, and coaches.
                 </p>
               </div>
 
-              <div className="rounded-[32px] border border-white/10 bg-white/5 p-8">
+              <div className="rounded-[32px] bg-black p-8">
                 <ShieldCheck
-                  size={30}
+                  size={28}
                   className="text-[#E8FF00]"
                 />
 
@@ -100,7 +211,7 @@ export default function ContactPage() {
                   Fast Responses
                 </h3>
 
-                <p className="mt-4 text-white/80">
+                <p className="mt-4 text-white/75">
                   We aim to respond within
                   1–2 business days.
                 </p>
@@ -108,89 +219,53 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* RIGHT FORM */}
-          <div className="rounded-[40px] bg-[#0052cc] p-8 md:p-12">
+          {/* FORM */}
+          <div className="rounded-[40px] bg-black p-8 md:p-12">
             <h2 className="heading-font text-4xl uppercase md:text-5xl">
               Send A Message
             </h2>
 
-            <p className="mt-5 text-white/85">
-              Fill out the form below and we’ll
-              get back to you shortly.
+            <p className="mt-5 text-white/75">
+              Fill out the form below and our
+              team will get back to you.
             </p>
 
             <form className="mt-10 space-y-6">
-              {/* Name */}
-              <div>
-                <label className="mb-3 block text-sm uppercase tracking-[0.15em] text-white/70">
-                  Full Name
-                </label>
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+              />
 
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-                />
-              </div>
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+              />
 
-              {/* Email */}
-              <div>
-                <label className="mb-3 block text-sm uppercase tracking-[0.15em] text-white/70">
-                  Email Address
-                </label>
+              <input
+                type="text"
+                placeholder="Team / Gym Name (Optional)"
+                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+              />
 
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-                />
-              </div>
+              <select className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none focus:border-[#ff0a8a]">
+                <option>General Question</option>
+                <option>Bulk Team Order</option>
+                <option>Color Match Help</option>
+                <option>Shipping Support</option>
+                <option>Product Support</option>
+              </select>
 
-              {/* Team/Gym */}
-              <div>
-                <label className="mb-3 block text-sm uppercase tracking-[0.15em] text-white/70">
-                  Team / Gym Name
-                </label>
+              <textarea
+                rows={6}
+                placeholder="Tell us how we can help..."
+                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+              />
 
-                <input
-                  type="text"
-                  placeholder="Optional"
-                  className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-                />
-              </div>
-
-              {/* Inquiry Type */}
-              <div>
-                <label className="mb-3 block text-sm uppercase tracking-[0.15em] text-white/70">
-                  Inquiry Type
-                </label>
-
-                <select className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white outline-none focus:border-[#ff0a8a]">
-                  <option>General Question</option>
-                  <option>Bulk Team Order</option>
-                  <option>Color Match Help</option>
-                  <option>Shipping Question</option>
-                  <option>Product Support</option>
-                </select>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="mb-3 block text-sm uppercase tracking-[0.15em] text-white/70">
-                  Message
-                </label>
-
-                <textarea
-                  rows={6}
-                  placeholder="Tell us how we can help..."
-                  className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-                />
-              </div>
-
-              {/* Button */}
               <button
                 type="submit"
-                className="inline-flex items-center gap-3 rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold text-white transition hover:scale-105"
+                className="inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-8 py-4 text-lg font-bold text-black transition hover:scale-105"
               >
                 Send Message
                 <ArrowRight size={20} />
@@ -200,68 +275,18 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ LINKS */}
-      <section className="bg-[#0052cc] px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
-            Quick Help
-          </h2>
-
-          <div className="mt-16 grid gap-8 lg:grid-cols-3">
-            {[
-              {
-                title: "FAQ",
-                text: "Find answers to common questions about shipping, team orders, and products.",
-                href: "/faq",
-              },
-              {
-                title: "Color Match",
-                text: "Need help finding the perfect shade for your athlete or team?",
-                href: "/color-match",
-              },
-              {
-                title: "Team Orders",
-                text: "Explore bulk ordering options for gyms, schools, and programs.",
-                href: "/team-orders",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-[36px] bg-black p-10"
-              >
-                <h3 className="heading-font text-3xl uppercase">
-                  {item.title}
-                </h3>
-
-                <p className="mt-5 text-white/80 leading-relaxed">
-                  {item.text}
-                </p>
-
-                <Link
-                  href={item.href}
-                  className="mt-8 inline-flex items-center gap-2 font-bold text-[#E8FF00] transition-all hover:gap-4"
-                >
-                  Learn More
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
       <section className="bg-[#E8FF00] px-6 py-24 text-center text-black">
         <h2 className="heading-font text-5xl uppercase md:text-7xl">
-          Ready To Elevate
+          Built For The
           <br />
-          Your Team Look?
+          Spotlight
         </h2>
 
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-black/80 md:text-2xl">
-          Premium ponytails, bows, and
-          competition-ready accessories
-          built for standout athletes.
+          Premium cheer ponytails and
+          team accessories designed for
+          confidence, movement, and performance.
         </p>
 
         <Link

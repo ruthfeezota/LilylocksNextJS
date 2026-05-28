@@ -43,9 +43,11 @@ export default function PartnershipProgram() {
 
         {/* CTA */}
         <div className="mt-20 flex justify-center">
+          <a href="/team-partnership#apply">
           <button className="rounded-full bg-[#E8FF00] px-10 py-5 text-xl font-bold text-black transition hover:scale-105 md:px-16 md:py-6 md:text-3xl">
             Apply for Team Partnership
           </button>
+          </a>
         </div>
       </div>
     </section>

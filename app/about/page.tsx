@@ -8,7 +8,7 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="relative min-h-[80vh] overflow-hidden">
         <Image
-          src="/about/about-hero.jpg"
+          src="/about/aboutus.jpg"
           alt="LilyLocks Team"
           fill
           priority

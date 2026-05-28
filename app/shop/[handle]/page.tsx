@@ -1,20 +1,42 @@
+
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, ShieldCheck, Truck, Sparkles } from "lucide-react";
+
+import {
+  ArrowLeft,
+  ShoppingBag,
+  ShieldCheck,
+  Truck,
+  Sparkles,
+} from "lucide-react";
+
 import { notFound } from "next/navigation";
+
 import ProductGallery from "../../../components/shop/ProductGallery";
+
+import AddToCartButton from "@/src/components/AddToCartButton";
 
 const ponytails = {
   "starter-spark": {
     name: "The Starter Spark™",
-    subtitle: "Practice-ready but still cute.",
+    subtitle:
+      "Practice-ready but still cute.",
+
     price: "$99.99",
+
     length: '10"',
+
     bundles: "1.5 Bundles",
+
     density: "Light-Medium",
+
     bestFor: "Practice",
-    texture: "Soft Wave / Sleek Straight",
+
+    texture:
+      "Soft Wave / Sleek Straight",
+
     description:
       "The gateway to big hair energy. Perfect for girls stepping into bold hair without committing to full stadium glam.",
+
     images: [
       "/ponytails/starter-spark.jpg",
       "/ponytails/starter-spark-2.jpg",
@@ -25,15 +47,26 @@ const ponytails = {
 
   "extra-bounce": {
     name: "The Extra Bounce™",
-    subtitle: "Competition-ready volume.",
+
+    subtitle:
+      "Competition-ready volume.",
+
     price: "$149.99",
+
     length: '18"',
+
     bundles: "2 Bundles",
+
     density: "Medium-Full",
+
     bestFor: "Competition",
-    texture: "Defined Waves / Loose Curls",
+
+    texture:
+      "Defined Waves / Loose Curls",
+
     description:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
+
     images: [
       "/ponytails/extra-bounce.jpg",
       "/ponytails/extra-bounce-2.jpg",
@@ -44,15 +77,26 @@ const ponytails = {
 
   "main-character": {
     name: "The Main Character™",
-    subtitle: "No blending in. Ever.",
+
+    subtitle:
+      "No blending in. Ever.",
+
     price: "$249.99",
+
     length: '22"',
+
     bundles: "3 Bundles",
+
     density: "Extra Full",
+
     bestFor: "Statement",
-    texture: "Bold Curls / Glam Waves",
+
+    texture:
+      "Bold Curls / Glam Waves",
+
     description:
       "The pony that turns stunts into slow-motion moments.",
+
     images: [
       "/ponytails/main-character.jpg",
       "/ponytails/main-character-2.jpg",
@@ -60,6 +104,21 @@ const ponytails = {
       "/ponytails/main-character-4.jpg",
     ],
   },
+};
+
+/* ======================================================
+   SHOPIFY VARIANT IDS
+====================================================== */
+
+const variantIds = {
+  "starter-spark":
+    "gid://shopify/ProductVariant/REAL_ID_1",
+
+  "extra-bounce":
+    "gid://shopify/ProductVariant/REAL_ID_2",
+
+  "main-character":
+    "gid://shopify/ProductVariant/REAL_ID_3",
 };
 
 interface PageProps {
@@ -74,7 +133,9 @@ export default async function ProductPage({
   const { handle } = await params;
 
   const product =
-    ponytails[handle as keyof typeof ponytails];
+    ponytails[
+      handle as keyof typeof ponytails
+    ];
 
   if (!product) notFound();
 
@@ -138,7 +199,9 @@ export default async function ProductPage({
 
           {/* Color swatches */}
           <div className="mt-10">
-            <p className="mb-4 font-semibold">Available Shades</p>
+            <p className="mb-4 font-semibold">
+              Available Shades
+            </p>
 
             <div className="flex gap-3">
               {[
@@ -151,7 +214,9 @@ export default async function ProductPage({
                 <span
                   key={color}
                   className="h-10 w-10 rounded-full border-2 border-white/20 cursor-pointer hover:scale-110 transition"
-                  style={{ backgroundColor: color }}
+                  style={{
+                    backgroundColor: color,
+                  }}
                 />
               ))}
             </div>
@@ -165,34 +230,59 @@ export default async function ProductPage({
 
             <div className="space-y-5">
               <div className="flex justify-between">
-                <span className="text-white/60">Length</span>
-                <span>{product.length}</span>
+                <span className="text-white/60">
+                  Length
+                </span>
+
+                <span>
+                  {product.length}
+                </span>
               </div>
 
               <div className="flex justify-between">
-                <span className="text-white/60">Density</span>
-                <span>{product.density}</span>
+                <span className="text-white/60">
+                  Density
+                </span>
+
+                <span>
+                  {product.density}
+                </span>
               </div>
 
               <div className="flex justify-between">
-                <span className="text-white/60">Bundles</span>
-                <span>{product.bundles}</span>
+                <span className="text-white/60">
+                  Bundles
+                </span>
+
+                <span>
+                  {product.bundles}
+                </span>
               </div>
 
               <div className="flex justify-between">
-                <span className="text-white/60">Texture</span>
-                <span>{product.texture}</span>
+                <span className="text-white/60">
+                  Texture
+                </span>
+
+                <span>
+                  {product.texture}
+                </span>
               </div>
             </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <button className="flex items-center justify-center gap-3 rounded-full bg-[#ff0a8a] py-4 font-bold hover:scale-[1.02] transition">
-              <ShoppingBag size={18} />
-              Add To Cart
-            </button>
+            {/* Add To Cart */}
+            <AddToCartButton
+              variantId={
+                variantIds[
+                  handle as keyof typeof variantIds
+                ]
+              }
+            />
 
+            {/* Buy Now */}
             <button className="rounded-full border border-white py-4 font-bold hover:bg-white hover:text-black transition">
               Buy Now
             </button>
@@ -205,6 +295,7 @@ export default async function ProductPage({
                 className="mx-auto text-[#E8FF00]"
                 size={22}
               />
+
               <p className="mt-3 text-sm font-semibold">
                 Premium Human Hair
               </p>
@@ -215,6 +306,7 @@ export default async function ProductPage({
                 className="mx-auto text-[#E8FF00]"
                 size={22}
               />
+
               <p className="mt-3 text-sm font-semibold">
                 Secure Checkout
               </p>
@@ -225,6 +317,7 @@ export default async function ProductPage({
                 className="mx-auto text-[#E8FF00]"
                 size={22}
               />
+
               <p className="mt-3 text-sm font-semibold">
                 Bulk Orders Available
               </p>
@@ -242,8 +335,10 @@ export default async function ProductPage({
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg text-black/80">
-          Explore bulk ordering, team color matching,
-          and competition-ready LilyLocks production.
+          Explore bulk ordering,
+          team color matching,
+          and competition-ready
+          LilyLocks production.
         </p>
 
         <Link
@@ -256,3 +351,4 @@ export default async function ProductPage({
     </main>
   );
 }
+
