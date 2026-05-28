@@ -1,24 +1,13 @@
 
-
 const domain =
   process.env
-    .NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN;
+    .NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
 
 const storefrontAccessToken =
   process.env
-    .NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN;
-
-console.log("DOMAIN:", domain);
-
-console.log(
-  "TOKEN:",
-  storefrontAccessToken
-);
+    .NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
 const endpoint = `https://${domain}/api/2024-10/graphql.json`;
-
-console.log("ENDPOINT:", endpoint);
-
 
 type ShopifyFetchParams = {
   query: string;
@@ -33,7 +22,8 @@ export async function shopifyFetch<T>({
     method: "POST",
 
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type":
+        "application/json",
 
       "X-Shopify-Storefront-Access-Token":
         storefrontAccessToken,
@@ -47,10 +37,20 @@ export async function shopifyFetch<T>({
     cache: "no-store",
   });
 
-  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `Shopify API Error: ${response.status}`
+    );
+  }
+
+  const json =
+    await response.json();
 
   if (json.errors) {
-    console.error(json.errors);
+    console.error(
+      "Shopify Errors:",
+      json.errors
+    );
 
     throw new Error(
       "Failed to fetch Shopify API"
@@ -107,22 +107,24 @@ export async function getPonytails() {
                 }
               }
 
-              metafields(identifiers: [
-                {
-                  namespace: "custom",
-                  key: "best_for"
-                }
+              metafields(
+                identifiers: [
+                  {
+                    namespace: "custom",
+                    key: "best_for"
+                  }
 
-                {
-                  namespace: "custom",
-                  key: "density"
-                }
+                  {
+                    namespace: "custom",
+                    key: "density"
+                  }
 
-                {
-                  namespace: "custom",
-                  key: "bundles"
-                }
-              ]) {
+                  {
+                    namespace: "custom",
+                    key: "bundles"
+                  }
+                ]
+              ) {
                 key
                 value
               }
@@ -161,7 +163,9 @@ export async function getProduct(
   handle: string
 ) {
   const query = `
-    query GetProduct($handle: String!) {
+    query GetProduct(
+      $handle: String!
+    ) {
       product(handle: $handle) {
         id
         title
@@ -199,22 +203,24 @@ export async function getProduct(
           }
         }
 
-        metafields(identifiers: [
-          {
-            namespace: "custom",
-            key: "best_for"
-          }
+        metafields(
+          identifiers: [
+            {
+              namespace: "custom",
+              key: "best_for"
+            }
 
-          {
-            namespace: "custom",
-            key: "density"
-          }
+            {
+              namespace: "custom",
+              key: "density"
+            }
 
-          {
-            namespace: "custom",
-            key: "bundles"
-          }
-        ]) {
+            {
+              namespace: "custom",
+              key: "bundles"
+            }
+          ]
+        ) {
           key
           value
         }
@@ -262,7 +268,6 @@ export async function createCart() {
             edges {
               node {
                 id
-
                 quantity
 
                 merchandise {
@@ -316,7 +321,9 @@ export async function getCart(
   cartId: string
 ) {
   const query = `
-    query GetCart($cartId: ID!) {
+    query GetCart(
+      $cartId: ID!
+    ) {
       cart(id: $cartId) {
         id
         checkoutUrl

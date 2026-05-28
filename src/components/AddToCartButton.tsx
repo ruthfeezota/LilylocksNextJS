@@ -23,41 +23,69 @@ export default function AddToCartButton({
       setLoading(true);
 
       let cartId =
-        localStorage.getItem("cartId");
+        localStorage.getItem(
+          "cartId"
+        );
 
-      // Create cart if none exists
+      /* =================================
+         CREATE CART IF NONE EXISTS
+      ================================= */
+
       if (!cartId) {
         const cart =
           await createCart();
+
+        // Safety check
+        if (!cart?.id) {
+          throw new Error(
+            "Failed to create cart"
+          );
+        }
 
         cartId = cart.id;
 
         localStorage.setItem(
           "cartId",
-          cartId
+          String(cartId)
         );
       }
 
-      // Add item to cart
+      /* =================================
+         ADD ITEM TO CART
+      ================================= */
+
       const updatedCart =
         await addToCart({
-          cartId,
-          merchandiseId: variantId,
+          cartId:
+            String(cartId),
+
+          merchandiseId:
+            variantId,
+
           quantity: 1,
         });
 
-      // Store latest cart
+      /* =================================
+         SAVE UPDATED CART
+      ================================= */
+
       localStorage.setItem(
         "cart",
         JSON.stringify(updatedCart)
       );
 
-      // Trigger cart drawer refresh
+      /* =================================
+         UPDATE NAVBAR + DRAWER
+      ================================= */
+
       window.dispatchEvent(
         new Event("cartUpdated")
       );
     } catch (error) {
-      console.error(error);
+      console.error(
+        "Add To Cart Error:",
+        error
+      );
     } finally {
       setLoading(false);
     }

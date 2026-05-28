@@ -1,4 +1,14 @@
+
 import { shopifyFetch } from "./shopify";
+
+type CreateCartResponse = {
+  cartCreate: {
+    cart: {
+      id: string;
+      checkoutUrl: string;
+    };
+  };
+};
 
 export async function createCart() {
   const query = `
@@ -12,9 +22,10 @@ export async function createCart() {
     }
   `;
 
-  const response = await shopifyFetch({
-    query,
-  });
+  const response =
+    await shopifyFetch<CreateCartResponse>({
+      query,
+    });
 
-  return response.data.cartCreate.cart;
+  return response.cartCreate.cart;
 }
