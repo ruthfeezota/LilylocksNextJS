@@ -15,6 +15,15 @@ import ProductGallery from "../../../components/shop/ProductGallery";
 
 import AddToCartButton from "@/src/components/AddToCartButton";
 
+
+export async function generateStaticParams() {
+  return [
+    { handle: "starter-spark" },
+    { handle: "main-character" },
+    { handle: "extra-bounce" },
+  ];
+}
+
 const ponytails = {
   "starter-spark": {
     name: "The Starter Spark™",
@@ -32,16 +41,16 @@ const ponytails = {
     bestFor: "Practice",
 
     texture:
-      "Soft Wave / Sleek Straight",
+      "Defined Waves / Loose Curls / Straight",
 
     description:
       "The gateway to big hair energy. Perfect for girls stepping into bold hair without committing to full stadium glam.",
 
     images: [
       "/ponytails/starter-spark.jpg",
-      "/ponytails/starter-spark-2.jpg",
-      "/ponytails/starter-spark-3.jpg",
-      "/ponytails/starter-spark-4.jpg",
+      "/ponytails/locktechnology.jpg",
+      "/ponytails/humanhairquality.jpg",
+      "/ponytails/differentlengths.jpg",
     ],
   },
 
@@ -62,16 +71,16 @@ const ponytails = {
     bestFor: "Competition",
 
     texture:
-      "Defined Waves / Loose Curls",
+      "Defined Waves / Loose Curls / Straight",
 
     description:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
 
     images: [
       "/ponytails/extra-bounce.jpg",
-      "/ponytails/extra-bounce-2.jpg",
-      "/ponytails/extra-bounce-3.jpg",
-      "/ponytails/extra-bounce-4.jpg",
+      "/ponytails/locktechnology.jpg",
+      "/ponytails/humanhairquality.jpg",
+      "/ponytails/differentlengths.jpg",
     ],
   },
 
@@ -92,16 +101,16 @@ const ponytails = {
     bestFor: "Statement",
 
     texture:
-      "Bold Curls / Glam Waves",
+      "Bold Curls / Glam Waves / Sleek Straight",
 
     description:
       "The pony that turns stunts into slow-motion moments.",
 
     images: [
       "/ponytails/main-character.jpg",
-      "/ponytails/main-character-2.jpg",
-      "/ponytails/main-character-3.jpg",
-      "/ponytails/main-character-4.jpg",
+      "/ponytails/locktechnology.jpg",
+      "/ponytails/humanhairquality.jpg",
+      "/ponytails/differentlengths.jpg",
     ],
   },
 };
@@ -197,30 +206,48 @@ export default async function ProductPage({
             </h3>
           </div>
 
-          {/* Color swatches */}
-          <div className="mt-10">
-            <p className="mb-4 font-semibold">
-              Available Shades
-            </p>
+{/* Color swatches */}
+<div className="mt-10">
+  <p className="mb-4 font-semibold">
+    Available Shades
+  </p>
 
-            <div className="flex gap-3">
-              {[
-                "#111111",
-                "#2f1f1f",
-                "#5b3b2a",
-                "#8a623d",
-                "#d4b48c",
-              ].map((color) => (
-                <span
-                  key={color}
-                  className="h-10 w-10 rounded-full border-2 border-white/20 cursor-pointer hover:scale-110 transition"
-                  style={{
-                    backgroundColor: color,
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+  <div className="flex flex-wrap gap-3">
+    {[
+      { name: "Medium Brown", color: "#6B4A3B" },
+      { name: "Midnight Brown", color: "#2B1B17" },
+      { name: "Reflex Brown", color: "#7A5848" },
+      { name: "Dark Blonde", color: "#8A755F" },
+      { name: "Golden Wheat", color: "#D6B06F" },
+      { name: "Golden Walnut", color: "#A87B4F" },
+      { name: "Ebony", color: "#111111" },
+      { name: "Smoke", color: "#A7A7A7" },
+      { name: "Ginger", color: "#C96A3A" },
+      { name: "Copper", color: "#A14E2C" },
+    ].map((shade) => (
+      <div
+        key={shade.name}
+        className="group relative"
+      >
+        {/* Tooltip */}
+        <div className="pointer-events-none absolute -top-12 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-xl bg-black px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xl transition-all duration-200 group-hover:-translate-y-1 group-hover:opacity-100">
+          {shade.name}
+
+          <div className="absolute left-1/2 top-full h-3 w-3 -translate-x-1/2 rotate-45 bg-black" />
+        </div>
+
+        {/* Swatch */}
+        <button
+          aria-label={shade.name}
+          className="h-10 w-10 rounded-full border-2 border-white/20 transition duration-200 hover:scale-110 hover:border-white"
+          style={{
+            backgroundColor: shade.color,
+          }}
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
           {/* Specs */}
           <div className="mt-10 rounded-[32px] border border-white/10 bg-white/5 p-8">
@@ -274,18 +301,20 @@ export default async function ProductPage({
           {/* CTA Buttons */}
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {/* Add To Cart */}
-            <AddToCartButton
+            {/* <AddToCartButton
               variantId={
                 variantIds[
                   handle as keyof typeof variantIds
                 ]
               }
-            />
+            /> */}
 
             {/* Buy Now */}
-            <button className="rounded-full border border-white py-4 font-bold hover:bg-white hover:text-black transition">
-              Buy Now
-            </button>
+            <a href="https://shopify.com/66851471426/account">
+  <button className="rounded-full bg-[#ff0a8a] border-2 border-white px-10 py-4 text-lg font-bold text-white transition duration-300 hover:bg-white hover:text-black hover:scale-105">
+    Start An Order
+  </button>
+</a>
           </div>
 
           {/* Trust strip */}

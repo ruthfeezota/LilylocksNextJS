@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "lilylocks-store-next-app"
-  }
+    "default": "lilylockswebsite",
+    "lilylockswebsite": "lilylockswebsite"
+  },
+  "targets": {},
+  "etags": {}
 }

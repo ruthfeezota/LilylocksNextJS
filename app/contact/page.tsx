@@ -181,7 +181,7 @@ export default function ContactPage() {
                 </h3>
 
                 <p className="mt-4 text-white/75">
-                  support@lilylocks.com
+                  sales@lilylocks.com
                 </p>
               </div>
 

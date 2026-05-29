@@ -43,35 +43,50 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 items-center">
           {/* Left */}
           <div>
-            <h2 className="heading-font text-4xl uppercase md:text-6xl">
-              Our Story
-            </h2>
+          <h2 className="heading-font text-4xl uppercase md:text-6xl">
+  Our Story
+</h2>
 
-            <p className="mt-8 text-lg leading-relaxed text-white/90">
-              LilyLocks started with one mission:
-              help athletes feel polished, confident,
-              and competition-ready.
-            </p>
+<p className="mt-8 text-lg leading-relaxed text-white/90">
+  LilyLocks started with one mission:
+  help athletes feel polished, confident,
+  and competition-ready.
+</p>
 
-            <p className="mt-6 text-lg leading-relaxed text-white/85">
-              We saw how difficult it was for teams
-              to find reliable ponytails that looked
-              premium, matched consistently, and
-              performed under pressure.
-            </p>
+<p className="mt-6 text-lg leading-relaxed text-white/85">
+  As a former All-Star competition cheerleader,
+  our founder experienced firsthand how important
+  it is to look and feel your best on the mat.
+</p>
 
-            <p className="mt-6 text-lg leading-relaxed text-white/85">
-              So we built LilyLocks — premium hair
-              accessories designed for cheerleaders,
-              gyms, coaches, and athletes who want
-              to show up bold.
-            </p>
+<p className="mt-6 text-lg leading-relaxed text-white/85">
+  We saw how difficult it was for teams
+  to find reliable ponytails that looked
+  premium, matched consistently, and
+  performed under pressure.
+</p>
+
+<p className="mt-6 text-lg leading-relaxed text-white/85">
+  So we built LilyLocks — premium hair
+  accessories designed for cheerleaders,
+  gyms, coaches, and athletes who want
+  to show up bold.
+</p>
+
+<p className="mt-6 text-lg leading-relaxed text-white/85">
+  We are proud to be fully based in Austin, Texas,
+  and operated by a former All-Star competition
+  cheerleader who understands the demands of the
+  sport firsthand. Every LilyLocks product is
+  designed to help athletes feel confident,
+  polished, and performance-ready on competition day.
+</p>
           </div>
 
           {/* Right */}
           <div className="relative h-[550px] overflow-hidden rounded-[40px]">
             <Image
-              src="/about/our-story.jpg"
+              src="/about/aboutlilylockshair.png"
               alt="LilyLocks Story"
               fill
               className="object-cover"

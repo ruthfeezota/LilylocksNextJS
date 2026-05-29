@@ -1,60 +1,87 @@
 "use client";
+import Image from "next/image";
 
 import { useState } from "react";
 
 const shades = [
   {
-    name: "Jet Black",
-    color: "#0B0B0B",
-    bestFor: "Best for deep black ponytails and sleek high-contrast looks.",
+    name: "Medium Brown",
+    image1: "/color-match/MEDIUMBROWNColor.jpg",
+    image2: "/color-match/MEDIUMBROWNPonytail.jpg",
+    bestFor:
+      "A classic warm brunette shade with a natural single-tone finish.",
   },
   {
-    name: "Natural Black",
-    color: "#1E1B18",
-    bestFor: "Best for softer black hair with natural undertones.",
+    name: "Midnight Brown",
+    image1: "/color-match/MIDNIGHTBROWNColor.jpg",
+    image2: "/color-match/MIDNIGHTBROWNPonytail.jpg",
+    bestFor:
+      "A deep rich brown, nearly black, perfect for darker brunettes.",
   },
   {
-    name: "Soft Black Brown",
-    color: "#2B1D17",
-    bestFor: "Great for black-brown blended hair shades.",
+    name: "Reflex Brown",
+    image1: "/color-match/REFLEXBROWNColor.jpg",
+    image2: "/color-match/REFLEXBROWNPonytail.jpg",
+    bestFor:
+      "Warm brown with subtle highlights for a naturally dimensional look.",
   },
   {
-    name: "Espresso Brown",
-    color: "#3B241A",
-    bestFor: "Perfect for rich espresso brunette tones.",
+    name: "Dark Blonde",
+    image1: "/color-match/DARKBLONDEColor.jpg",
+    image2: "/color-match/DARKBLONDEPonytail.jpg",
+    bestFor:
+      "Ideal for mousy brown and darker blonde hair tones.",
   },
   {
-    name: "Dark Chocolate",
-    color: "#4B2E22",
-    bestFor: "Ideal for dark warm brown shades.",
+    name: "Golden Wheat",
+    image1: "/color-match/GOLDENWHEATColor.jpg",
+    image2: "/color-match/GOLDENWHEATPonytail.jpg",
+    bestFor:
+      "A beautiful golden blonde blend with natural-looking highlights.",
   },
   {
-    name: "Chestnut Brown",
-    color: "#6A3F2A",
-    bestFor: "Great for medium warm brunette hair.",
+    name: "Golden Walnut",
+    image1: "/color-match/GOLDENWALNUTColor.jpg",
+    image2: "/color-match/GOLDENWALNUTPonytail.jpg",
+    bestFor:
+      "A brunette-blonde blend and one of the most versatile shades.",
   },
   {
-    name: "Honey Brown",
-    color: "#8B5A2B",
-    bestFor: "Perfect for warm honey brown blends.",
+    name: "Ebony",
+    image1: "/color-match/EBONYColor.jpg",
+    image2: "/color-match/EBONYPonytail.jpg",
+    bestFor:
+      "Classic jet black with a silky, glossy finish.",
   },
   {
-    name: "Dirty Blonde",
-    color: "#B08D57",
-    bestFor: "Best for neutral darker blonde shades.",
+    name: "Smoke",
+    image1: "/color-match/SMOKEColor.jpg",
+    image2: "/color-match/SMOKEPonytail.jpg",
+    bestFor:
+      "Light brown blended with silver tones for a modern smoky look.",
   },
   {
-    name: "Golden Blonde",
-    color: "#D4A95F",
-    bestFor: "Perfect for bright golden blonde tones.",
+    name: "Ginger",
+    image1: "/color-match/GINGERColor.jpg",
+    image2: "/color-match/GINGERPonytail.jpg",
+    bestFor:
+      "Bright golden-red tones for lighter redheads.",
   },
   {
-    name: "Platinum Blonde",
-    color: "#F2E5C4",
-    bestFor: "Best for light icy blonde athletes.",
+    name: "Copper",
+    image1: "/color-match/COPPERColor.jpg",
+    image2: "/color-match/COPPERPonytail.jpg",
+    bestFor:
+      "Rich auburn and copper tones with bold fiery depth.",
+  },
+  {
+    name: "Auburn",
+    image1: "/color-match/AUBURNColor.jpg",
+    image2: "/color-match/AUBURNPonytail.jpg",
+    bestFor:
+      "A rich reddish-brown blend with natural warmth.",
   },
 ];
-
 export default function ColorMatchPage() {
   const [selectedShade, setSelectedShade] = useState(shades[0]);
 
@@ -92,72 +119,70 @@ export default function ColorMatchPage() {
         </div>
       </section>
 
-      {/* COLOR SELECTOR */}
-      <section className="bg-[#0052cc] px-6 py-24" id="color-match-selector">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="heading-font text-center text-4xl md:text-6xl uppercase">
-            Choose Your Shade
-          </h2>
 
-          <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-white/90">
-            Click a shade below to preview the match.
-          </p>
+{/* ALL COLOR MATCHES */}
+<section className="bg-[#0052cc] px-6 py-24">
+  <div className="mx-auto max-w-7xl space-y-32">
+    {shades.map((shade, index) => {
+      const reverse = index % 2 !== 0;
 
-          {/* Swatches */}
-          <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
-            {shades.map((shade) => (
-              <button
-                key={shade.name}
-                onClick={() => setSelectedShade(shade)}
-                className={`rounded-3xl border-4 p-5 transition duration-300 ${
-                  selectedShade.name === shade.name
-                    ? "border-[#ff0a8a] bg-white/10 shadow-[0_0_25px_#ff0a8a]"
-                    : "border-transparent bg-white/5 hover:bg-white/10"
-                }`}
-              >
-                {/* Placeholder photo area */}
-                <div
-                  className="mx-auto h-24 w-24 rounded-full border-4 border-white"
-                  style={{ backgroundColor: shade.color }}
-                />
+      return (
+        <div
+          key={shade.name}
+          className={`grid items-center gap-14 lg:grid-cols-2 ${
+            reverse ? "lg:[&>*:first-child]:order-2" : ""
+          }`}
+        >
+{/* IMAGES */}
+<div className="grid grid-cols-2 gap-6 lg:min-h-[450px]">
+  <div className="relative h-[400px] md:h-[550px] lg:h-[650px] overflow-hidden rounded-[40px] border-4 border-white">
+    <Image
+      src={shade.image1}
+      alt={shade.name}
+      fill
+      className="object-cover"
+    />
+  </div>
 
-                <p className="mt-4 text-center font-bold">{shade.name}</p>
-              </button>
-            ))}
-          </div>
+  <div className="relative h-[400px] md:h-[550px] lg:h-[650px] overflow-hidden rounded-[40px] border-4 border-white">
+    <Image
+      src={shade.image2}
+      alt={shade.name}
+      fill
+      className="object-cover"
+    />
+  </div>
+</div>
 
-          {/* Preview */}
-          <div className="mt-20 grid items-center gap-12 md:grid-cols-2">
-            <div
-              className="h-[420px] rounded-[40px] border-4 border-white shadow-2xl"
-              style={{ backgroundColor: selectedShade.color }}
-            >
-              {/* Add real hair image later */}
-              <div className="flex h-full items-center justify-center text-center text-white/70 text-xl font-bold">
-                Shade Photo Coming Soon
-              </div>
-            </div>
+          {/* TEXT */}
+          <div>
+            <h2 className="heading-font text-5xl md:text-7xl uppercase leading-none">
+              {shade.name}
+            </h2>
 
-            <div>
-              <h3 className="heading-font text-4xl md:text-5xl uppercase">
-                {selectedShade.name}
-              </h3>
+            <h3 className="mt-8 text-3xl font-bold text-[#f1ff00]">
+              Best For:
+            </h3>
 
-              <p className="mt-6 text-2xl font-semibold text-[#f1ff00]">
-                Best For:
-              </p>
+            <p className="mt-5 max-w-xl text-xl leading-relaxed text-white/90">
+              {shade.bestFor}
+            </p>
 
-              <p className="mt-3 text-lg md:text-xl text-white/90 leading-relaxed">
-                {selectedShade.bestFor}
-              </p>
-
-              <button className="mt-10 rounded-full bg-[#ff0a8a] px-8 py-4 font-bold hover:scale-105 transition">
-                Shop This Match
-              </button>
-            </div>
+            <button className="mt-10 rounded-full bg-[#ff0a8a] px-10 py-5 text-xl font-bold transition hover:scale-105">
+              Shop This Match
+            </button>
           </div>
         </div>
-      </section>
+      );
+    })}
+  </div>
+</section>
+
+
+
+
+
+      
 
       {/* CONSULTATION FORM */}
       <section className="bg-[#ff0a8a] px-6 py-24" id="color-match-consultation-form">

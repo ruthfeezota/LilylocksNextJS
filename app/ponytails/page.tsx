@@ -32,14 +32,14 @@ const ponytails = [
     ],
     color: "bg-[#0052cc]",
     icon: <Sparkles size={34} />,
-    image: "/placeholder-starter.jpg",
-    href: "/shop/the-starter-spark",
+    image: "/ponytails/starter-spark.jpg",
+    href: "/shop/starter-spark",
   },
   {
     name: "The Extra Bounce",
     subtitle: "Mid-Level Ponytail",
     tagline: "Competition-ready volume.",
-    price: "$149.99",
+    price: "$139.99",
     bundles: "2 Bundles of Hair",
     vibe:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
@@ -50,7 +50,7 @@ const ponytails = [
       "Likely bestseller for teams",
     ],
     specs: [
-      "18 inches",
+      "14 inches",
       "Medium-full density",
       "Defined waves or loose curls",
       "Reinforced wrap + double comb",
@@ -58,14 +58,14 @@ const ponytails = [
     ],
     color: "bg-[#ff0a8a]",
     icon: <Star size={34} />,
-    image: "/placeholder-bounce.jpg",
-    href: "/shop/the-extra-bounce",
+    image: "/ponytails/extra-bounce.jpg",
+    href: "/shop/extra-bounce",
   },
   {
     name: "The Main Character",
     subtitle: "Big Hair Ponytail",
     tagline: "No blending in. Ever.",
-    price: "$249.99",
+    price: "$159.99",
     bundles: "3 Bundles of Hair",
     vibe:
       "This is for the girl who wants people to talk. The pony that turns stunts into slow-motion moments.",
@@ -76,7 +76,7 @@ const ponytails = [
       "Built for visibility under lights",
     ],
     specs: [
-      "22 inches",
+      "18 inches",
       "Extra full dramatic density",
       "Bold curls or glam waves",
       "Heavy-duty wrap + anchor comb",
@@ -84,8 +84,8 @@ const ponytails = [
     ],
     color: "bg-[#E8FF00]",
     icon: <Crown size={34} />,
-    image: "/placeholder-main-character.jpg",
-    href: "/shop/the-main-character",
+    image: "/ponytails/main-character.jpg",
+    href: "/shop/main-character",
   },
 ];
 
@@ -124,20 +124,17 @@ export default function PonytailCollectionPage() {
               }`}
             >
               {/* IMAGE */}
-              <div className="relative h-[620px] overflow-hidden rounded-[40px] border border-white/10 bg-neutral-900">
-                {/* PLACEHOLDER IMAGE */}
-                <div className="flex h-full w-full items-center justify-center">
-                  <div className="text-center">
-                    <p className="text-lg uppercase tracking-[0.2em] text-white/40">
-                      Photo Placeholder
-                    </p>
-
-                    <p className="mt-4 text-3xl font-bold text-white/70">
-                      {pony.name}
-                    </p>
-                  </div>
-                </div>
-              </div>
+           {/* IMAGE */}
+<div className="relative h-[620px] overflow-hidden rounded-[40px] border border-white/10 bg-neutral-900">
+  <Image
+    src={pony.image}
+    alt={pony.name}
+    fill
+    className="object-cover"
+    sizes="(max-width: 1024px) 100vw, 50vw"
+    priority={index === 0}
+  />
+</div>
 
               {/* CONTENT */}
               <div>
@@ -319,7 +316,7 @@ export default function PonytailCollectionPage() {
           target="_blank"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
         >
-          Start Bulk Orders
+          Start Bulk Order
           <ArrowRight size={20} />
         </Link>
       </section>

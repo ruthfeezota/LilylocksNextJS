@@ -157,7 +157,7 @@ export default function Navbar() {
             ))}
 
             {/* Cart Button */}
-            <button
+            {/* <button
               onClick={() =>
                 setCartOpen(true)
               }
@@ -191,7 +191,7 @@ export default function Navbar() {
                   {cartQuantity}
                 </span>
               )}
-            </button>
+            </button> */}
 
             {/* Bulk Orders Button */}
             <Link
@@ -212,7 +212,7 @@ export default function Navbar() {
                 hover:text-[#0052cc]
               "
             >
-              Start Bulk Orders
+              Start Bulk Order
             </Link>
           </div>
 
@@ -358,7 +358,7 @@ export default function Navbar() {
                 hover:text-[#0052cc]
               "
             >
-              Start Bulk Orders
+              Start Bulk Order
             </Link>
           </div>
         </div>

@@ -18,9 +18,11 @@ export default function Footer() {
           </div>
 
           {/* CTA */}
+          <a href="/contact#contact-form">
           <button className="rounded-full bg-[#ff0a8a] px-8 py-4 font-bold text-white transition hover:scale-105">
-            Book Consultation
+            Ask A Question
           </button>
+          </a>
         </div>
 
         {/* Middle Links */}
@@ -35,7 +37,7 @@ export default function Footer() {
               <li>Team Orders</li>
               <li>Bulk Pricing</li>
               <li>Team Color Match</li>
-              <li>Book Consultation</li>
+              <li>Ask A Question</li>
             </ul>
           </div>
 
@@ -71,9 +73,9 @@ export default function Footer() {
           <p>© 2026 LilyLocks. All Rights Reserved.</p>
 
           <div className="flex gap-6">
-            <span>Instagram</span>
+            {/* <span>Instagram</span>
             <span>TikTok</span>
-            <span>Pinterest</span>
+            <span>Pinterest</span> */}
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ export default function HairCareGuidePage() {
       {/* HERO */}
       <section className="relative min-h-[80vh] overflow-hidden">
         <Image
-          src="/hair-care/hair-care-hero.jpg"
+          src="/gallery-2.jpg"
           alt="LilyLocks Hair Care Guide"
           fill
           priority
@@ -114,7 +114,7 @@ export default function HairCareGuidePage() {
           {/* Left */}
           <div className="relative h-[520px] overflow-hidden rounded-[40px]">
             <Image
-              src="/hair-care/hair-care-demo.jpg"
+              src="/hero-cheer4.jpg"
               alt="Hair care example"
               fill
               className="object-cover"
