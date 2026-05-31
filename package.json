@@ -12,6 +12,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@shopify/storefront-api-client": "^1.0.10",
     "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",

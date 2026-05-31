@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
+import emailjs from "@emailjs/browser";
+
 import {
   ChevronDown,
   ArrowRight,
@@ -10,6 +12,11 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+
+const SERVICE_ID = "service_55uypx6";
+const TEMPLATE_ID = "template_z0m3j7o";
+const PUBLIC_KEY = "MIXNv9Ve6nyUOUlcy";
+
 
 const faqGroups = [
   {
@@ -65,10 +72,44 @@ const faqGroups = [
 
 export default function ContactPage() {
   const [openItem, setOpenItem] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
 
   const toggleFAQ = (id: string) => {
     setOpenItem(openItem === id ? null : id);
   };
+
+  const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  if (!formRef.current) return;
+
+  setIsSending(true);
+
+  try {
+    await emailjs.sendForm(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      formRef.current,
+      {
+        publicKey: PUBLIC_KEY,
+      }
+    );
+
+    setSubmitted(true);
+    formRef.current.reset();
+  } catch (err) {
+    console.error("EmailJS Error:", err);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setIsSending(false);
+  }
+};
 
   return (
     <main className="bg-black text-white">
@@ -112,7 +153,7 @@ export default function ContactPage() {
                   return (
                     <div
                       key={id}
-                      className="overflow-hidden rounded-[30px] border border-white/10 bg-white/5"
+                      className="overflow-hidden rounded-[30px] border border-white/10 bg-[#141414]"
                     >
                       <button
                         onClick={() => toggleFAQ(id)}
@@ -220,59 +261,122 @@ export default function ContactPage() {
           </div>
 
           {/* FORM */}
-          <div className="rounded-[40px] bg-black p-8 md:p-12">
-            <h2 className="heading-font text-4xl uppercase md:text-5xl">
-              Send A Message
-            </h2>
+          {submitted && (
+  <div className="mb-8 rounded-[24px] border border-[#E8FF00] bg-[#E8FF00]/10 p-6 text-center">
+    <p className="font-bold text-[#E8FF00]">
+      🎉 Thank you! Your message has been sent.
+    </p>
 
-            <p className="mt-5 text-white/75">
-              Fill out the form below and our
-              team will get back to you.
-            </p>
+    <p className="mt-2 text-white/80">
+      We'll get back to you within 1–2 business days.
+    </p>
+  </div>
+)}
 
-            <form className="mt-10 space-y-6">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+{/* FORM */}
+<div className="rounded-[40px] bg-black p-8 md:p-12">
 
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+  <h2 className="heading-font text-4xl uppercase md:text-5xl">
+    Send A Message
+  </h2>
 
-              <input
-                type="text"
-                placeholder="Team / Gym Name (Optional)"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+  <p className="mt-5 text-white/75">
+    Fill out the form below and our team
+    will get back to you.
+  </p>
 
-              <select className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none focus:border-[#ff0a8a]">
-                <option>General Question</option>
-                <option>Bulk Team Order</option>
-                <option>Color Match Help</option>
-                <option>Shipping Support</option>
-                <option>Product Support</option>
-              </select>
+  {submitted && (
+    <div className="mt-8 rounded-[24px] border-2 border-[#E8FF00] bg-[#E8FF00]/10 p-6 text-center">
+      <p className="font-bold text-[#E8FF00]">
+        🎉 Thank you! Your message has been sent.
+      </p>
 
-              <textarea
-                rows={6}
-                placeholder="Tell us how we can help..."
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+      <p className="mt-2 text-white/80">
+        We'll get back to you within 1–2 business days.
+      </p>
+    </div>
+  )}
 
-              <button
-                type="submit"
-                className="inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-8 py-4 text-lg font-bold text-black transition hover:scale-105"
-              >
-                Send Message
-                <ArrowRight size={20} />
-              </button>
-            </form>
-          </div>
+  <form
+    ref={formRef}
+    onSubmit={handleSubmit}
+    className="mt-10 space-y-5"
+  >
+    <input
+      type="text"
+      name="from_name"
+      required
+      placeholder="Full Name"
+      className="w-full rounded-2xl border-2 border-white/20 bg-[#1d1d1d] px-5 py-4 text-white placeholder:text-gray-400 outline-none transition focus:border-[#E8FF00]"
+    />
+
+    <input
+      type="email"
+      name="reply_to"
+      required
+      placeholder="Email Address"
+      className="w-full rounded-2xl border-2 border-white/20 bg-[#1d1d1d] px-5 py-4 text-white placeholder:text-gray-400 outline-none transition focus:border-[#E8FF00]"
+    />
+
+    <input
+      type="text"
+      name="team_name"
+      placeholder="Team / Gym Name (Optional)"
+      className="w-full rounded-2xl border-2 border-white/20 bg-[#1d1d1d] px-5 py-4 text-white placeholder:text-gray-400 outline-none transition focus:border-[#E8FF00]"
+    />
+
+    <select
+      name="inquiry_type"
+      required
+      className="w-full rounded-2xl border-2 border-white/20 bg-[#1d1d1d] px-5 py-4 text-white outline-none transition focus:border-[#E8FF00]"
+    >
+      <option value="">
+        Select Inquiry Type
+      </option>
+
+      <option value="General Question">
+        General Question
+      </option>
+
+      <option value="Bulk Team Order">
+        Bulk Team Order
+      </option>
+
+      <option value="Color Match Help">
+        Color Match Help
+      </option>
+
+      <option value="Shipping Support">
+        Shipping Support
+      </option>
+
+      <option value="Product Support">
+        Product Support
+      </option>
+    </select>
+
+    <textarea
+      name="message"
+      rows={6}
+      required
+      placeholder="Tell us how we can help..."
+      className="w-full rounded-2xl border-2 border-white/20 bg-[#1d1d1d] px-5 py-4 text-white placeholder:text-gray-400 outline-none transition focus:border-[#E8FF00]"
+    />
+
+    <button
+      type="submit"
+      disabled={isSending}
+      className="inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-8 py-4 text-lg font-bold text-black transition hover:scale-105 disabled:opacity-60"
+    >
+      {isSending ? "Sending..." : "Send Message"}
+
+      <ArrowRight size={20} />
+    </button>
+  </form>
+</div>
         </div>
+
+
       </section>
 
       {/* FINAL CTA */}

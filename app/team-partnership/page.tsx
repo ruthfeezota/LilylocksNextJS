@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   ArrowRight,
   Users,
@@ -38,7 +40,79 @@ const partnershipBenefits = [
   },
 ];
 
+
+
+
 export default function TeamPartnershipPage() {
+  const [loading, setLoading] = useState(false);
+const [success, setSuccess] = useState(false);
+
+const [formData, setFormData] = useState({
+  fullName: "",
+  email: "",
+  programName: "",
+  role: "",
+  athleteCount: "",
+  interest: "",
+  message: "",
+});
+
+const handleChange = (
+  e: React.ChangeEvent<
+    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+  >
+) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
+
+const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  setLoading(true);
+  setSuccess(false);
+
+  try {
+    await emailjs.send(
+      "service_dyzdosm",
+      "template_5m93isk",
+      {
+        full_name: formData.fullName,
+        email: formData.email,
+        program_name: formData.programName,
+        role: formData.role,
+        athlete_count: formData.athleteCount,
+        interest: formData.interest,
+        message: formData.message,
+      },
+      "RWRalKOkRxi315OiP"
+    );
+
+    setSuccess(true);
+
+    setFormData({
+      fullName: "",
+      email: "",
+      programName: "",
+      role: "",
+      athleteCount: "",
+      interest: "",
+      message: "",
+    });
+  } catch (error) {
+    console.error(error);
+    alert(
+      "There was an error submitting your application. Please try again."
+    );
+  }
+
+  setLoading(false);
+};
+
   return (
     <main className="bg-black text-white">
       {/* HERO */}
@@ -251,62 +325,107 @@ export default function TeamPartnershipPage() {
               your LilyLocks partnership application.
             </p>
 
-            <form className="mt-10 space-y-6">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+           <form
+  onSubmit={handleSubmit}
+  className="mt-10 space-y-6"
+>
+  <input
+    type="text"
+    name="fullName"
+    value={formData.fullName}
+    onChange={handleChange}
+    placeholder="Full Name"
+    required
+    className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+  />
 
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+  <input
+    type="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="Email Address"
+    required
+    className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+  />
 
-              <input
-                type="text"
-                placeholder="Gym / School / Program Name"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+  <input
+    type="text"
+    name="programName"
+    value={formData.programName}
+    onChange={handleChange}
+    placeholder="Gym / School / Program Name"
+    required
+    className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+  />
 
-              <input
-                type="text"
-                placeholder="Role / Position"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+  <input
+    type="text"
+    name="role"
+    value={formData.role}
+    onChange={handleChange}
+    placeholder="Role / Position"
+    required
+    className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+  />
 
-              <select className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none focus:border-[#ff0a8a]">
-                <option>Estimated Athlete Count</option>
-                <option>1–15 Athletes</option>
-                <option>16–30 Athletes</option>
-                <option>31–50 Athletes</option>
-                <option>50+ Athletes</option>
-              </select>
+  <select
+    name="athleteCount"
+    value={formData.athleteCount}
+    onChange={handleChange}
+    required
+    className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none focus:border-[#ff0a8a]"
+  >
+    <option value="">Estimated Athlete Count</option>
+    <option value="1–15 Athletes">1–15 Athletes</option>
+    <option value="16–30 Athletes">16–30 Athletes</option>
+    <option value="31–50 Athletes">31–50 Athletes</option>
+    <option value="50+ Athletes">50+ Athletes</option>
+  </select>
 
-              <select className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none focus:border-[#ff0a8a]">
-                <option>Primary Interest</option>
-                <option>Bulk Ponytails</option>
-                <option>Bulk Bows</option>
-                <option>Color Matching</option>
-                <option>Seasonal Ordering</option>
-                <option>Full Team Partnership</option>
-              </select>
+  <select
+    name="interest"
+    value={formData.interest}
+    onChange={handleChange}
+    required
+    className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none focus:border-[#ff0a8a]"
+  >
+    <option value="">Primary Interest</option>
+    <option value="Bulk Ponytails">Bulk Ponytails</option>
+    <option value="Bulk Bows">Bulk Bows</option>
+    <option value="Color Matching">Color Matching</option>
+    <option value="Seasonal Ordering">Seasonal Ordering</option>
+    <option value="Full Team Partnership">Full Team Partnership</option>
+  </select>
 
-              <textarea
-                rows={6}
-                placeholder="Tell us more about your program, timelines, goals, or questions..."
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
-              />
+  <textarea
+    rows={6}
+    name="message"
+    value={formData.message}
+    onChange={handleChange}
+    placeholder="Tell us more about your program, timelines, goals, or questions..."
+    required
+    className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-[#ff0a8a]"
+  />
 
-              <button
-                type="submit"
-                className="inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-8 py-4 text-lg font-bold text-black transition hover:scale-105"
-              >
-                Submit Partnership Application
-                <ArrowRight size={20} />
-              </button>
-            </form>
+  <button
+    type="submit"
+    disabled={loading}
+    className="inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-8 py-4 text-lg font-bold text-black transition hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60"
+  >
+    {loading
+      ? "Submitting..."
+      : "Submit Partnership Application"}
+
+    <ArrowRight size={20} />
+  </button>
+
+  {success && (
+    <div className="rounded-2xl border border-[#E8FF00] bg-[#E8FF00]/10 p-4 text-[#E8FF00]">
+      Your partnership application has been submitted successfully. A LilyLocks team member will contact you shortly.
+    </div>
+  )}
+</form>
           </div>
         </div>
       </section>
