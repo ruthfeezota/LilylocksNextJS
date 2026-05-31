@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 
+
 import {
   ArrowLeft,
   ShoppingBag,
@@ -298,24 +299,20 @@ export default async function ProductPage({
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {/* Add To Cart */}
-            {/* <AddToCartButton
-              variantId={
-                variantIds[
-                  handle as keyof typeof variantIds
-                ]
-              }
-            /> */}
+    {/* CTA Buttons */}
+<div className="mt-10 grid gap-4 sm:grid-cols-2">
+  <Link href="https://lilylocksshop.etsy.com" className="w-full">
+    <button className="h-20 w-full rounded-full bg-[#E8FF00] px-6 text-lg font-bold text-black transition duration-300 hover:scale-105">
+      Buy On Etsy
+    </button>
+  </Link>
 
-            {/* Buy Now */}
-            <a href="https://shopify.com/66851471426/account">
-  <button className="rounded-full bg-[#ff0a8a] border-2 border-white px-10 py-4 text-lg font-bold text-white transition duration-300 hover:bg-white hover:text-black hover:scale-105">
-    Start An Order
-  </button>
-</a>
-          </div>
+  <Link href="https://shopify.com/66851471426/account" className="w-full">
+    <button className="h-20 w-full whitespace-nowrap rounded-full border-2 border-white bg-[#ff0a8a] px-6 text-lg font-bold text-white transition duration-300 hover:bg-white hover:text-black hover:scale-105">
+      Start A Bulk Order
+    </button>
+  </Link>
+</div>
 
           {/* Trust strip */}
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
