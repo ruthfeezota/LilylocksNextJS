@@ -35,7 +35,7 @@
       "source": "firebase/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/firebase-data-connect-basics/SKILL.md",
-      "computedHash": "a16755e052750ac7ab6a0aecc590ff44ce1829c83fd7251079bf911a5bee8c49"
+      "computedHash": "2dfebf7892b9b17f8022057be93a1b3c11438f2c0ce89e9d56ef7be16b7cdecd"
     },
     "firebase-firestore": {
       "source": "firebase/agent-skills",

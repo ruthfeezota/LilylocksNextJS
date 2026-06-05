@@ -6,7 +6,6 @@ import Link from "next/link";
 import {
   CheckCircle,
   Calendar,
-  Palette,
   Trophy,
   Mail,
 } from "lucide-react";
@@ -180,7 +179,7 @@ export default function TeamPage() {
         </h3>
 
         <p className="mt-4 text-lg text-white">
-          Color that best matches the athlete's natural hair color
+          Color that best matches the athlete&#39;s natural hair color
         </p>
       </div>
 
@@ -229,7 +228,7 @@ export default function TeamPage() {
     </h2>
 
     <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-white/75">
-      Choose the LilyLocks ponytail that best fits your athlete's needs.
+      Choose the LilyLocks ponytail that best fits your athlete&#39;s needs.
       From practice-ready styles to competition-level volume, every
       ponytail is designed to create a consistent team look. 
     </p>
@@ -400,11 +399,11 @@ export default function TeamPage() {
             requirements and ordering.
           </p>
 
-            <a href="mailto:cheer@blackwatchsports.com">
+            <Link href="mailto:cheer@blackwatchsports.com">
           <p className="mt-6 text-xl font-bold">
             cheer@blackwatchsports.com
           </p>
-            </a>
+            </Link>
         </div>
       </section>
 
@@ -426,11 +425,11 @@ export default function TeamPage() {
           Purchase your approved competition ponytail before the
           ordering deadline.
         </p>
-       <a href="/shop">
+       <Link href="/shop">
         <button className="mt-10 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition">
           Shop Approved Ponytails
         </button>
-         </a>
+         </Link>
       </section>
     </main>
   );

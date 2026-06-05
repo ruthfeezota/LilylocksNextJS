@@ -117,7 +117,7 @@ export default function LilyLocksPopup() {
 
             {submitted ? (
               <div className="mt-6 rounded-[24px] bg-[#E8FF00] p-5 text-center font-bold text-black">
-                🎉 You're in! Check your inbox for your
+                🎉 You&#39;re in! Check your inbox for your 
                 discount code.
               </div>
             ) : (

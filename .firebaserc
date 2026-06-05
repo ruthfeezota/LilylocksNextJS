@@ -3,6 +3,14 @@
     "default": "lilylockswebsite",
     "lilylockswebsite": "lilylockswebsite"
   },
-  "targets": {},
+  "targets": {
+    "lilylockswebsite": {
+      "hosting": {
+        "lilylockswebsite": [
+          "lilylockswebsite"
+        ]
+      }
+    }
+  },
   "etags": {}
 }

@@ -51,9 +51,6 @@ export default function Footer() {
               <li>Competition Care Guide</li>
               <li>How To Wear</li>
               <li>Density Guide</li>
-              <a href="/blackwatch">
-              <li>BlackWatch</li>
-              </a>
             </ul>
           </div>
 

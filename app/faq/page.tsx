@@ -145,9 +145,9 @@ export default function FAQPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-            Whether you're ordering for one athlete
+            Whether you&#39;re ordering for one athlete
             or an entire team, we’re here to help
-            you find the perfect match.
+            you find the perfect match. 
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">

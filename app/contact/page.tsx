@@ -268,7 +268,7 @@ export default function ContactPage() {
     </p>
 
     <p className="mt-2 text-white/80">
-      We'll get back to you within 1–2 business days.
+      We&#39;ll get back to you within 1–2 business days.
     </p>
   </div>
 )}
@@ -292,7 +292,7 @@ export default function ContactPage() {
       </p>
 
       <p className="mt-2 text-white/80">
-        We'll get back to you within 1–2 business days.
+        We&#39;s get back to you within 1–2 business days.
       </p>
     </div>
   )}
