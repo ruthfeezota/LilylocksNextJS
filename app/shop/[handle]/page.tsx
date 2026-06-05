@@ -52,6 +52,9 @@ const ponytails = {
       "/ponytails/locktechnology.jpg",
       "/ponytails/humanhairquality.jpg",
       "/ponytails/differentlengths.jpg",
+      "/ponytails/color-chart1.jpg",
+      "/ponytails/color-chart2.jpg",
+      "/ponytails/color-chart3.jpg",
     ],
   },
 
@@ -82,6 +85,9 @@ const ponytails = {
       "/ponytails/locktechnology.jpg",
       "/ponytails/humanhairquality.jpg",
       "/ponytails/differentlengths.jpg",
+      "/ponytails/color-chart1.jpg",
+      "/ponytails/color-chart2.jpg",
+      "/ponytails/color-chart3.jpg",
     ],
   },
 
@@ -112,6 +118,9 @@ const ponytails = {
       "/ponytails/locktechnology.jpg",
       "/ponytails/humanhairquality.jpg",
       "/ponytails/differentlengths.jpg",
+      "/ponytails/color-chart1.jpg",
+      "/ponytails/color-chart2.jpg",
+      "/ponytails/color-chart3.jpg",
     ],
   },
 };
