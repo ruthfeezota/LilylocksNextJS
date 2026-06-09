@@ -420,7 +420,7 @@ export default function TeamPage() {
                 Order Deadline
               </p>
               <p className="mt-2 text-xl">
-                August 15, 2026
+                July 31, 2026
               </p>
             </div>
 
