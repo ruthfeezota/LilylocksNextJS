@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LilyLocksPopup from "@/components/LilyLocksPopup";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Suspense } from "react";
 
 const holtwood = Holtwood_One_SC({
   weight: "400",
@@ -35,7 +36,9 @@ export default function RootLayout({
       >
         <Navbar />
         <LilyLocksPopup />
-        <GoogleAnalytics/>
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
 
         <main className="min-h-screen">
           {children}

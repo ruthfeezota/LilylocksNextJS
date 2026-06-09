@@ -97,7 +97,7 @@ const ponytails = {
     subtitle:
       "No blending in. Ever.",
 
-    price: "$249.99",
+    price: "$179.99",
 
     length: '22"',
 

@@ -10,18 +10,94 @@ import {
   Mail,
 } from "lucide-react";
 
+const shades = [
+    {
+    name: "Ebony",
+    image1: "/color-match/EBONYColor.jpg",
+    image2: "/color-match/EBONYPonytail.jpg",
+    bestFor:
+      "Classic jet black with a silky, glossy finish.",
+  },
+
+  {
+    name: "Midnight Brown",
+    image1: "/color-match/MIDNIGHTBROWNColor.jpg",
+    image2: "/color-match/MIDNIGHTBROWNPonytail.jpg",
+    bestFor:
+      "A deep rich brown, nearly black, perfect for darker brunettes.",
+  },
+
+
+  {
+    name: "Medium Brown",
+    image1: "/color-match/MEDIUMBROWNColor.jpg",
+    image2: "/color-match/MEDIUMBROWNPonytail.jpg",
+    bestFor:
+      "A classic warm brunette shade with a natural single-tone finish.",
+  },
+  
+  {
+    name: "Reflex Brown",
+    image1: "/color-match/REFLEXBROWNColor.jpg",
+    image2: "/color-match/REFLEXBROWNPonytail.jpg",
+    bestFor:
+      "Warm brown with subtle highlights for a naturally dimensional look.",
+  },
+  {
+    name: "Dark Blonde",
+    image1: "/color-match/DARKBLONDEColor.jpg",
+    image2: "/color-match/DARKBLONDEPonytail.jpg",
+    bestFor:
+      "Ideal for mousy brown and darker blonde hair tones.",
+  },
+  {
+    name: "Golden Wheat",
+    image1: "/color-match/GOLDENWHEATColor.jpg",
+    image2: "/color-match/GOLDENWHEATPonytail.jpg",
+    bestFor:
+      "A beautiful golden blonde blend with natural-looking highlights.",
+  },
+  {
+    name: "Golden Walnut",
+    image1: "/color-match/GOLDENWALNUTColor.jpg",
+    image2: "/color-match/GOLDENWALNUTPonytail.jpg",
+    bestFor:
+      "A brunette-blonde blend and one of the most versatile shades.",
+  },
+
+  {
+    name: "Smoke",
+    image1: "/color-match/SMOKEColor.jpg",
+    image2: "/color-match/SMOKEPonytail.jpg",
+    bestFor:
+      "Light brown blended with silver tones for a modern smoky look.",
+  },
+  {
+    name: "Ginger",
+    image1: "/color-match/GINGERColor.jpg",
+    image2: "/color-match/GINGERPonytail.jpg",
+    bestFor:
+      "Bright golden-red tones for lighter redheads.",
+  },
+  {
+    name: "Copper",
+    image1: "/color-match/COPPERColor.jpg",
+    image2: "/color-match/COPPERPonytail.jpg",
+    bestFor:
+      "Rich auburn and copper tones with bold fiery depth.",
+  },
+  {
+    name: "Auburn",
+    image1: "/color-match/AUBURNColor.jpg",
+    image2: "/color-match/AUBURNPonytail.jpg",
+    bestFor:
+      "A rich reddish-brown blend with natural warmth.",
+  },
+];
+
 
 const approvedPonytails = [
-  {
-    name: "The Starter Spark™",
-    subtitle: "Starter Ponytail",
-    image: "/starter-program.png",
-    price: "$99.99",
-    length: "10 Inches",
-    bundles: "1½ Bundles",
-    vibe: "Practice-ready but still cute.",
-    link: "/shop/starter-spark",
-  },
+ 
   {
     name: "The Extra Bounce™",
     subtitle: "Competition Ponytail",
@@ -189,7 +265,7 @@ export default function TeamPage() {
         </h3>
 
         <p className="mt-4 text-lg text-white">
-          September 15, 2026
+          July 31, 2026
         </p>
       </div>
 
@@ -216,8 +292,6 @@ export default function TeamPage() {
     </div>
   </div>
 </section>
-
-
 
 
 {/* APPROVED PONYTAILS */}
@@ -282,6 +356,51 @@ export default function TeamPage() {
     </div>
   </div>
 </section>
+
+<section className="bg-black px-6 py-24">
+  <div className="mx-auto max-w-7xl">
+    <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
+      Find The Best Color Match
+    </h2>
+
+    <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-white/75">
+      Select the shade closest to your athlete's natural hair color.
+    </p>
+
+    <div className="mt-16 flex flex-wrap justify-center gap-6">
+  {shades.map((shade) => (
+    <div
+      key={shade.name}
+      className="group text-center"
+    >
+      <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white/10 transition-all duration-300 group-hover:border-[#E8FF00] group-hover:scale-105 md:h-32 md:w-32">
+        <Image
+          src={shade.image1}
+          alt={shade.name}
+          fill
+          className="object-cover"
+        />
+      </div>
+
+      <p className="mt-3 text-sm font-medium md:text-base">
+        {shade.name}
+      </p>
+    </div>
+  ))}
+</div>
+
+    <div className="mt-12 text-center">
+      <Link
+        href="/color-match"
+        className="inline-flex items-center rounded-full bg-[#ff0a8a] px-8 py-4 font-bold transition hover:scale-105"
+      >
+        View Full Color Guide
+      </Link>
+    </div>
+  </div>
+</section>
+
+
 
       {/* ORDER DEADLINE */}
       <section className="bg-[#0052cc] px-6 py-24">
