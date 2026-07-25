@@ -312,7 +312,7 @@ export default function PonytailCollectionPage() {
         </p>
 
         <Link
-          href="https://shopify.com/66851471426/account"
+          href="https://lilylocksshop.square.site"
           target="_blank"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
         >

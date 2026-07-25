@@ -194,26 +194,26 @@ export default function Navbar() {
             </button> */}
 
             {/* Bulk Orders Button */}
-            <Link
-              href="https://shopify.com/66851471426/account"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                ml-2
-                rounded-full
-                bg-[#ff0a8a]
-                px-6
-                py-3
-                text-[15px]
-                font-bold
-                text-white
-                transition
-                hover:bg-white
-                hover:text-[#0052cc]
-              "
-            >
-              Start Bulk Order
-            </Link>
+           <Link
+  href="https://lilylocksshop.square.site"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    ml-2
+    rounded-full
+    bg-[#ff0a8a]
+    px-6
+    py-3
+    text-[15px]
+    font-bold
+    text-white
+    transition
+    hover:bg-white
+    hover:text-[#0052cc]
+  "
+>
+  Start Bulk Order
+</Link>
           </div>
 
           {/* Mobile Right Side */}
@@ -341,7 +341,7 @@ export default function Navbar() {
 
             {/* Mobile Bulk Orders Button */}
             <Link
-              href="https://shopify.com/66851471426/account"
+              href="https://lilylocksshop.square.site"
               target="_blank"
               rel="noopener noreferrer"
               className="

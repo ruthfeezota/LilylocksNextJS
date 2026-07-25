@@ -68,7 +68,9 @@ export default function BulkPonytailsPage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="/b2b-portal"
+                href="https://lilylocksshop.square.site"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition"
               >
                 Start Bulk Order
@@ -232,7 +234,9 @@ export default function BulkPonytailsPage() {
           </p>
 
           <Link
-            href="/b2b-portal"
+            href="https://lilylocksshop.square.site"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-10 inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-10 py-4 text-lg font-black text-black hover:scale-105 transition"
           >
             Enter Team Ordering Portal

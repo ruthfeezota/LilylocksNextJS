@@ -25,7 +25,7 @@ const ponytails = [
     rating: "4.8",
     reviews: 124,
     variantId:
-      "gid://shopify/ProductVariant/123456789",
+      "gid://https://lilylocksshop.square.site/product/the-starter-spark-10-cheerleading-ponytail/HFG4573Z54THUPEGNMAYM6JN?cp=true&sa=true&sbp=false&q=false",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const ponytails = [
     rating: "4.9",
     reviews: 231,
     variantId:
-      "gid://shopify/ProductVariant/123456789",
+      "gid://https://lilylocksshop.square.site/product/the-extra-bounce-14-inch-cheerleading-ponytail/C6H4NRCQ3THABDAAG3ZBIGNX?cp=true&sa=true&sbp=false&q=false",
   },
   {
     id: 3,
@@ -47,13 +47,13 @@ const ponytails = [
     name: "The Main Character™",
     subtitle: "No blending in. Ever. 18inch Ponytail",
     bestFor: "Luxury",
-    price: "$199.99",
+    price: "$179.99",
     image: "/ponytails/main-character.jpg",
     badge: "Luxury Pick",
     rating: "5.0",
     reviews: 87,
     variantId:
-      "gid://shopify/ProductVariant/123456789",
+      "gid://https://lilylocksshop.square.site/product/the-main-character-18-inch-cheerleading-ponytail/HUKTERVGHR63X3TIPTCCRJUY?cs=true&cst=custom",
   },
 ];
 

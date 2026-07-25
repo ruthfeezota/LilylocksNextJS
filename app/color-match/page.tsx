@@ -104,7 +104,7 @@ export default function ColorMatchPage() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="https://shopify.com/66851471426/account">
+            <a href="https://lilylocksshop.square.site">
             <button className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition">
               Start Group Order
             </button>
