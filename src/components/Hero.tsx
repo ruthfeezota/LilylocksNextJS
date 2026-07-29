@@ -34,16 +34,18 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="/contact#contact-form">
-              <button className="rounded-full bg-[#ff0a8a] px-8 py-4 font-semibold text-white transition hover:scale-105">
-                Request a Bulk Quote
-              </button>
-              </a>
               <a href="/ponytails">
-              <button className="rounded-full border-2 border-[#ff0a8a] px-8 py-4 font-semibold text-white transition hover:bg-[#ff0a8a]">
+              <button className="rounded-full bg-[#ff0a8a] px-8 py-4 font-semibold text-white transition hover:scale-105
+              ">
                 Shop Ponytails
               </button>
               </a>
+              <a href="/contact#contact-form">
+              <button className="rounded-full border-2 border-[#ff0a8a] px-8 py-4 font-semibold text-white transition hover:bg-[#ff0a8a]">
+                Request a Bulk Quote
+              </button>
+              </a>
+              
             </div>
           </div>
         </div>

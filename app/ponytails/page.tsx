@@ -311,14 +311,15 @@ export default function PonytailCollectionPage() {
           unforgettable competition moments.
         </p>
 
-        <Link
-          href="https://lilylocksshop.square.site"
-          target="_blank"
-          className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
-        >
-          Start Bulk Order
-          <ArrowRight size={20} />
-        </Link>
+      <Link
+  href="https://lilylocksshop.square.site/bulkorders"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
+>
+  Start Bulk Order
+  <ArrowRight size={20} />
+</Link>
       </section>
     </main>
   );

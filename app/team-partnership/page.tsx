@@ -445,10 +445,10 @@ const handleSubmit = async (
         </p>
 
         <Link
-          href="/shop"
+          href="https://lilylocksshop.square.site/"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
         >
-          Shop LilyLocks
+          Shop LilyLocks Ponytails & Bows
           <ArrowRight size={20} />
         </Link>
       </section>

@@ -199,10 +199,10 @@ export default function AboutPage() {
         </p>
 
         <Link
-          href="/shop"
+          href="https://lilylocksshop.square.site/"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition"
         >
-          Shop LilyLocks
+          Shop LilyLocks Ponytails & Bows
           <ArrowRight size={18} />
         </Link>
       </section>

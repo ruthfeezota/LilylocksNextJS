@@ -104,7 +104,7 @@ export default function ColorMatchPage() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="https://lilylocksshop.square.site">
+            <a href="https://lilylocksshop.square.site/bulkorders">
             <button className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition">
               Start Group Order
             </button>
@@ -167,10 +167,11 @@ export default function ColorMatchPage() {
             <p className="mt-5 max-w-xl text-xl leading-relaxed text-white/90">
               {shade.bestFor}
             </p>
-
+            <a href="https://lilylocksshop.square.site">
             <button className="mt-10 rounded-full bg-[#ff0a8a] px-10 py-5 text-xl font-bold transition hover:scale-105">
               Shop This Match
             </button>
+            </a>
           </div>
         </div>
       );

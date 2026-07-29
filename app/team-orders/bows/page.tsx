@@ -78,7 +78,7 @@ export default function BulkBowsPage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="https://lilylocksshop.square.site"
+                href="https://lilylocksshop.square.site/bulkorders"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition"

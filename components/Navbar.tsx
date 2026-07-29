@@ -195,7 +195,7 @@ export default function Navbar() {
 
             {/* Bulk Orders Button */}
            <Link
-  href="https://lilylocksshop.square.site"
+  href="https://lilylocksshop.square.site/bulkorders"
   target="_blank"
   rel="noopener noreferrer"
   className="
@@ -341,7 +341,7 @@ export default function Navbar() {
 
             {/* Mobile Bulk Orders Button */}
             <Link
-              href="https://lilylocksshop.square.site"
+              href="https://lilylocksshop.square.site/bulkorders"
               target="_blank"
               rel="noopener noreferrer"
               className="

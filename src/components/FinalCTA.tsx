@@ -30,7 +30,7 @@ export default function FinalCTA() {
         </p>
 
         {/* CTA Button */}
-        <a href="https://lilylocksshop.square.site">
+        <a href="https://lilylocksshop.square.site/bulkorders">
         <button className="mt-10 rounded-full bg-[#ff0a8a] px-10 py-5 text-md font-bold text-white transition hover:scale-105 md:px-20 md:py-6 md:text-2xl">
           Start A Bulk Order
         </button>
