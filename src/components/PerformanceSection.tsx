@@ -4,7 +4,7 @@ export default function PerformanceSection() {
       <div className="mx-auto max-w-4xl text-center">
         {/* Heading */}
         <h2 className="heading-font text-3xl uppercase md:text-5xl">
-          Built For Performance.
+          Ponytails Built For Performance.
         </h2>
 
         {/* Subheading */}

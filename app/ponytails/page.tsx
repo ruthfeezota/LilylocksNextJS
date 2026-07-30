@@ -39,7 +39,7 @@ const ponytails = [
     name: "The Extra Bounce",
     subtitle: "Mid-Level Ponytail",
     tagline: "Competition-ready volume.",
-    price: "$139.99",
+    price: "$159.99",
     bundles: "2 Bundles of Hair",
     vibe:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
@@ -65,7 +65,7 @@ const ponytails = [
     name: "The Main Character",
     subtitle: "Big Hair Ponytail",
     tagline: "No blending in. Ever.",
-    price: "$159.99",
+    price: "$179.99",
     bundles: "3 Bundles of Hair",
     vibe:
       "This is for the girl who wants people to talk. The pony that turns stunts into slow-motion moments.",

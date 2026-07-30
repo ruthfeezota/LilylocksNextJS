@@ -21,15 +21,12 @@ export default function Hero() {
           <div className="max-w-6xl">
             {/* Heading */}
             <h1 className="heading-font text-3xl leading-tight uppercase text-white md:text-5xl lg:text-5xl backdrop-blur-xl">
-              Custom Ponytails Built For Elite Cheer Teams & Gyms
+              Bulk Competition Ponytails for Cheer Teams
             </h1>
 
             {/* Copy */}
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg backdrop-blur-xl">
-              Premium performance ponytails designed for high-intensity
-              movement, long competition days, and full-team consistency.
-              From youth programs to elite all-star gyms, LilyLocks helps
-              athletes perform with confidence and programs look unified.
+             Everything your program needs to order competition ponytails in one place—private team ordering pages, athlete hair color matching, exclusive wholesale pricing, flexible ordering for parents or coaches, and premium-quality ponytails built for the competition floor.
             </p>
 
             {/* CTA Buttons */}
@@ -42,7 +39,7 @@ export default function Hero() {
               </a>
               <a href="/contact#contact-form">
               <button className="rounded-full border-2 border-[#ff0a8a] px-8 py-4 font-semibold text-white transition hover:bg-[#ff0a8a]">
-                Request a Bulk Quote
+                Request a Custom Order Quote
               </button>
               </a>
               

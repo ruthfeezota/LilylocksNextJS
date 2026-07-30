@@ -34,10 +34,18 @@ export default function Footer() {
             </h3>
 
             <ul className="mt-5 space-y-3 text-lg text-white/90">
+            <a href="/team-orders">
               <li>Team Orders</li>
+            </a>
+            <a href="/bulk-pricing">
               <li>Bulk Pricing</li>
+            </a>
+            <a href="/color-match">
               <li>Team Color Match</li>
+              </a>
+              <a href="/contact#contact-form">
               <li>Ask A Question</li>
+              </a>
             </ul>
           </div>
 
@@ -48,9 +56,14 @@ export default function Footer() {
             </h3>
 
             <ul className="mt-5 space-y-3 text-lg text-white/90">
+            <a href="/hair-care-guide">
               <li>Competition Care Guide</li>
-              <li>How To Wear</li>
-              <li>Density Guide</li>
+              </a>
+
+              {/* <li>How To Wear</li> */}
+              <a href="/color-match">
+              <li>Color Match Guide</li>
+              </a>
             </ul>
           </div>
 
@@ -61,9 +74,15 @@ export default function Footer() {
             </h3>
 
             <ul className="mt-5 space-y-3 text-lg text-white/90">
-              <li>Why LilyLocks</li>
-              <li>From Handmade To Team Supplier</li>
-              <li>Contact Us</li>
+              <a href="/about">
+                <li>Why LilyLocks</li>
+              </a>
+              <a href="/about#our-story">
+                <li>From Handmade To Team Supplier</li>
+              </a>
+              <a href="/contact">
+                <li>Contact Us</li>
+              </a>
             </ul>
           </div>
         </div>

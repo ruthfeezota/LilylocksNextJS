@@ -55,7 +55,7 @@ export default function AboutPage() {
 
 <p className="mt-6 text-lg leading-relaxed text-white/85">
   As a former All-Star competition cheerleader,
-  our founder experienced firsthand how important
+  our founder Ruth experienced firsthand how important
   it is to look and feel your best on the mat.
 </p>
 
@@ -74,7 +74,7 @@ export default function AboutPage() {
 </p>
 
 <p className="mt-6 text-lg leading-relaxed text-white/85">
-  We are proud to be fully based in Austin, Texas,
+  We are proud to be fully based in Dallas, Texas,
   and operated by a former All-Star competition
   cheerleader who understands the demands of the
   sport firsthand. Every LilyLocks product is

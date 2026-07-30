@@ -17,23 +17,28 @@ import {
 
 import TopBanner from "@/src/components/TopBanner";
 
-import CartDrawer from "@/src/components/CartDrawer";
-
 const navLinks = [
-  { label: "Shop", href: "/shop" },
   {
-    label: "Team Orders",
+    label: "Cheer Bows",
+    href: "/cheer-bows",
+  },
+    {
+    label: "Ponytails",
+    href: "/ponytails",
+  },
+    {
+    label: "Custom Orders",
     href: "/team-orders",
   },
-  {
-    label: "Color Match",
-    href: "/color-match",
-  },
+  // {
+  //   label: "Color Match",
+  //   href: "/color-match",
+  // },
   { label: "About Us", href: "/about" },
-  {
-    label: "Hair Care Guide",
-    href: "/hair-care-guide",
-  },
+  // {
+  //   label: "Hair Care Guide",
+  //   href: "/hair-care-guide",
+  // },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -41,46 +46,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] =
     useState(false);
 
-  const [cartOpen, setCartOpen] =
-    useState(false);
-
-  const [cartQuantity, setCartQuantity] =
-    useState(0);
-
-  // Load cart quantity
-  useEffect(() => {
-    function updateCartQuantity() {
-      const storedCart =
-        localStorage.getItem("cart");
-
-      if (!storedCart) {
-        setCartQuantity(0);
-        return;
-      }
-
- const cart = 
- JSON.parse(storedCart); 
- if (!cart) { 
-  setCartQuantity(0); 
-  return; } 
- 
- setCartQuantity( cart.totalQuantity || 0 );
-    }
-
-    updateCartQuantity();
-
-    window.addEventListener(
-      "cartUpdated",
-      updateCartQuantity
-    );
-
-    return () => {
-      window.removeEventListener(
-        "cartUpdated",
-        updateCartQuantity
-      );
-    };
-  }, []);
 
   return (
     <>
@@ -156,42 +121,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Cart Button */}
-            {/* <button
-              onClick={() =>
-                setCartOpen(true)
-              }
-              className="
-                relative
-                text-white
-                transition
-                hover:text-[#ff0a8a]
-              "
-            >
-              <ShoppingBag size={28} />
-
-              {cartQuantity > 0 && (
-                <span
-                  className="
-                    absolute
-                    -right-2
-                    -top-2
-                    flex
-                    h-5
-                    w-5
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-[#ff0a8a]
-                    text-[11px]
-                    font-bold
-                    text-white
-                  "
-                >
-                  {cartQuantity}
-                </span>
-              )}
-            </button> */}
+            
 
             {/* Bulk Orders Button */}
            <Link
@@ -225,40 +155,7 @@ export default function Navbar() {
               md:hidden
             "
           >
-            {/* Mobile Cart */}
-            <button
-              onClick={() =>
-                setCartOpen(true)
-              }
-              className="
-                relative
-                text-white
-              "
-            >
-              <ShoppingBag size={30} />
-
-              {cartQuantity > 0 && (
-                <span
-                  className="
-                    absolute
-                    -right-2
-                    -top-2
-                    flex
-                    h-5
-                    w-5
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-[#ff0a8a]
-                    text-[11px]
-                    font-bold
-                    text-white
-                  "
-                >
-                  {cartQuantity}
-                </span>
-              )}
-            </button>
+           
 
             {/* Mobile Menu */}
             <button
@@ -274,13 +171,7 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* CART DRAWER */}
-      <CartDrawer
-        isOpen={cartOpen}
-        onClose={() =>
-          setCartOpen(false)
-        }
-      />
+     
 
       {/* MOBILE DRAWER */}
       {menuOpen && (

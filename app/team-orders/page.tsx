@@ -6,15 +6,15 @@ import { ArrowRight, ShieldCheck, Users, Package } from "lucide-react";
 
 const programs = [
   {
-    title: "Starter Program",
+    title: "The Starter Spark",
     desc: "Ideal for youth teams, sideline cheer, and growing programs needing polished consistency.",
   },
   {
-    title: "Competition Program",
+    title: "The Extra Bounce",
     desc: "Built for high-performance teams, showcases, and all-star programs.",
   },
   {
-    title: "Elite Program",
+    title: "The Main Character",
     desc: "Premium density, custom color matching, and top-tier visual impact.",
   },
 ];
@@ -56,7 +56,7 @@ export default function TeamOrdersPage() {
               </Link>
 
               <Link
-                href="/team-orders/bows"
+                href="/cheer-bows"
                 className="rounded-full border-2 border-white px-8 py-4 text-lg font-bold hover:bg-white hover:text-black transition"
               >
                 Bulk Cheer Bows

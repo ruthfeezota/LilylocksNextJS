@@ -53,7 +53,7 @@ export default function BulkBowsPage() {
       {/* HERO */}
       <section className="relative min-h-[85vh] overflow-hidden">
         <Image
-          src="/team-orders/bows-hero.jpg"
+          src="/cheer-bows"
           alt="Bulk Cheer Bows"
           fill
           priority
