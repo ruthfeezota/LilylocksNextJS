@@ -4,18 +4,25 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Users, Package } from "lucide-react";
 
+
 const programs = [
   {
     title: "The Starter Spark",
     desc: "Ideal for youth teams, sideline cheer, and growing programs needing polished consistency.",
+    buyUrl:
+      "/shop/starter-spark",
   },
   {
     title: "The Extra Bounce",
     desc: "Built for high-performance teams, showcases, and all-star programs.",
+    buyUrl:
+      "/shop/extra-bounce",
   },
   {
     title: "The Main Character",
     desc: "Premium density, custom color matching, and top-tier visual impact.",
+    buyUrl:
+      "/shop/main-character",
   },
 ];
 
@@ -86,10 +93,11 @@ export default function TeamOrdersPage() {
                 <p className="mt-5 text-white/85 leading-relaxed text-lg">
                   {program.desc}
                 </p>
-
+                <Link href={program.buyUrl}>
                 <button className="mt-8 rounded-full bg-[#E8FF00] px-6 py-3 font-bold text-black hover:scale-105 transition">
-                  Learn More
+                  Shop Ponytail
                 </button>
+                </Link>
               </div>
             ))}
           </div>

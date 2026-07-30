@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const packages = {
   starter: {
@@ -16,6 +17,7 @@ const packages = {
       "Youth teams, prep squads, sideline cheer, dance teams.",
     pricing: "Custom quote based on roster size.",
     image: "/starter-program.png",
+    link: "/shop/starter-spark",
   },
 
   competition: {
@@ -30,6 +32,7 @@ const packages = {
       "All-star gyms, comp teams, travel squads.",
     pricing: "Tiered seasonal pricing available.",
     image: "/competition-program.png",
+    link: "/shop/extra-bounce",
   },
 
   elite: {
@@ -44,6 +47,7 @@ const packages = {
       "Elite gyms, national-level teams, premium programs.",
     pricing: "Premium quote based on scale + customization.",
     image: "/elite-program.png",
+    link: "/shop/main-character",
   },
 };
 
@@ -127,6 +131,17 @@ export default function TeamPackages() {
                 {current.pricing}
               </p>
             </div>
+            <Link
+  href={current.link}
+  className="mt-10 inline-flex items-center gap-2 text-xl font-bold text-[#E8FF00] transition hover:gap-4"
+>
+  Learn more about{" "}
+  {activeTab === "starter" && "The Starter Spark"}
+  {activeTab === "competition" && "The Extra Bounce"}
+  {activeTab === "elite" && "The Main Character"}
+
+  <span>→</span>
+</Link>
           </div>
         </div>
       </div>

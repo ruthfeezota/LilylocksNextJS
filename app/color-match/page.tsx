@@ -5,81 +5,74 @@ import { useState } from "react";
 
 const shades = [
   {
+    name: "Jet Black",
+    image1: "/color-match/jet_black.png",
+    image2: "/color-match/jet_black.png",
+    bestFor:
+      "A true deep black with a sleek, glossy finish. Perfect for naturally black or blue-black hair.",
+  },
+  {
+    name: "Dark Brown",
+    image1: "/color-match/dark_brown.png",
+    image2: "/color-match/dark_brown.png",
+    bestFor:
+      "A rich espresso brown that's ideal for deep brunettes with little to no warmth.",
+  },
+  {
+    name: "Ash Brown",
+    image1: "/color-match/ash_brown.png",
+    image2: "/color-match/ash_brown.png",
+    bestFor:
+      "A cool-toned medium brown with smoky undertones, perfect for ash brunette hair colors.",
+  },
+  {
     name: "Medium Brown",
-    image1: "/color-match/MEDIUMBROWNColor.jpg",
-    image2: "/color-match/MEDIUMBROWNPonytail.jpg",
+    image1: "/color-match/medium_brown.png",
+    image2: "/color-match/medium_brown.png",
     bestFor:
-      "A classic warm brunette shade with a natural single-tone finish.",
+      "A natural medium brown with balanced warm and cool tones that blends beautifully with most brunettes.",
   },
   {
-    name: "Midnight Brown",
-    image1: "/color-match/MIDNIGHTBROWNColor.jpg",
-    image2: "/color-match/MIDNIGHTBROWNPonytail.jpg",
+    name: "Honey Brown",
+    image1: "/color-match/honey_brown.png",
+    image2: "/color-match/honey_brown.png",
     bestFor:
-      "A deep rich brown, nearly black, perfect for darker brunettes.",
-  },
-  {
-    name: "Reflex Brown",
-    image1: "/color-match/REFLEXBROWNColor.jpg",
-    image2: "/color-match/REFLEXBROWNPonytail.jpg",
-    bestFor:
-      "Warm brown with subtle highlights for a naturally dimensional look.",
+      "A warm golden brown with honey highlights for brunettes who want soft dimension and warmth.",
   },
   {
     name: "Dark Blonde",
-    image1: "/color-match/DARKBLONDEColor.jpg",
-    image2: "/color-match/DARKBLONDEPonytail.jpg",
+    image1: "/color-match/dark_blonde.png",
+    image2: "/color-match/dark_blonde.png",
     bestFor:
-      "Ideal for mousy brown and darker blonde hair tones.",
+      "A natural dark blonde with subtle beige undertones, perfect for darker blonde and light brunette hair.",
   },
   {
-    name: "Golden Wheat",
-    image1: "/color-match/GOLDENWHEATColor.jpg",
-    image2: "/color-match/GOLDENWHEATPonytail.jpg",
+    name: "Honey Blonde",
+    image1: "/color-match/honey_blonde.png",
+    image2: "/color-match/honey_blonde.png",
     bestFor:
-      "A beautiful golden blonde blend with natural-looking highlights.",
+      "A warm golden blonde with radiant honey tones that complements golden and sun-kissed blondes.",
   },
   {
-    name: "Golden Walnut",
-    image1: "/color-match/GOLDENWALNUTColor.jpg",
-    image2: "/color-match/GOLDENWALNUTPonytail.jpg",
+    name: "Beige Blonde",
+    image1: "/color-match/beige_blonde.png",
+    image2: "/color-match/beige_blonde.png",
     bestFor:
-      "A brunette-blonde blend and one of the most versatile shades.",
+      "A soft neutral blonde that balances warm and cool tones for a natural, creamy blonde finish.",
   },
   {
-    name: "Ebony",
-    image1: "/color-match/EBONYColor.jpg",
-    image2: "/color-match/EBONYPonytail.jpg",
+    name: "Ash Blonde",
+    image1: "/color-match/ash_blonde.png",
+    image2: "/color-match/ash_blonde.png",
     bestFor:
-      "Classic jet black with a silky, glossy finish.",
+      "A cool light blonde with silvery undertones that's perfect for icy or ash blonde hair colors.",
   },
   {
-    name: "Smoke",
-    image1: "/color-match/SMOKEColor.jpg",
-    image2: "/color-match/SMOKEPonytail.jpg",
+    name: "Platinum Blonde",
+    image1: "/color-match/platinum_blonde.png",
+    image2: "/color-match/platinum_blonde.png",
     bestFor:
-      "Light brown blended with silver tones for a modern smoky look.",
-  },
-  {
-    name: "Ginger",
-    image1: "/color-match/GINGERColor.jpg",
-    image2: "/color-match/GINGERPonytail.jpg",
-    bestFor:
-      "Bright golden-red tones for lighter redheads.",
-  },
-  {
-    name: "Copper",
-    image1: "/color-match/COPPERColor.jpg",
-    image2: "/color-match/COPPERPonytail.jpg",
-    bestFor:
-      "Rich auburn and copper tones with bold fiery depth.",
-  },
-  {
-    name: "Auburn",
-    image1: "/color-match/AUBURNColor.jpg",
-    image2: "/color-match/AUBURNPonytail.jpg",
-    bestFor:
-      "A rich reddish-brown blend with natural warmth.",
+      "An ultra-light platinum blonde with bright icy tones for the lightest blonde shades.",
   },
 ];
 export default function ColorMatchPage() {

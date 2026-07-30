@@ -45,6 +45,9 @@ const ponytails = {
     description:
       "The gateway to big hair energy. Perfect for girls stepping into bold hair without committing to full stadium glam.",
 
+      buyUrl:
+      "https://lilylocksshop.square.site/product/the-starter-spark-10-cheerleading-ponytail/HFG4573Z54THUPEGNMAYM6JN?cs=true&cst=custom",
+
     images: [
       "/ponytails/starter-spark.jpg",
       "/ponytails/locktechnology.jpg",
@@ -74,6 +77,8 @@ const ponytails = {
 
     texture:
       "Defined Waves / Loose Curls / Straight",
+      buyUrl:
+      "https://lilylocksshop.square.site/product/the-extra-bounce-14-cheerleading-ponytail/C6H4NRCQ3THABDAAG3ZBIGNX?cs=true&cst=custom",
 
     description:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
@@ -107,6 +112,9 @@ const ponytails = {
 
     texture:
       "Bold Curls / Glam Waves / Sleek Straight",
+
+      buyUrl:
+      "https://lilylocksshop.square.site/product/the-main-character-18-cheerleading-ponytail/HUKTERVGHR63X3TIPTCCRJUY?cs=true&cst=custom",
 
     description:
       "The pony that turns stunts into slow-motion moments.",
@@ -222,17 +230,17 @@ export default async function ProductPage({
 
   <div className="flex flex-wrap gap-3">
     {[
-      { name: "Medium Brown", color: "#6B4A3B" },
-      { name: "Midnight Brown", color: "#2B1B17" },
-      { name: "Reflex Brown", color: "#7A5848" },
-      { name: "Dark Blonde", color: "#8A755F" },
-      { name: "Golden Wheat", color: "#D6B06F" },
-      { name: "Golden Walnut", color: "#A87B4F" },
-      { name: "Ebony", color: "#111111" },
-      { name: "Smoke", color: "#A7A7A7" },
-      { name: "Ginger", color: "#C96A3A" },
-      { name: "Copper", color: "#A14E2C" },
-    ].map((shade) => (
+  { name: "Jet Black", color: "#111111" },
+  { name: "Dark Brown", color: "#2B1B17" },
+  { name: "Ash Brown", color: "#7A5848" },
+  { name: "Medium Brown", color: "#6B4A3B" },
+  { name: "Honey Brown", color: "#A87B4F" },
+  { name: "Dark Blonde", color: "#8A755F" },
+  { name: "Honey Blonde", color: "#D6B06F" },
+  { name: "Beige Blonde", color: "#E2C79A" },
+  { name: "Ash Blonde", color: "#A7A7A7" },
+  { name: "Platinum Blonde", color: "#F2E8D5" },
+].map((shade) => (
       <div
         key={shade.name}
         className="group relative"
@@ -308,13 +316,13 @@ export default async function ProductPage({
 
     {/* CTA Buttons */}
 <div className="mt-10 grid gap-4 sm:grid-cols-2">
-  <Link href="https://lilylocksshop.square.site" className="w-full">
+  <Link href={product.buyUrl} className="w-full">
     <button className="h-20 w-full rounded-full bg-[#E8FF00] px-6 text-lg font-bold text-black transition duration-300 hover:scale-105">
       Buy Now
     </button>
   </Link>
 
-  <Link href="https://lilylocksshop.square.site" className="w-full">
+  <Link href="https://lilylocksshop.square.site/bulkorders" className="w-full">
     <button className="h-20 w-full whitespace-nowrap rounded-full border-2 border-white bg-[#ff0a8a] px-6 text-lg font-bold text-white transition duration-300 hover:bg-white hover:text-black hover:scale-105">
       Start A Bulk Order
     </button>

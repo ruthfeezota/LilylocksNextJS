@@ -53,7 +53,7 @@ export default function BulkBowsPage() {
       {/* HERO */}
       <section className="relative min-h-[85vh] overflow-hidden">
         <Image
-          src="/cheer-bows"
+          src="/cheerbows.jpg"
           alt="Bulk Cheer Bows"
           fill
           priority
@@ -78,7 +78,7 @@ export default function BulkBowsPage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="https://lilylocksshop.square.site/bulkorders"
+                href="https://lilylocksshop.square.site/bulkbows"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition"
@@ -288,10 +288,11 @@ export default function BulkBowsPage() {
           <br />
           Your Team Will Remember
         </h2>
-
+            <Link href="https://lilylocksshop.square.site/bulkbows">
         <button className="mt-10 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition">
           Start My Bulk Order
         </button>
+        </Link>
       </section>
     </main>
   );

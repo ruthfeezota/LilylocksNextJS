@@ -18,27 +18,30 @@ import {
 import TopBanner from "@/src/components/TopBanner";
 
 const navLinks = [
-  {
-    label: "Cheer Bows",
-    href: "/cheer-bows",
-  },
+
     {
     label: "Ponytails",
     href: "/ponytails",
   },
+  
+    {
+    label: "Cheer Bows",
+    href: "/cheer-bows",
+  },
+
     {
     label: "Custom Orders",
     href: "/team-orders",
   },
-  // {
-  //   label: "Color Match",
-  //   href: "/color-match",
-  // },
+  {
+    label: "Color Match",
+    href: "/color-match",
+  },
   { label: "About Us", href: "/about" },
-  // {
-  //   label: "Hair Care Guide",
-  //   href: "/hair-care-guide",
-  // },
+  {
+    label: "Hair Care Guide",
+    href: "/hair-care-guide",
+  },
   { label: "Contact", href: "/contact" },
 ];
 

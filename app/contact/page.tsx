@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import WholesalePolicies from "@/src/components/WholesalePolicies";
 
 const SERVICE_ID = "service_55uypx6";
 const TEMPLATE_ID = "template_z0m3j7o";
@@ -377,7 +378,11 @@ export default function ContactPage() {
         </div>
 
 
+
+
       </section>
+
+      <WholesalePolicies/>
 
       {/* FINAL CTA */}
       <section className="bg-[#E8FF00] px-6 py-24 text-center text-black">
