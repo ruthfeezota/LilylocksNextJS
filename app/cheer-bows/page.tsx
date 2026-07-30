@@ -23,7 +23,7 @@ export default function CheerBowsComingSoon() {
           <div className="rounded-[28px] bg-[#ff0a8a] p-0 shadow-xl">
             <div className="relative h-[520px] overflow-hidden rounded-[28px]">
               <Image
-                src="/cheerbows.png" // replace with your image
+                src="/cheerbows.jpg" // replace with your image
                 alt="Custom Cheer Bow"
                 fill
                 className="object-cover"

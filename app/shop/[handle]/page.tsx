@@ -14,8 +14,6 @@ import { notFound } from "next/navigation";
 
 import ProductGallery from "../../../components/shop/ProductGallery";
 
-import AddToCartButton from "@/src/components/AddToCartButton";
-
 
 export async function generateStaticParams() {
   return [
