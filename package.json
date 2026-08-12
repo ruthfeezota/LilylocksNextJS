@@ -16,7 +16,7 @@
     "@shopify/storefront-api-client": "^1.0.10",
     "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
-    "firebase": "^12.17.0",
+    "firebase": "^12.17.1",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.16.0",
     "next": "^15.5.19",

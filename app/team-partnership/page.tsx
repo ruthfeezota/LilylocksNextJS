@@ -118,7 +118,7 @@ const handleSubmit = async (
       {/* HERO */}
       <section className="relative min-h-[85vh] overflow-hidden">
         <Image
-          src="/team-partnership/team-partnership-hero.jpg"
+          src="/hero-cheer2.jpg"
           alt="LilyLocks Team Partnership"
           fill
           priority
@@ -248,7 +248,7 @@ const handleSubmit = async (
           {/* RIGHT */}
           <div className="relative h-[600px] overflow-hidden rounded-[40px]">
             <Image
-              src="/team-partnership/team-partnership-side.jpg"
+              src="/team-orders/ponytail-hero.jpg"
               alt="Team Partnership"
               fill
               className="object-cover"

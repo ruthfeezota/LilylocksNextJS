@@ -57,12 +57,6 @@ export default function RootLayout({
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
           `}
         </Script>
- {/* Klaviyo */}
-        <Script
-          src="https://static.klaviyo.com/onsite/js/UPXYhi/klaviyo.js?company_id=UPXYhi"
-          strategy="afterInteractive"
-        />
-
 
         <Footer />
       </body>
