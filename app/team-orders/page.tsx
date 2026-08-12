@@ -7,19 +7,19 @@ import { ArrowRight, ShieldCheck, Users, Package } from "lucide-react";
 
 const programs = [
   {
-    title: "The Starter Spark",
+    title: "The Rookie",
     desc: "Ideal for youth teams, sideline cheer, and growing programs needing polished consistency.",
     buyUrl:
       "/shop/starter-spark",
   },
   {
-    title: "The Extra Bounce",
+    title: "The Varsity",
     desc: "Built for high-performance teams, showcases, and all-star programs.",
     buyUrl:
       "/shop/extra-bounce",
   },
   {
-    title: "The Main Character",
+    title: "The Elite",
     desc: "Premium density, custom color matching, and top-tier visual impact.",
     buyUrl:
       "/shop/main-character",

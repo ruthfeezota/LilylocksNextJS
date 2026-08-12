@@ -79,9 +79,9 @@ export default function TeamPackages() {
                   : "bg-[#ff0a8a] text-white"
               }`}
             >
-              {tab === "starter" && "The Starter Spark"}
-              {tab === "competition" && "The Extra Bounce"}
-              {tab === "elite" && "The Main Character"}
+              {tab === "starter" && "The Rookie"}
+              {tab === "competition" && "The Varsity"}
+              {tab === "elite" && "The Elite"}
             </button>
           ))}
         </div>
@@ -136,9 +136,9 @@ export default function TeamPackages() {
   className="mt-10 inline-flex items-center gap-2 text-xl font-bold text-[#E8FF00] transition hover:gap-4"
 >
   Learn more about{" "}
-  {activeTab === "starter" && "The Starter Spark"}
-  {activeTab === "competition" && "The Extra Bounce"}
-  {activeTab === "elite" && "The Main Character"}
+  {activeTab === "starter" && "The Rookie"}
+  {activeTab === "competition" && "The Varsity"}
+  {activeTab === "elite" && "The Elite"}
 
   <span>→</span>
 </Link>

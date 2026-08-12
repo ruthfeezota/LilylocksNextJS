@@ -16,7 +16,7 @@ const ponytails = [
   {
     id: 1,
     handle: "starter-spark",
-    name: "The Starter Spark™",
+    name: "The Rookie™",
     subtitle: "Practice-ready confidence 10inch Ponytail",
     bestFor: "Practice",
     price: "$99.99",
@@ -30,7 +30,7 @@ const ponytails = [
   {
     id: 2,
     handle: "extra-bounce",
-    name: "The Extra Bounce™",
+    name: "The Varsity™",
     subtitle: "Competition-ready volume 14inch Ponytail",
     bestFor: "Competition",
     price: "$149.99",
@@ -44,7 +44,7 @@ const ponytails = [
   {
     id: 3,
     handle: "main-character",
-    name: "The Main Character™",
+    name: "The Elite™",
     subtitle: "No blending in. Ever. 18inch Ponytail",
     bestFor: "Luxury",
     price: "$179.99",

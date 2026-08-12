@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 
 const ponytails = {
   "starter-spark": {
-    name: "The Starter Spark™",
+    name: "The Rookie™",
     subtitle:
       "Practice-ready but still cute.",
 
@@ -60,7 +60,7 @@ const ponytails = {
   },
 
   "extra-bounce": {
-    name: "The Extra Bounce™",
+    name: "The Varsity™",
 
     subtitle:
       "Competition-ready volume.",
@@ -95,7 +95,7 @@ const ponytails = {
   },
 
   "main-character": {
-    name: "The Main Character™",
+    name: "The Elite™",
 
     subtitle:
       "No blending in. Ever.",

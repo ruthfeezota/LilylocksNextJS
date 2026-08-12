@@ -10,11 +10,11 @@ import {
 
 const ponytails = [
   {
-    name: "The Starter Spark",
+    name: "The Rookie",
     subtitle: "Starter Ponytail",
     tagline: "The gateway to big hair energy.",
     price: "$99.99",
-    bundles: "1½ Bundles of Hair",
+    bundles: "150g Density",
     vibe:
       "Practice-ready but still cute. This is for girls stepping into bold hair without committing to full stadium hair.",
     why: [
@@ -36,11 +36,11 @@ const ponytails = [
     href: "/shop/starter-spark",
   },
   {
-    name: "The Extra Bounce",
+    name: "The Varsity",
     subtitle: "Mid-Level Ponytail",
     tagline: "Competition-ready volume.",
     price: "$159.99",
-    bundles: "2 Bundles of Hair",
+    bundles: "200g Density",
     vibe:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
     why: [
@@ -62,11 +62,11 @@ const ponytails = [
     href: "/shop/extra-bounce",
   },
   {
-    name: "The Main Character",
+    name: "The Elite",
     subtitle: "Big Hair Ponytail",
     tagline: "No blending in. Ever.",
     price: "$179.99",
-    bundles: "3 Bundles of Hair",
+    bundles: "300g Density",
     vibe:
       "This is for the girl who wants people to talk. The pony that turns stunts into slow-motion moments.",
     why: [

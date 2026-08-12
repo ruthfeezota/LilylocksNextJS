@@ -99,7 +99,7 @@ const shades = [
 const approvedPonytails = [
  
   {
-    name: "The Extra Bounce™",
+    name: "The Varsity™",
     subtitle: "Competition Ponytail",
     image: "/competition-program.png",
     price: "$139.99",
@@ -109,7 +109,7 @@ const approvedPonytails = [
     link: "/shop/extra-bounce",
   },
   {
-    name: "The Main Character™",
+    name: "The Elite™",
     subtitle: "Big Hair Ponytail",
     image: "/elite-program.png",
     price: "$199.99",
@@ -245,7 +245,7 @@ export default function TeamPage() {
         </h3>
 
         <p className="mt-4 text-lg text-white">
-          The Extra Bounce™
+          The Varsity™
         </p>
       </div>
 
