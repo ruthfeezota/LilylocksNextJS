@@ -14,3 +14,7 @@ body {
 .heading-font {
   font-family: var(--font-holtwood), serif;
 }
+
+@theme {
+  --font-holtwood: var(--font-holtwood);
+}

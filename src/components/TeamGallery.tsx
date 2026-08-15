@@ -7,10 +7,10 @@ export default function TeamGallery() {
         {/* Heading */}
         <div className="text-center">
           <h2 className="heading-font text-3xl uppercase md:text-6xl">
-            Teams Wearing LilyLocks
+          LilyLocks Ponytails In <span className="text-[#dfff00]">Action</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-5xl text-lg leading-relaxed md:text-2xl">
+          <p className="mx-auto mt-5 max-w-5xl text-lg leading-relaxed md:text-xl">
             Real athletes. Real routines. Real competition-ready results.
             Explore how gyms, cheer squads, and performance teams wear
             LilyLocks across practices, showcases, and nationals.

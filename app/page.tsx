@@ -1,8 +1,11 @@
+import BestSellers from "@/src/components/BestSellers";
 import ColorMatching from "@/src/components/ColorMatching";
 import FinalCTA from "@/src/components/FinalCTA";
 import Hero from "@/src/components/Hero";
 import PartnershipProgram from "@/src/components/PartnershipProgram";
 import PerformanceSection from "@/src/components/PerformanceSection";
+import PonytailConstruction from "@/src/components/PonytailConstruction";
+import ShopByNeed from "@/src/components/shopNeeds";
 import TeamGallery from "@/src/components/TeamGallery";
 import TeamPackages from "@/src/components/TeamPackages";
 import Testimonials from "@/src/components/Testimonials";
@@ -13,11 +16,12 @@ export default function Home() {
     <main>
 
       <Hero/>
+      <ShopByNeed/>
       <PerformanceSection/>
+      <BestSellers/>
       <TeamPackages/>
-      <ColorMatching/>
       <PartnershipProgram/>
-      <VideoShowcase/>
+      {/* <VideoShowcase/> */}
       <Testimonials/>
       <FinalCTA/>
       <TeamGallery/>
