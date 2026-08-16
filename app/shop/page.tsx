@@ -15,12 +15,12 @@ import {
 const ponytails = [
   {
     id: 1,
-    handle: "starter-spark",
+    handle: "rookie",
     name: "The Rookie™",
     subtitle: "Practice-ready confidence 10inch Ponytail",
     bestFor: "Practice",
     price: "$99.99",
-    image: "/ponytails/starter-spark.jpg",
+    image: "/ponytails/rookie.jpg",
     badge: "Starter Favorite",
     rating: "4.8",
     reviews: 124,
@@ -29,12 +29,12 @@ const ponytails = [
   },
   {
     id: 2,
-    handle: "extra-bounce",
+    handle: "varsity",
     name: "The Varsity™",
     subtitle: "Competition-ready volume 14inch Ponytail",
     bestFor: "Competition",
     price: "$149.99",
-    image: "/ponytails/extra-bounce.jpg",
+    image: "/ponytails/varsity.jpg",
     badge: "Best Seller",
     rating: "4.9",
     reviews: 231,
@@ -43,12 +43,12 @@ const ponytails = [
   },
   {
     id: 3,
-    handle: "main-character",
+    handle: "elite",
     name: "The Elite™",
     subtitle: "No blending in. Ever. 18inch Ponytail",
     bestFor: "Luxury",
     price: "$179.99",
-    image: "/ponytails/main-character.jpg",
+    image: "/ponytails/elite.jpg",
     badge: "Luxury Pick",
     rating: "5.0",
     reviews: 87,
@@ -105,15 +105,15 @@ export default function ShopPage() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <a href="/ponytails">
-              <button className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition">
+              <Link
+                href="/ponytails"
+                className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold transition hover:scale-105"
+              >
                 Shop All Styles
-              </button>
-              </a>
-
+              </Link>
             </div>
           </div>
-        </div>
+        </div> 
       </section>
 
       {/* FILTER BAR */}
@@ -124,16 +124,21 @@ export default function ShopPage() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            {["Length", "Density", "Color", "Best For", "Price", "Sort By"].map(
-              (item) => (
-                <button
-                  key={item}
-                  className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold hover:bg-white hover:text-black transition"
-                >
-                  {item}
-                </button>
-              )
-            )}
+            {[
+              "Length",
+              "Density",
+              "Color",
+              "Best For",
+              "Price",
+              "Sort By",
+            ].map((item) => (
+              <button
+                key={item}
+                className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold transition hover:bg-white hover:text-black"
+              >
+                {item}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -197,6 +202,7 @@ export default function ShopPage() {
                     <h3 className="heading-font text-3xl uppercase">
                       {product.name}
                     </h3>
+
                     <p className="mt-2 text-white/75">
                       {product.subtitle}
                     </p>
@@ -213,8 +219,12 @@ export default function ShopPage() {
                     size={16}
                     className="fill-[#E8FF00] text-[#E8FF00]"
                   />
+
                   <span>{product.rating}</span>
-                  <span>({product.reviews} reviews)</span>
+
+                  <span>
+                    ({product.reviews} reviews)
+                  </span>
                 </div>
 
                 <p className="mb-6 font-semibold text-[#E8FF00]">
@@ -239,9 +249,10 @@ export default function ShopPage() {
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-2">
+                  {/* NEW LOCAL PRODUCT ROUTE */}
                   <Link
                     href={`/shop/${product.handle}`}
-                    className="flex items-center justify-center gap-2 rounded-full bg-[#ff0a8a] py-4 font-bold hover:scale-[1.02] transition"
+                    className="flex items-center justify-center gap-2 rounded-full bg-[#ff0a8a] py-4 font-bold transition hover:scale-[1.02]"
                   >
                     View Product
                     <ArrowRight size={18} />
@@ -261,16 +272,31 @@ export default function ShopPage() {
       <section className="bg-black px-6 py-16">
         <div className="mx-auto grid max-w-7xl gap-8 text-center md:grid-cols-4">
           {[
-            { icon: <Sparkles size={26} />, text: "Premium Human Hair" },
-            { icon: <ShieldCheck size={26} />, text: "Secure Checkout" },
-            { icon: <Users size={26} />, text: "Team Color Matching" },
-            { icon: <ShoppingBag size={26} />, text: "Bulk Team Orders" },
+            {
+              icon: <Sparkles size={26} />,
+              text: "Premium Human Hair",
+            },
+            {
+              icon: <ShieldCheck size={26} />,
+              text: "Secure Checkout",
+            },
+            {
+              icon: <Users size={26} />,
+              text: "Team Color Matching",
+            },
+            {
+              icon: <ShoppingBag size={26} />,
+              text: "Bulk Team Orders",
+            },
           ].map((item) => (
             <div key={item.text} className="space-y-3">
               <div className="flex justify-center text-[#E8FF00]">
                 {item.icon}
               </div>
-              <p className="font-semibold">{item.text}</p>
+
+              <p className="font-semibold">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>
@@ -304,14 +330,15 @@ export default function ShopPage() {
 
       {/* REVIEWS */}
       <section className="bg-[#0052cc] px-6 py-24">
-  
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="heading-font text-4xl uppercase md:text-6xl">
             Loved By Athletes
           </h2>
 
           <div className="mt-12 rounded-[40px] bg-black p-12">
-            <p className="text-3xl text-[#E8FF00]">★★★★★</p>
+            <p className="text-3xl text-[#E8FF00]">
+              ★★★★★
+            </p>
 
             <p className="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-white/90">
               “These are hands down the best ponytails our team
@@ -333,16 +360,15 @@ export default function ShopPage() {
           <br />
           For Your Squad?
         </h2>
+
         <Link
           href="/team-orders"
-          className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition"
+          className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-4 text-lg font-bold text-white transition hover:scale-105"
         >
           Explore Team Orders
           <ArrowRight size={18} />
         </Link>
       </section>
-
     </main>
-    
   );
 }

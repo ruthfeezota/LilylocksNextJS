@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, Search, UserRound, ShoppingBag } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import TopBanner from "@/src/components/TopBanner";
@@ -63,14 +63,11 @@ export default function Navbar() {
             href="/"
             className="
               relative
-              mr-6
               h-[55px]
               w-[105px]
               shrink-0
-              md:mr-7
               md:h-[58px]
               md:w-[110px]
-              lg:mr-8
             "
           >
             <Image
@@ -84,10 +81,10 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden min-w-0 flex-1 items-center lg:flex">
-            
+          <div className="ml-auto hidden min-w-0 items-center gap-5 lg:flex xl:gap-7">
+
             {/* NAVIGATION LINKS */}
-            <div className="flex min-w-0 flex-1 items-center justify-between gap-4 xl:gap-6">
+            <div className="flex items-center gap-5 xl:gap-7">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -109,84 +106,42 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* RIGHT SIDE */}
-            <div className="ml-5 flex shrink-0 items-center gap-4">
-
-              {/* SEARCH */}
-              <Link
-                href="/search"
-                aria-label="Search"
-                className="
-                  shrink-0
-                  text-white
-                  transition
-                  hover:text-[#ff0a8a]
-                "
-              >
-                <Search size={19} strokeWidth={1.8} />
-              </Link>
-
-              {/* ACCOUNT */}
-              <Link
-                href="/account"
-                aria-label="Account"
-                className="
-                  shrink-0
-                  text-white
-                  transition
-                  hover:text-[#ff0a8a]
-                "
-              >
-                <UserRound size={19} strokeWidth={1.8} />
-              </Link>
-
-              {/* SHOPPING BAG */}
-              <Link
-                href="/cart"
-                aria-label="Shopping bag"
-                className="
-                  shrink-0
-                  text-white
-                  transition
-                  hover:text-[#ff0a8a]
-                "
-              >
-                <ShoppingBag size={19} strokeWidth={1.8} />
-              </Link>
-
-              {/* CTA */}
-              <Link
-                href="https://lilylocksshop.square.site/bulkorders"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  shrink-0
-                  whitespace-nowrap
-                  rounded-full
-                  bg-[#ff0a8a]
-                  px-5
-                  py-2.5
-                  text-[14px]
-                  font-bold
-                  uppercase
-                  tracking-wide
-                  text-white
-                  transition-all
-                  duration-200
-                  hover:bg-white
-                  hover:text-black
-                "
-              >
-                Start a Team Order
-              </Link>
-            </div>
+            {/* CTA */}
+            <Link
+              href="https://lilylocksshop.square.site/bulkorders"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                shrink-0
+                whitespace-nowrap
+                rounded-full
+                bg-[#ff0a8a]
+                px-5
+                py-2.5
+                text-[14px]
+                font-bold
+                uppercase
+                tracking-wide
+                text-white
+                transition-all
+                duration-200
+                hover:bg-white
+                hover:text-black
+              "
+            >
+              Start a Team Order
+            </Link>
           </div>
 
           {/* MOBILE MENU BUTTON */}
           <div className="ml-auto flex items-center lg:hidden">
             <button
               onClick={() => setMenuOpen(true)}
-              className="text-white transition hover:text-[#ff0a8a]"
+              className="
+                text-white
+                transition
+                hover:text-[#ff0a8a]
+              "
               aria-label="Open menu"
             >
               <Menu size={28} strokeWidth={1.8} />

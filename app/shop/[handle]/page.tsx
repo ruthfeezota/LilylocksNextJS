@@ -1,6 +1,4 @@
-
 import Link from "next/link";
-
 
 import {
   ArrowLeft,
@@ -14,17 +12,16 @@ import { notFound } from "next/navigation";
 
 import ProductGallery from "../../../components/shop/ProductGallery";
 
-
 export async function generateStaticParams() {
   return [
-    { handle: "starter-spark" },
-    { handle: "main-character" },
-    { handle: "extra-bounce" },
+    { handle: "rookie" },
+    { handle: "varsity" },
+    { handle: "elite" },
   ];
 }
 
 const ponytails = {
-  "starter-spark": {
+  rookie: {
     name: "The Rookie™",
     subtitle:
       "Practice-ready but still cute.",
@@ -45,11 +42,11 @@ const ponytails = {
     description:
       "The gateway to big hair energy. Perfect for girls stepping into bold hair without committing to full stadium glam.",
 
-      buyUrl:
+    buyUrl:
       "https://lilylocksshop.square.site/product/the-starter-spark-10-cheerleading-ponytail/HFG4573Z54THUPEGNMAYM6JN?cs=true&cst=custom",
 
     images: [
-      "/ponytails/starter-spark.jpg",
+      "/ponytails/rookie.jpg",
       "/ponytails/locktechnology.jpg",
       "/ponytails/humanhairquality.jpg",
       "/ponytails/differentlengths.jpg",
@@ -59,7 +56,7 @@ const ponytails = {
     ],
   },
 
-  "extra-bounce": {
+  varsity: {
     name: "The Varsity™",
 
     subtitle:
@@ -77,14 +74,15 @@ const ponytails = {
 
     texture:
       "Defined Waves / Loose Curls / Straight",
-      buyUrl:
+
+    buyUrl:
       "https://lilylocksshop.square.site/product/the-extra-bounce-14-cheerleading-ponytail/C6H4NRCQ3THABDAAG3ZBIGNX?cs=true&cst=custom",
 
     description:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
 
     images: [
-      "/ponytails/extra-bounce.jpg",
+      "/ponytails/varsity.jpg",
       "/ponytails/locktechnology.jpg",
       "/ponytails/humanhairquality.jpg",
       "/ponytails/differentlengths.jpg",
@@ -94,7 +92,7 @@ const ponytails = {
     ],
   },
 
-  "main-character": {
+  elite: {
     name: "The Elite™",
 
     subtitle:
@@ -113,14 +111,14 @@ const ponytails = {
     texture:
       "Bold Curls / Glam Waves / Sleek Straight",
 
-      buyUrl:
+    buyUrl:
       "https://lilylocksshop.square.site/product/the-main-character-18-cheerleading-ponytail/HUKTERVGHR63X3TIPTCCRJUY?cs=true&cst=custom",
 
     description:
       "The pony that turns stunts into slow-motion moments.",
 
     images: [
-      "/ponytails/main-character.jpg",
+      "/ponytails/elite.jpg",
       "/ponytails/locktechnology.jpg",
       "/ponytails/humanhairquality.jpg",
       "/ponytails/differentlengths.jpg",
@@ -136,13 +134,13 @@ const ponytails = {
 ====================================================== */
 
 const variantIds = {
-  "starter-spark":
+  rookie:
     "gid://shopify/ProductVariant/REAL_ID_1",
 
-  "extra-bounce":
+  varsity:
     "gid://shopify/ProductVariant/REAL_ID_2",
 
-  "main-character":
+  elite:
     "gid://shopify/ProductVariant/REAL_ID_3",
 };
 
@@ -165,7 +163,8 @@ export default async function ProductPage({
   if (!product) notFound();
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-12 lg:px-20">
+    <main className="min-h-screen bg-black px-6 py-12 text-white lg:px-20">
+
       {/* Back */}
       <Link
         href="/shop"
@@ -176,7 +175,8 @@ export default async function ProductPage({
       </Link>
 
       {/* PDP LAYOUT */}
-      <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-start">
+      <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+
         {/* LEFT */}
         <div>
           <ProductGallery
@@ -187,13 +187,14 @@ export default async function ProductPage({
 
         {/* RIGHT */}
         <div className="sticky top-10">
+
           {/* Badge */}
           <span className="rounded-full bg-[#E8FF00] px-4 py-2 text-xs font-bold uppercase text-black">
             Premium Ponytail
           </span>
 
           {/* Name */}
-          <h1 className="heading-font mt-6 text-5xl uppercase md:text-6xl leading-tight">
+          <h1 className="heading-font mt-6 text-5xl uppercase leading-tight md:text-6xl">
             {product.name}
           </h1>
 
@@ -222,56 +223,58 @@ export default async function ProductPage({
             </h3>
           </div>
 
-{/* Color swatches */}
-<div className="mt-10">
-  <p className="mb-4 font-semibold">
-    Available Shades
-  </p>
+          {/* Color swatches */}
+          <div className="mt-10">
+            <p className="mb-4 font-semibold">
+              Available Shades
+            </p>
 
-  <div className="flex flex-wrap gap-3">
-    {[
-  { name: "Jet Black", color: "#111111" },
-  { name: "Dark Brown", color: "#2B1B17" },
-  { name: "Ash Brown", color: "#7A5848" },
-  { name: "Medium Brown", color: "#6B4A3B" },
-  { name: "Honey Brown", color: "#A87B4F" },
-  { name: "Dark Blonde", color: "#8A755F" },
-  { name: "Honey Blonde", color: "#D6B06F" },
-  { name: "Beige Blonde", color: "#E2C79A" },
-  { name: "Ash Blonde", color: "#A7A7A7" },
-  { name: "Platinum Blonde", color: "#F2E8D5" },
-].map((shade) => (
-      <div
-        key={shade.name}
-        className="group relative"
-      >
-        {/* Tooltip */}
-        <div className="pointer-events-none absolute -top-12 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-xl bg-black px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xl transition-all duration-200 group-hover:-translate-y-1 group-hover:opacity-100">
-          {shade.name}
+            <div className="flex flex-wrap gap-3">
+              {[
+                { name: "Jet Black", color: "#111111" },
+                { name: "Dark Brown", color: "#2B1B17" },
+                { name: "Ash Brown", color: "#7A5848" },
+                { name: "Medium Brown", color: "#6B4A3B" },
+                { name: "Honey Brown", color: "#A87B4F" },
+                { name: "Dark Blonde", color: "#8A755F" },
+                { name: "Honey Blonde", color: "#D6B06F" },
+                { name: "Beige Blonde", color: "#E2C79A" },
+                { name: "Ash Blonde", color: "#A7A7A7" },
+                { name: "Platinum Blonde", color: "#F2E8D5" },
+              ].map((shade) => (
+                <div
+                  key={shade.name}
+                  className="group relative"
+                >
 
-          <div className="absolute left-1/2 top-full h-3 w-3 -translate-x-1/2 rotate-45 bg-black" />
-        </div>
+                  {/* Tooltip */}
+                  <div className="pointer-events-none absolute -top-12 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-xl bg-black px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xl transition-all duration-200 group-hover:-translate-y-1 group-hover:opacity-100">
+                    {shade.name}
 
-        {/* Swatch */}
-        <button
-          aria-label={shade.name}
-          className="h-10 w-10 rounded-full border-2 border-white/20 transition duration-200 hover:scale-110 hover:border-white"
-          style={{
-            backgroundColor: shade.color,
-          }}
-        />
-      </div>
-    ))}
-  </div>
-</div>
+                    <div className="absolute left-1/2 top-full h-3 w-3 -translate-x-1/2 rotate-45 bg-black" />
+                  </div>
+
+                  {/* Swatch */}
+                  <button
+                    aria-label={shade.name}
+                    className="h-10 w-10 rounded-full border-2 border-white/20 transition duration-200 hover:scale-110 hover:border-white"
+                    style={{
+                      backgroundColor: shade.color,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Specs */}
           <div className="mt-10 rounded-[32px] border border-white/10 bg-white/5 p-8">
-            <h3 className="heading-font text-2xl uppercase mb-6">
+            <h3 className="heading-font mb-6 text-2xl uppercase">
               Product Details
             </h3>
 
             <div className="space-y-5">
+
               <div className="flex justify-between">
                 <span className="text-white/60">
                   Length
@@ -311,26 +314,36 @@ export default async function ProductPage({
                   {product.texture}
                 </span>
               </div>
+
             </div>
           </div>
 
-    {/* CTA Buttons */}
-<div className="mt-10 grid gap-4 sm:grid-cols-2">
-  <Link href={product.buyUrl} className="w-full">
-    <button className="h-20 w-full rounded-full bg-[#E8FF00] px-6 text-lg font-bold text-black transition duration-300 hover:scale-105">
-      Buy Now
-    </button>
-  </Link>
+          {/* CTA Buttons */}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
 
-  <Link href="https://lilylocksshop.square.site/bulkorders" className="w-full">
-    <button className="h-20 w-full whitespace-nowrap rounded-full border-2 border-white bg-[#ff0a8a] px-6 text-lg font-bold text-white transition duration-300 hover:bg-white hover:text-black hover:scale-105">
-      Start A Bulk Order
-    </button>
-  </Link>
-</div>
+            <Link
+              href={product.buyUrl}
+              className="w-full"
+            >
+              <button className="h-20 w-full rounded-full bg-[#E8FF00] px-6 text-lg font-bold text-black transition duration-300 hover:scale-105">
+                Buy Now
+              </button>
+            </Link>
+
+            <Link
+              href="https://lilylocksshop.square.site/bulkorders"
+              className="w-full"
+            >
+              <button className="h-20 w-full whitespace-nowrap rounded-full border-2 border-white bg-[#ff0a8a] px-6 text-lg font-bold text-white transition duration-300 hover:scale-105 hover:bg-white hover:text-black">
+                Start A Bulk Order
+              </button>
+            </Link>
+
+          </div>
 
           {/* Trust strip */}
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
+
             <div className="rounded-2xl bg-white/5 p-5 text-center">
               <Sparkles
                 className="mx-auto text-[#E8FF00]"
@@ -363,12 +376,15 @@ export default async function ProductPage({
                 Bulk Orders Available
               </p>
             </div>
+
           </div>
+
         </div>
       </div>
 
       {/* RELATED CTA */}
       <section className="mt-24 rounded-[40px] bg-[#E8FF00] px-10 py-20 text-center text-black">
+
         <h2 className="heading-font text-4xl uppercase md:text-6xl">
           Need Matching Ponytails
           <br />
@@ -384,12 +400,13 @@ export default async function ProductPage({
 
         <Link
           href="/team-orders"
-          className="mt-10 inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition"
+          className="mt-10 inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-lg font-bold text-white transition hover:scale-105"
         >
           Explore Team Orders
         </Link>
+
       </section>
+
     </main>
   );
 }
-

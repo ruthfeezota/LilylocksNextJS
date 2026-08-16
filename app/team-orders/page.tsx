@@ -10,19 +10,19 @@ const programs = [
     title: "The Rookie",
     desc: "Ideal for youth teams, sideline cheer, and growing programs needing polished consistency.",
     buyUrl:
-      "/shop/starter-spark",
+      "/shop/rookie",
   },
   {
     title: "The Varsity",
     desc: "Built for high-performance teams, showcases, and all-star programs.",
     buyUrl:
-      "/shop/extra-bounce",
+      "/shop/varsity",
   },
   {
     title: "The Elite",
     desc: "Premium density, custom color matching, and top-tier visual impact.",
     buyUrl:
-      "/shop/main-character",
+      "/shop/elite",
   },
 ];
 

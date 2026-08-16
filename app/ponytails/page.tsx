@@ -32,8 +32,8 @@ const ponytails = [
     ],
     color: "bg-[#0052cc]",
     icon: <Sparkles size={34} />,
-    image: "/ponytails/starter-spark.jpg",
-    href: "/shop/starter-spark",
+    image: "/ponytails/rookie.jpg",
+    href: "/shop/rookie",
   },
   {
     name: "The Varsity",
@@ -58,8 +58,8 @@ const ponytails = [
     ],
     color: "bg-[#ff0a8a]",
     icon: <Star size={34} />,
-    image: "/ponytails/extra-bounce.jpg",
-    href: "/shop/extra-bounce",
+    image: "/ponytails/varsity.jpg",
+    href: "/shop/varsity",
   },
   {
     name: "The Elite",
@@ -84,8 +84,8 @@ const ponytails = [
     ],
     color: "bg-[#E8FF00]",
     icon: <Crown size={34} />,
-    image: "/ponytails/main-character.jpg",
-    href: "/shop/main-character",
+    image: "/ponytails/elite.jpg",
+    href: "/shop/elite",
   },
 ];
 

@@ -106,7 +106,7 @@ const approvedPonytails = [
     length: "14 Inches",
     bundles: "2 Bundles",
     vibe: "Competition-ready volume.",
-    link: "/shop/extra-bounce",
+    link: "/shop/varsity",
   },
   {
     name: "The Elite™",
@@ -116,7 +116,7 @@ const approvedPonytails = [
     length: "18 Inches",
     bundles: "3 Bundles",
     vibe: "No blending in. Ever.",
-    link: "/shop/main-character",
+    link: "/shop/elite",
   },
 ];
 
