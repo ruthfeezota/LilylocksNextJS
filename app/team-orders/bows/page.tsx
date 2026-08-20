@@ -54,7 +54,7 @@ export default function BulkBowsPage() {
       <section className="relative min-h-[85vh] overflow-hidden">
         <Image
           src="/cheerbows.jpg"
-          alt="Bulk Cheer Bows"
+          alt="Team Cheer Bows"
           fill
           priority
           className="object-cover"
@@ -65,7 +65,7 @@ export default function BulkBowsPage() {
         <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-7xl items-center px-6 py-24">
           <div className="max-w-4xl">
             <h1 className="heading-font text-5xl uppercase leading-tight md:text-7xl">
-              Bulk Cheer
+              Team Cheer
               <br />
               Bow Orders
             </h1>
@@ -78,12 +78,12 @@ export default function BulkBowsPage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="https://lilylocksshop.square.site/bulkbows"
+                href="/team-partnership/#team-order"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition"
               >
-                Start Bulk Order
+                Start Team Order
               </Link>
 
               <Link
@@ -118,7 +118,7 @@ export default function BulkBowsPage() {
               },
               {
                 icon: <Package size={30} />,
-                title: "Bulk Production",
+                title: "Team Production",
                 text: "Scalable ordering for schools, gyms, and events.",
               },
             ].map((item) => (
@@ -143,7 +143,7 @@ export default function BulkBowsPage() {
         </div>
       </section>
 
-      {/* BULK PRICING */}
+      {/* TEAM PRICING */}
       <section className="bg-black px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
@@ -270,7 +270,7 @@ export default function BulkBowsPage() {
           </p>
 
           <Link
-            href="https://lilylocksshop.square.site/bulkorders"
+            href="/team-partnership/#team-order"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-10 py-4 text-lg font-black text-black hover:scale-105 transition"
@@ -288,9 +288,9 @@ export default function BulkBowsPage() {
           <br />
           Your Team Will Remember
         </h2>
-            <Link href="https://lilylocksshop.square.site/bulkbows">
+            <Link href="/team-partnership/#team-order">
         <button className="mt-10 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition">
-          Start My Bulk Order
+          Start My Team Order
         </button>
         </Link>
       </section>

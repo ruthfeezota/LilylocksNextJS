@@ -42,7 +42,7 @@ const faqGroups = [
     title: "Team Orders",
     questions: [
       {
-        q: "Do you offer bulk ordering for cheer teams?",
+        q: "Do you offer Team Ordering for cheer teams?",
         a: "Yes. We support gyms, schools, dance teams, and large performance groups.",
       },
       {
@@ -51,7 +51,7 @@ const faqGroups = [
       },
       {
         q: "Do you offer bows too?",
-        a: "Yes. We offer bulk bows, rhinestones, spirit bows, and branded team styles.",
+        a: "Yes. We offer team bows, rhinestones, spirit bows, and branded team styles.",
       },
     ],
   },
@@ -60,8 +60,8 @@ const faqGroups = [
     title: "Shipping & Support",
     questions: [
       {
-        q: "How long do bulk orders take?",
-        a: "Bulk production varies based on quantity and customization requirements.",
+        q: "How long do team orders take?",
+        a: "Team production varies based on quantity and customization requirements.",
       },
       {
         q: "How do I contact LilyLocks?",
@@ -238,7 +238,7 @@ export default function ContactPage() {
                 </h3>
 
                 <p className="mt-4 text-white/75">
-                  Bulk ordering available for
+                  Team Ordering available for
                   gyms, schools, and coaches.
                 </p>
               </div>
@@ -339,8 +339,8 @@ export default function ContactPage() {
         General Question
       </option>
 
-      <option value="Bulk Team Order">
-        Bulk Team Order
+      <option value="Team Order">
+        Team Order
       </option>
 
       <option value="Color Match Help">

@@ -44,7 +44,7 @@ export default function BulkPonytailsPage() {
       <section className="relative min-h-[85vh] overflow-hidden">
         <Image
           src="/team-orders/ponytail-hero.jpg"
-          alt="Bulk Cheer Ponytails"
+          alt="Team Cheer Ponytails"
           fill
           priority
           className="object-cover"
@@ -55,7 +55,7 @@ export default function BulkPonytailsPage() {
         <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-7xl items-center px-6 py-24">
           <div className="max-w-4xl">
             <h1 className="heading-font text-5xl uppercase leading-tight md:text-7xl">
-              Bulk Cheer
+             Team Cheer
               <br />
               Ponytail Orders
             </h1>
@@ -68,12 +68,12 @@ export default function BulkPonytailsPage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="lilylocksshop.square.site/bulkorders"
+                href="/team-orders/#team-order"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition"
               >
-                Start Bulk Order
+                Start Team Order
               </Link>
 
               <Link
@@ -99,7 +99,7 @@ export default function BulkPonytailsPage() {
               {
                 icon: <Users size={30} />,
                 title: "High Volume Production",
-                text: "Bulk-ready fulfillment for gyms, schools, and large athlete rosters.",
+                text: "Team-ready fulfillment for gyms, schools, and large athlete rosters.",
               },
               {
                 icon: <Sparkles size={30} />,
@@ -133,7 +133,7 @@ export default function BulkPonytailsPage() {
         </div>
       </section>
 
-      {/* BULK PRICING */}
+      {/* TEAM PRICING */}
       <section className="bg-black px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
@@ -229,12 +229,12 @@ export default function BulkPonytailsPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">
-            Access wholesale pricing, manage bulk quantities,
+            Access wholesale pricing, manage team quantities,
             and simplify full team ponytail ordering.
           </p>
 
           <Link
-            href="https://lilylocksshop.square.site/bulkorders"
+            href="/team-partnership/#team-order"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-10 py-4 text-lg font-black text-black hover:scale-105 transition"
@@ -254,7 +254,7 @@ export default function BulkPonytailsPage() {
         </h2>
 
         <button className="mt-10 rounded-full bg-black px-10 py-4 text-lg font-bold text-white hover:scale-105 transition">
-          Start My Bulk Order
+          Start My Team Order
         </button>
       </section>
     </main>

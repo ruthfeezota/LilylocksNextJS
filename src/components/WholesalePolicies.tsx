@@ -12,7 +12,7 @@ export default function WholesalePolicies() {
     {
       icon: <ClipboardList size={32} />,
       title: "Minimum Order",
-      text: "Bulk orders are designed for schools, gyms, and organizations. Minimum quantities may apply depending on the product and customization requested.",
+      text: "Team Orders are designed for schools, gyms, and organizations. Minimum quantities may apply depending on the product and customization requested.",
     },
     {
       icon: <CalendarClock size={32} />,
@@ -55,7 +55,7 @@ export default function WholesalePolicies() {
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/75">
             We want every coach, gym owner, and team coordinator to know exactly
-            what to expect before placing a bulk order. Our production process
+            what to expect before placing a Team Order. Our production process
             is built around consistency, communication, and delivering
             competition-ready products your athletes can rely on.
           </p>

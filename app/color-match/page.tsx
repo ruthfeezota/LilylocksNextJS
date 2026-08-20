@@ -97,7 +97,7 @@ export default function ColorMatchPage() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="https://lilylocksshop.square.site/bulkorders">
+            <a href="/team-partnership/#team-order">
             <button className="rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold hover:scale-105 transition">
               Start Group Order
             </button>
@@ -242,7 +242,7 @@ export default function ColorMatchPage() {
               },
               {
                 title: "Coach Approved",
-                text: "Perfect for both bulk orders and single athletes.",
+                text: "Perfect for both team orders and single athletes.",
               },
             ].map((item) => (
               <div

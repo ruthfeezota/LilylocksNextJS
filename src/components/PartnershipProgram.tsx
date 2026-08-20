@@ -1,8 +1,8 @@
 const features = [
-  "Tiered Bulk Pricing: Flexible pricing built around your team size and budget.",
-  "Dedicated Color Matching: Accurate shade coordination across your full athlete roster.",
-  "Competition-Based Turnaround: Production timelines built around showcase, season, and nationals deadlines.",
-  "Easy Mid-Season Reorders: Quick add-on ordering for new athletes and replacements.",
+  "Built For Team Orders: Outfit your athletes with coordinated LilyLocks ponytails and accessories.",
+  "Choose The Right Ponytail: Select the style, level, and quantity for your team.",
+  "Team-Friendly Ordering: Simple pricing and ordering built for coaches and growing programs.",
+  "Easy Reorders: Quickly add athletes or replace ponytails throughout the season.",
 ];
 
 export default function PartnershipProgram() {
@@ -16,14 +16,12 @@ export default function PartnershipProgram() {
           </h2>
 
           <h3 className="heading-font mx-auto mt-3 max-w-5xl text-xl uppercase leading-tight md:text-2xl">
-            Reliable Ordering Built For Growing Programs, Repeat Seasons, And
-            Competition Schedules.
+            Start Your Team Order With LilyLocks
           </h3>
 
           <p className="mx-auto mt-10 max-w-4xl text-lg leading-relaxed md:text-2xl">
-            We partner with gyms, schools, and cheer programs to simplify bulk
-            ponytail ordering with consistent quality, fast communication, and
-            streamlined reorders.
+            Built for coaches who want their athletes competition-ready
+            without the stress of coordinating hair for an entire team.
           </p>
         </div>
 
@@ -44,9 +42,9 @@ export default function PartnershipProgram() {
         {/* CTA */}
         <div className="mt-20 flex justify-center">
           <a href="/team-partnership#apply">
-          <button className="rounded-full bg-[#E8FF00] px-10 py-5 text-xl font-bold text-black transition hover:scale-105 md:px-16 md:py-6 md:text-3xl">
-            Apply for Team Partnership
-          </button>
+            <button className="rounded-full bg-[#E8FF00] px-10 py-5 text-xl font-bold text-black transition hover:scale-105 md:px-16 md:py-6 md:text-3xl">
+              Learn More About The Team Partnership Program
+            </button>
           </a>
         </div>
       </div>

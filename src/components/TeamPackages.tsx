@@ -146,7 +146,7 @@ export default function TeamPackages() {
               </p>
 
               <p>
-                <span className="font-bold">Bulk Pricing:</span>{" "}
+                <span className="font-bold">Team Pricing:</span>{" "}
                 {current.pricing}
               </p>
 

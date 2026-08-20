@@ -17,7 +17,7 @@ const navLinks = [
     href: "/team-orders",
   },
   {
-    label: "Team Accessories",
+    label: "Team Cheer Bows",
     href: "/cheer-bows",
   },
   {
@@ -108,7 +108,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <Link
-              href="https://lilylocksshop.square.site/bulkorders"
+              href="/team-partnership/#team-order"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -203,7 +203,7 @@ export default function Navbar() {
 
             {/* MOBILE CTA */}
             <Link
-              href="https://lilylocksshop.square.site/bulkorders"
+              href="team-partnership/#team-order"
               target="_blank"
               rel="noopener noreferrer"
               className="

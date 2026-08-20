@@ -133,7 +133,7 @@ export default function CheerBowsSection() {
           </h3>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg text-white/90">
-            We offer bulk discounts, team color matching, and personalized bows
+            We offer  discounts, team color matching, and personalized bows
             for schools, gyms, colleges, and All Star programs.
           </p>
 

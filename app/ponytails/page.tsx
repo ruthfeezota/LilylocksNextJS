@@ -93,25 +93,40 @@ export default function PonytailCollectionPage() {
   return (
     <main className="bg-black text-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0052cc] px-6 py-28">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="mb-4 text-sm uppercase tracking-[0.25em] text-white/70">
-            LilyLocks Ponytail Collection
-          </p>
+      <section className="relative overflow-hidden px-6 py-28 md:py-36">
+  {/* Background Image */}
+  <Image
+    src="/hero-cheer6.png"
+    alt=""
+    fill
+    priority
+    sizes="100vw"
+    className="object-cover object-center"
+  />
 
-          <h1 className="heading-font text-5xl uppercase leading-[0.95] md:text-8xl">
-            Competition Hair
-            <br />
-            Built To Perform
-          </h1>
+  {/* Dark / Blue Overlay */}
+  <div className="absolute inset-0 bg-black/" />
+  <div className="absolute inset-0 bg-black/25" />
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/85 md:text-2xl">
-            From first practice to championship finals,
-            LilyLocks ponytails are designed for volume,
-            bounce, movement, and main character energy.
-          </p>
-        </div>
-      </section>
+  {/* Text */}
+  <div className="relative z-10 mx-auto max-w-7xl text-center">
+    <p className="mb-4 text-sm uppercase tracking-[0.25em] text-white/80">
+      LilyLocks Ponytail Collection
+    </p>
+
+    <h1 className="heading-font text-5xl uppercase leading-[0.95] md:text-8xl">
+      Competition Hair
+      <br />
+      Built To Perform
+    </h1>
+
+    <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/90 md:text-2xl">
+      From first practice to championship finals,
+      LilyLocks ponytails are designed for volume,
+      bounce, movement, and main character energy.
+    </p>
+  </div>
+</section>
 
       {/* PONYTAILS */}
       <section className="px-6 py-24">
@@ -252,7 +267,7 @@ export default function PonytailCollectionPage() {
       </section>
 
       {/* COMPARISON SECTION */}
-      <section className="bg-[#0052cc] px-6 py-24">
+      <section className="bg-[#0052cc] px-6 py-24" id="team-pricing">
         <div className="mx-auto max-w-7xl">
           <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
             Which Ponytail
@@ -296,6 +311,68 @@ export default function PonytailCollectionPage() {
           </div>
         </div>
       </section>
+      {/* =========================================================
+    CHEER BOWS
+========================================================= */}
+<section className="relative overflow-hidden bg-black px-6 py-24 md:py-32">
+
+  {/* Decorative background */}
+  <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-[#0052cc]" />
+
+  <div className="absolute -bottom-40 -left-32 h-[500px] w-[500px] rounded-full bg-[#E8FF00]" />
+
+
+  <div className="relative z-10 mx-auto max-w-7xl">
+
+    <div className="grid items-center gap-12 lg:grid-cols-2">
+
+      {/* IMAGE */}
+      <div className="relative aspect-square overflow-hidden rounded-[40px] bg-black">
+
+        <Image
+          src="/CheerBows.png"
+          alt="LilyLocks Cheer Bows"
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-contain p-4 md:p-8"
+        />
+
+      </div>
+
+
+      {/* COPY */}
+      <div className="text-white">
+
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/70">
+          Complete The Look
+        </p>
+
+        <h2 className="heading-font mt-5 text-6xl uppercase leading-[0.85] md:text-8xl">
+          Cheer
+          <br />
+          Bows
+        </h2>
+
+        <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/80 md:text-xl">
+          Finish your competition look with a LilyLocks cheer bow.
+          Made to coordinate with your ponytail, uniform, and team colors.
+        </p>
+
+        <Link
+          href="/cheer-bows"
+          className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-8 py-5 font-bold text-black transition hover:scale-105"
+        >
+          Shop Cheer Bows
+          <ArrowRight size={19} />
+        </Link>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* FINAL CTA */}
       <section className="bg-[#E8FF00] px-6 py-24 text-center text-black">
@@ -312,12 +389,12 @@ export default function PonytailCollectionPage() {
         </p>
 
       <Link
-  href="https://lilylocksshop.square.site/bulkorders"
+  href="/team-partnership/#team-order"
   target="_blank"
   rel="noopener noreferrer"
   className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
 >
-  Start Bulk Order
+  Start Team Order
   <ArrowRight size={20} />
 </Link>
       </section>

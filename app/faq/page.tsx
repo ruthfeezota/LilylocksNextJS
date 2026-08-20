@@ -26,16 +26,16 @@ const faqGroups = [
     title: "Team Orders",
     questions: [
       {
-        q: "Do you offer bulk ordering for cheer teams?",
-        a: "Yes. LilyLocks supports bulk team ordering for gyms, schools, coaches, dance teams, and performance groups.",
+        q: "Do you offer team ordering for cheer teams?",
+        a: "Yes. LilyLocks supports team team ordering for gyms, schools, coaches, dance teams, and performance groups.",
       },
       {
         q: "Can my full team get matching ponytails?",
-        a: "Absolutely. We offer color matching and bulk consistency support for full-team ordering.",
+        a: "Absolutely. We offer color matching and team consistency support for full-team ordering.",
       },
       {
         q: "Do you offer cheer bows too?",
-        a: "Yes. Bulk bows, rhinestone bows, spirit bows, and branded options are available for team buyers.",
+        a: "Yes. team bows, rhinestone bows, spirit bows, and branded options are available for team buyers.",
       },
     ],
   },
@@ -47,7 +47,7 @@ const faqGroups = [
         a: "Return policies can vary by product type and customization. Contact us for order-specific support.",
       },
       {
-        q: "How long do bulk orders take?",
+        q: "How long do team orders take?",
         a: "Production depends on quantity, customization, and seasonality. Team orders usually require extra lead time.",
       },
       {

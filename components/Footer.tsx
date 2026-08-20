@@ -37,8 +37,8 @@ export default function Footer() {
             <a href="/team-orders">
               <li>Team Orders</li>
             </a>
-            <a href="/bulk-pricing">
-              <li>Bulk Pricing</li>
+            <a href="/team-orders#team-pricing">
+              <li>Team Pricing</li>
             </a>
             <a href="/color-match">
               <li>Team Color Match</li>

@@ -29,7 +29,7 @@ const testimonials = [
   },
   {
     quote:
-      "The consistency was incredible. We finally had a reliable ponytail partner that made bulk orders and replacements stress-free.",
+      "The consistency was incredible. We finally had a reliable ponytail partner that made Team Orders and replacements stress-free.",
     author: "Coach Ava",
     team: "National Performance Squad",
     images: [
@@ -83,7 +83,7 @@ export default function Testimonials() {
             </span>
           </div>
 
-          <p className="mt-1 text-[9px] text-white/70 sm:text-[16px]">
+          <p className="mt-1 text-[14px] text-white/70 sm:text-[20px]">
             Loved by athletes and trusted by programs nationwide.
           </p>
         </div>
@@ -151,7 +151,7 @@ export default function Testimonials() {
             {/* Quote */}
             <blockquote
               key={active}
-              className="text-[11px] leading-[1.45] text-white sm:text-[18px]"
+              className="text-[14px] leading-[1.45] text-white sm:text-[20px]"
             >
               "{current.quote}"
             </blockquote>
@@ -161,11 +161,11 @@ export default function Testimonials() {
               key={`author-${active}`}
               className="mt-3"
             >
-              <p className="text-[10px] font-bold text-white sm:text-[14px]">
+              <p className="text-[14px] font-bold text-white sm:text-[18px]">
                 — {current.author}
               </p>
 
-              <p className="text-[9px] text-white/60 sm:text-[12px]">
+              <p className="text-[14px] text-white/60 sm:text-[18px]">
                 {current.team}
               </p>
             </div>

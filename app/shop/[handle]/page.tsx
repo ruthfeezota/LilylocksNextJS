@@ -331,11 +331,11 @@ export default async function ProductPage({
             </Link>
 
             <Link
-              href="https://lilylocksshop.square.site/bulkorders"
+              href="/team-partnership/#team-order"
               className="w-full"
             >
               <button className="h-20 w-full whitespace-nowrap rounded-full border-2 border-white bg-[#ff0a8a] px-6 text-lg font-bold text-white transition duration-300 hover:scale-105 hover:bg-white hover:text-black">
-                Start A Bulk Order
+                Start A Team Order
               </button>
             </Link>
 
@@ -373,7 +373,7 @@ export default async function ProductPage({
               />
 
               <p className="mt-3 text-sm font-semibold">
-                Bulk Orders Available
+                Team Orders Available
               </p>
             </div>
 
@@ -392,7 +392,7 @@ export default async function ProductPage({
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg text-black/80">
-          Explore bulk ordering,
+          Explore Team Ordering,
           team color matching,
           and competition-ready
           LilyLocks production.

@@ -16,7 +16,7 @@ const shopNeeds = [
   {
     title: "Team Orders",
     description:
-      "Bulk pricing, custom team colors, and dedicated team support.",
+      "Team pricing, custom team colors, and dedicated team support.",
     image: "/Teamponytailslingup.png",
     button: "Start Team Order",
     href: "/team-orders",

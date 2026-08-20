@@ -72,7 +72,7 @@ export default function BestSellers() {
             </span>
           </div>
 
-          <p className="mt-2 text-sm text-black/70 sm:text-base md:text-lg">
+          <p className="mt-2 text-lg text-black/70 sm:text-lg md:text-lg">
             The hair and accessories teams love most.
           </p>
         </div>
@@ -87,6 +87,7 @@ export default function BestSellers() {
                 group
                 flex
                 flex-col
+                
                 overflow-hidden
                 rounded-[22px]
                 border
@@ -125,6 +126,7 @@ export default function BestSellers() {
                     p-3
                     transition-transform
                     duration-300
+                  
                     group-hover:scale-[1.04]
                   "
                 />
@@ -154,17 +156,17 @@ export default function BestSellers() {
               <div className="flex flex-1 flex-col px-5 pb-5 text-center sm:px-6 sm:pb-6">
 
                 {/* Product Name */}
-                <h3 className="mt-3 font-holtwood text-[20px] uppercase tracking-wide text-black sm:text-[21px]">
+                <h3 className="mt-3 font-holtwood text-[24px] uppercase tracking-wide text-black sm:text-[28px]">
                   {product.name}
                 </h3>
 
                 {/* Product Type */}
-                <p className="mt-0.5 text-[13px] font-semibold uppercase tracking-wide text-black/70 sm:text-[14px]">
+                <p className="mt-0.5 text-[15px] font-semibold uppercase tracking-wide text-black/70 sm:text-[16px]">
                   {product.subtitle}
                 </p>
 
                 {/* Tagline */}
-                <p className="mt-1 text-[13px] italic leading-snug text-black/60 sm:text-[14px]">
+                <p className="mt-1 text-[14px] italic leading-snug text-black/60 sm:text-[16px]">
                   {product.tagline}
                 </p>
 

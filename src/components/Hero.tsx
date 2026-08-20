@@ -58,7 +58,7 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mt-5 max-w-[500px] text-sm leading-relaxed text-white/85 sm:text-base">
+            <p className="mt-5 max-w-[500px] text-lg leading-relaxed text-white/85 sm:text-lg">
               Premium competition ponytails made for cheer teams, dancers &
               performance programs.
             </p>
@@ -107,13 +107,13 @@ export default function Hero() {
               <div className="flex items-center gap-3">
                 {/* Replace these with actual team/customer images */}
                 <div className="flex -space-x-2">
-                  {[1, 2, 3, 4, 5].map((item) => (
+                  {[1, 2, 3, 4, 5, 6, 11, 12, 13, 14].map((item) => (
                     <div
                       key={item}
                       className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-black bg-white/10"
                     >
                       <Image
-                        src={`/team-${item}.jpg`}
+                        src={`/teamsupport/teamsupport-${item}.jpg`}
                         alt=""
                         fill
                         className="object-cover"

@@ -117,7 +117,7 @@ export default function AboutPage() {
               {
                 icon: <Users size={30} />,
                 title: "Built For Teams",
-                text: "Perfect for coaches, gyms, and athletes ordering individually or in bulk.",
+                text: "Perfect for coaches, gyms, and athletes ordering individually or in teams.",
               },
             ].map((item) => (
               <div
