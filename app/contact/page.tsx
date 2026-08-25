@@ -382,7 +382,7 @@ export default function ContactPage() {
 
       </section>
 
-      <WholesalePolicies/>
+      <WholesalePolicies id="wholesale-policies" />
 
       {/* FINAL CTA */}
       <section className="bg-[#E8FF00] px-6 py-24 text-center text-black">

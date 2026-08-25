@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -31,7 +33,7 @@ const ponytails = [
       "Smooth finish with slight shine",
     ],
     color: "bg-[#0052cc]",
-    icon: <Sparkles size={34} />,
+    icon: <Sparkles size={18} />,
     image: "/ponytails/rookie.jpg",
     href: "/shop/rookie",
   },
@@ -57,7 +59,7 @@ const ponytails = [
       "High shine finish",
     ],
     color: "bg-[#ff0a8a]",
-    icon: <Star size={34} />,
+    icon: <Star size={18} />,
     image: "/ponytails/varsity.jpg",
     href: "/shop/varsity",
   },
@@ -83,7 +85,7 @@ const ponytails = [
       "Glossy stage-ready finish",
     ],
     color: "bg-[#E8FF00]",
-    icon: <Crown size={34} />,
+    icon: <Crown size={18} />,
     image: "/ponytails/elite.jpg",
     href: "/shop/elite",
   },
@@ -92,157 +94,296 @@ const ponytails = [
 export default function PonytailCollectionPage() {
   return (
     <main className="bg-black text-white">
-      {/* HERO */}
-      <section className="relative overflow-hidden px-6 py-28 md:py-36">
-  {/* Background Image */}
-  <Image
-    src="/hero-cheer6.png"
-    alt=""
-    fill
-    priority
-    sizes="100vw"
-    className="object-cover object-center"
-  />
 
-  {/* Dark / Blue Overlay */}
-  <div className="absolute inset-0 bg-black/" />
-  <div className="absolute inset-0 bg-black/25" />
+      {/* ========================================================= */}
+      {/* HEADER + PRODUCT CARDS */}
+      {/* ========================================================= */}
 
-  {/* Text */}
-  <div className="relative z-10 mx-auto max-w-7xl text-center">
-    <p className="mb-4 text-sm uppercase tracking-[0.25em] text-white/80">
-      LilyLocks Ponytail Collection
-    </p>
+      <section className="bg-[#0057d8] px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-7xl">
 
-    <h1 className="heading-font text-5xl uppercase leading-[0.95] md:text-8xl">
-      Competition Hair
-      <br />
-      Built To Perform
-    </h1>
+          {/* Heading */}
+          <div className="text-center">
+            <p className="text-sm uppercase tracking-[0.25em] text-white/80">
+              LilyLocks Ponytail Collection
+            </p>
 
-    <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/90 md:text-2xl">
-      From first practice to championship finals,
-      LilyLocks ponytails are designed for volume,
-      bounce, movement, and main character energy.
-    </p>
-  </div>
-</section>
+            <h1 className="heading-font mt-4 text-4xl uppercase md:text-6xl">
+              Competition Ponytails
+            </h1>
 
-      {/* PONYTAILS */}
-      <section className="px-6 py-24">
-        <div className="mx-auto flex max-w-7xl flex-col gap-28">
-          {ponytails.map((pony, index) => (
-            <div
-              key={pony.name}
-              className={`grid items-center gap-14 lg:grid-cols-2 ${
-                index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
-              }`}
-            >
-              {/* IMAGE */}
-           {/* IMAGE */}
-<div className="relative h-[620px] overflow-hidden rounded-[40px] border border-white/10 bg-neutral-900">
-  <Image
-    src={pony.image}
-    alt={pony.name}
-    fill
-    className="object-cover"
-    sizes="(max-width: 1024px) 100vw, 50vw"
-    priority={index === 0}
-  />
-</div>
+            <p className="mx-auto mt-6 max-w-3xl text-lg md:text-2xl">
+              From first practice to championship finals, LilyLocks ponytails
+              are designed for volume, bounce, movement, and main character
+              energy.
+            </p>
+          </div>
 
-              {/* CONTENT */}
-              <div>
-                <div
-                  className={`inline-flex items-center gap-3 rounded-full px-5 py-3 text-sm font-bold uppercase tracking-[0.15em] ${
-                    pony.color === "bg-[#E8FF00]"
-                      ? `${pony.color} text-black`
-                      : `${pony.color} text-white`
-                  }`}
+          {/* ========================================================= */}
+          {/* THREE PRODUCT CARDS */}
+          {/* ========================================================= */}
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {ponytails.map((pony) => (
+              <div
+                key={pony.name}
+                className="
+                  group
+                  overflow-hidden
+                  rounded-[22px]
+                  bg-black
+                  text-white
+                  shadow-xl
+                  ring-1
+                  ring-white/10
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:shadow-2xl
+                "
+              >
+
+                {/* Product Image */}
+                <Link
+                  href={pony.href}
+                  className="block"
                 >
-                  {pony.icon}
-                  {pony.subtitle}
+                  <div className="relative aspect-square overflow-hidden bg-black">
+                    <Image
+                      src={pony.image}
+                      alt={pony.name}
+                      fill
+                      sizes="
+                        (max-width: 640px) 100vw,
+                        (max-width: 1024px) 50vw,
+                        33vw
+                      "
+                      className="
+                        object-contain
+                        transition-transform
+                        duration-300
+                        group-hover:scale-[1.04]
+                      "
+                    />
+                  </div>
+                </Link>
+
+                {/* Product Information */}
+                <div className="px-5 pb-6 pt-5 text-center">
+
+                  {/* Product Type */}
+                  <div
+                    className={`mx-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wide ${
+                      pony.color === "bg-[#E8FF00]"
+                        ? `${pony.color} text-black`
+                        : `${pony.color} text-white`
+                    }`}
+                  >
+                    {pony.icon}
+                    {pony.subtitle}
+                  </div>
+
+                  <h2 className="heading-font mt-4 text-2xl uppercase leading-tight text-white">
+                    {pony.name}
+                  </h2>
+
+                  <p className="mt-2 text-sm text-white/60">
+                    {pony.tagline}
+                  </p>
+
+                  <p className="mt-2 text-lg font-bold text-white">
+                    {pony.price}
+                  </p>
+
+                  <p className="mt-1 text-sm font-medium text-white/50">
+                    {pony.bundles}
+                  </p>
+
+                  {/* Shop Ponytail */}
+                  <Link
+                    href={pony.href}
+                    className="
+                      mt-4
+                      inline-flex
+                      min-h-[46px]
+                      w-full
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-[#E8FF00]
+                      px-5
+                      text-sm
+                      font-bold
+                      uppercase
+                      tracking-wide
+                      text-black
+                      transition
+                      hover:bg-[#dfff00]
+                    "
+                  >
+                    Shop Ponytail
+                    <ArrowRight className="ml-2" size={16} />
+                  </Link>
+
+                  {/* Team Order */}
+                  <Link
+                    href="/team-partnership/#team-order"
+                    className="
+                      mt-3
+                      inline-flex
+                      min-h-[46px]
+                      w-full
+                      items-center
+                      justify-center
+                      rounded-full
+                      border-2
+                      border-white/20
+                      bg-transparent
+                      px-5
+                      text-sm
+                      font-bold
+                      uppercase
+                      tracking-wide
+                      text-white
+                      transition
+                      hover:border-white
+                      hover:bg-white
+                      hover:text-black
+                    "
+                  >
+                    Request Team Order
+                    <ArrowRight className="ml-2" size={16} />
+                  </Link>
+
                 </div>
+              </div>
+            ))}
+          </div>
 
-                <h2 className="heading-font mt-8 text-5xl uppercase leading-none md:text-7xl">
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* PONYTAIL DETAILS */}
+      {/* ========================================================= */}
+
+      <section className="bg-black px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-7xl">
+
+          <div className="mb-14 text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
+              Find Your Fit
+            </p>
+
+            <h2 className="heading-font mt-4 text-4xl uppercase md:text-6xl">
+              Choose Your Pony
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/60">
+              Three levels of volume. One goal: make your competition look
+              unforgettable.
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {ponytails.map((pony) => (
+              <div
+                key={`${pony.name}-details`}
+                className="
+                  rounded-[30px]
+                  bg-[#111111]
+                  p-8
+                  text-white
+                  shadow-xl
+                  ring-1
+                  ring-white/10
+                "
+              >
+
+                <h3 className="heading-font text-3xl uppercase">
                   {pony.name}
-                </h2>
+                </h3>
 
-                <p className="mt-5 text-2xl font-semibold text-[#E8FF00]">
+                <p className="mt-2 font-semibold text-[#ff0a8a]">
                   {pony.tagline}
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <div className="rounded-full border border-white/15 px-5 py-3">
-                    <p className="text-sm uppercase text-white/60">
-                      Price
-                    </p>
+                <div className="mt-5 flex items-center gap-3">
+                  <span className="text-3xl font-black">
+                    {pony.price}
+                  </span>
 
-                    <p className="mt-1 text-xl font-bold">
-                      {pony.price}
-                    </p>
-                  </div>
-
-                  <div className="rounded-full border border-white/15 px-5 py-3">
-                    <p className="text-sm uppercase text-white/60">
-                      Hair Included
-                    </p>
-
-                    <p className="mt-1 text-xl font-bold">
-                      {pony.bundles}
-                    </p>
-                  </div>
+                  <span className="text-sm text-white/40">
+                    {pony.bundles}
+                  </span>
                 </div>
 
-                {/* VIBE */}
-                <div className="mt-10 rounded-[32px] bg-white/5 p-8">
-                  <p className="text-sm uppercase tracking-[0.2em] text-[#ff0a8a]">
+                {/* Vibe */}
+                <div className="mt-8 rounded-[22px] bg-white/5 p-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#E8FF00]">
                     The Vibe
                   </p>
 
-                  <p className="mt-5 text-xl leading-relaxed text-white/90">
+                  <p className="mt-3 leading-relaxed text-white/75">
                     {pony.vibe}
                   </p>
                 </div>
 
-                {/* SPECS */}
-                <div className="mt-10">
-                  <h3 className="heading-font text-3xl uppercase">
+                {/* Specs */}
+                <div className="mt-8">
+                  <h4 className="heading-font text-xl uppercase">
                     Specs
-                  </h3>
+                  </h4>
 
-                  <div className="mt-6 grid gap-4">
+                  <div className="mt-4 space-y-3">
                     {pony.specs.map((spec) => (
                       <div
                         key={spec}
-                        className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4"
+                        className="
+                          flex
+                          items-center
+                          gap-3
+                          rounded-xl
+                          border
+                          border-white/10
+                          bg-white/5
+                          px-4
+                          py-3
+                        "
                       >
                         <Check
-                          size={18}
+                          size={17}
                           className="shrink-0 text-[#E8FF00]"
                         />
 
-                        <p className="text-white/85">
+                        <span className="text-sm text-white/80">
                           {spec}
-                        </p>
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* WHY IT BELONGS */}
-                <div className="mt-10">
-                  <h3 className="heading-font text-3xl uppercase">
-                    Why It Belongs
-                  </h3>
+                {/* Why It Belongs */}
+                <div className="mt-8">
+                  <h4 className="heading-font text-xl uppercase">
+                    Why You'll Love It
+                  </h4>
 
-                  <div className="mt-6 grid gap-4">
+                  <div className="mt-4 space-y-3">
                     {pony.why.map((item) => (
                       <div
                         key={item}
-                        className="rounded-2xl bg-[#0052cc]/20 px-5 py-4"
+                        className="
+                          rounded-xl
+                          border
+                          border-[#0057d8]/30
+                          bg-[#0057d8]/10
+                          px-4
+                          py-3
+                        "
                       >
-                        <p className="font-medium text-white/90">
+                        <p className="text-sm font-medium text-white/85">
                           {item}
                         </p>
                       </div>
@@ -251,153 +392,243 @@ export default function PonytailCollectionPage() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-12">
-                  <Link
-                    href={pony.href}
-                    className="inline-flex items-center gap-3 rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold text-white transition hover:scale-105"
-                  >
-                    Shop This Ponytail
-                    <ArrowRight size={20} />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* COMPARISON SECTION */}
-      <section className="bg-[#0052cc] px-6 py-24" id="team-pricing">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
-            Which Ponytail
-            <br />
-            Fits Your Energy?
-          </h2>
-
-          <div className="mt-16 grid gap-8 lg:grid-cols-3">
-            {ponytails.map((pony) => (
-              <div
-                key={pony.name}
-                className="rounded-[36px] bg-black p-10"
-              >
-                <h3 className="heading-font text-3xl uppercase">
-                  {pony.name}
-                </h3>
-
-                <p className="mt-4 text-white/70">
-                  {pony.subtitle}
-                </p>
-
-                <p className="mt-8 text-5xl font-black">
-                  {pony.price}
-                </p>
-
-                <div className="mt-8 border-t border-white/10 pt-8">
-                  <p className="text-white/80">
-                    {pony.tagline}
-                  </p>
-                </div>
-
                 <Link
                   href={pony.href}
-                  className="mt-8 inline-flex items-center gap-2 text-[#E8FF00] font-bold hover:gap-4 transition-all"
+                  className="
+                    mt-8
+                    inline-flex
+                    w-full
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-full
+                    bg-[#ff0a8a]
+                    px-6
+                    py-4
+                    font-bold
+                    text-white
+                    transition
+                    hover:scale-[1.02]
+                  "
                 >
-                  View Ponytail
+                  Shop {pony.name}
                   <ArrowRight size={18} />
                 </Link>
+
               </div>
             ))}
           </div>
+
         </div>
       </section>
-      {/* =========================================================
-    CHEER BOWS
-========================================================= */}
-<section className="relative overflow-hidden bg-black px-6 py-24 md:py-32">
 
-  {/* Decorative background */}
-  <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-[#0052cc]" />
+      {/* ========================================================= */}
+      {/* TEAM ORDERS */}
+      {/* ========================================================= */}
 
-  <div className="absolute -bottom-40 -left-32 h-[500px] w-[500px] rounded-full bg-[#E8FF00]" />
+      <section className="bg-[#0057d8] px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-7xl">
 
+          <div className="overflow-hidden rounded-[30px] bg-black shadow-2xl">
 
-  <div className="relative z-10 mx-auto max-w-7xl">
+            {/* Header */}
+            <div className="px-6 py-12 text-center sm:px-10">
 
-    <div className="grid items-center gap-12 lg:grid-cols-2">
+              <span className="heading-font inline-block rounded-full bg-[#ff0a8a] px-4 py-2 text-sm uppercase text-white">
+                Schools • Teams • Programs
+              </span>
 
-      {/* IMAGE */}
-      <div className="relative aspect-square overflow-hidden rounded-[40px] bg-black">
+              <h2 className="heading-font mt-6 text-3xl uppercase md:text-5xl">
+                Ordering for Your Entire Team?
+              </h2>
 
-        <Image
-          src="/CheerBows.png"
-          alt="LilyLocks Cheer Bows"
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-contain p-4 md:p-8"
-        />
+              <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-white/65">
+                We offer team pricing for schools, gyms, All Star programs,
+                colleges, and competitive cheer teams. Outfit your athletes
+                with matching ponytails designed for the competition floor.
+              </p>
 
-      </div>
+              <Link
+                href="/team-partnership/#team-order"
+                className="
+                  mt-8
+                  inline-flex
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-full
+                  bg-[#E8FF00]
+                  px-9
+                  py-4
+                  font-bold
+                  uppercase
+                  tracking-wide
+                  text-black
+                  transition
+                  hover:scale-105
+                "
+              >
+                Start a Team Order
+                <ArrowRight size={18} />
+              </Link>
 
+            </div>
 
-      {/* COPY */}
-      <div className="text-white">
+            {/* Benefits */}
+            <div className="grid border-t border-white/10 md:grid-cols-3">
 
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/70">
-          Complete The Look
-        </p>
+              <div className="px-6 py-8 text-center md:border-r md:border-white/10">
+                <h3 className="heading-font text-xl uppercase">
+                  Team Pricing
+                </h3>
 
-        <h2 className="heading-font mt-5 text-6xl uppercase leading-[0.85] md:text-8xl">
-          Cheer
-          <br />
-          Bows
-        </h2>
+                <p className="mt-3 text-sm leading-relaxed text-white/55">
+                  Get competitive pricing when ordering ponytails for your
+                  entire team or program.
+                </p>
+              </div>
 
-        <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/80 md:text-xl">
-          Finish your competition look with a LilyLocks cheer bow.
-          Made to coordinate with your ponytail, uniform, and team colors.
-        </p>
+              <div className="border-t border-white/10 px-6 py-8 text-center md:border-r md:border-t-0 md:border-white/10">
+                <h3 className="heading-font text-xl uppercase">
+                  Team Matching
+                </h3>
 
-        <Link
-          href="/cheer-bows"
-          className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#E8FF00] px-8 py-5 font-bold text-black transition hover:scale-105"
-        >
-          Shop Cheer Bows
-          <ArrowRight size={19} />
-        </Link>
+                <p className="mt-3 text-sm leading-relaxed text-white/55">
+                  Coordinate your ponytails with team colors, uniforms, bows,
+                  and competition looks.
+                </p>
+              </div>
 
-      </div>
+              <div className="border-t border-white/10 px-6 py-8 text-center md:border-t-0">
+                <h3 className="heading-font text-xl uppercase">
+                  Easy Ordering
+                </h3>
 
-    </div>
+                <p className="mt-3 text-sm leading-relaxed text-white/55">
+                  Tell us your team size, colors, products, and deadline and
+                  we'll help you build your order.
+                </p>
+              </div>
 
-  </div>
+            </div>
 
-</section>
+          </div>
 
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* CHEER BOWS CROSS-SELL */}
+      {/* ========================================================= */}
+
+      <section className="bg-black px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-7xl">
+
+          <div className="grid items-center gap-10 overflow-hidden rounded-[30px] bg-[#111111] p-6 ring-1 ring-white/10 md:p-10 lg:grid-cols-2">
+
+            {/* Image */}
+            <div className="relative aspect-square overflow-hidden rounded-[24px] bg-black">
+              <Image
+                src="/CheerBows.png"
+                alt="LilyLocks Cheer Bows"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain p-4 md:p-8"
+              />
+            </div>
+
+            {/* Copy */}
+            <div className="text-white">
+
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
+                Complete The Look
+              </p>
+
+              <h2 className="heading-font mt-5 text-5xl uppercase leading-[0.85] md:text-7xl">
+                Cheer
+                <br />
+                Bows
+              </h2>
+
+              <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65 md:text-xl">
+                Finish your competition look with a LilyLocks cheer bow.
+                Made to coordinate with your ponytail, uniform, and team
+                colors.
+              </p>
+
+              <Link
+                href="/cheer-bows"
+                className="
+                  mt-9
+                  inline-flex
+                  items-center
+                  gap-3
+                  rounded-full
+                  bg-[#E8FF00]
+                  px-8
+                  py-5
+                  font-bold
+                  text-black
+                  transition
+                  hover:scale-105
+                "
+              >
+                Shop Cheer Bows
+                <ArrowRight size={19} />
+              </Link>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================= */}
       {/* FINAL CTA */}
+      {/* ========================================================= */}
+
       <section className="bg-[#E8FF00] px-6 py-24 text-center text-black">
-        <h2 className="heading-font text-5xl uppercase md:text-7xl">
+
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-black/60">
+          LilyLocks Ponytail Collection
+        </p>
+
+        <h2 className="heading-font mt-4 text-5xl uppercase md:text-7xl">
           Built For The
           <br />
           Spotlight
         </h2>
 
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-black/80 md:text-2xl">
-          Premium cheer ponytails designed for
-          movement, volume, confidence, and
-          unforgettable competition moments.
+          Premium cheer ponytails designed for movement, volume, confidence,
+          and unforgettable competition moments.
         </p>
 
-      <Link
-  href="/team-partnership/#team-order"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
->
-  Start Team Order
-  <ArrowRight size={20} />
-</Link>
+        <Link
+          href="/team-partnership/#team-order"
+          className="
+            mt-10
+            inline-flex
+            items-center
+            gap-3
+            rounded-full
+            bg-black
+            px-10
+            py-5
+            text-lg
+            font-bold
+            text-white
+            transition
+            hover:scale-105
+          "
+        >
+          Start Team Order
+          <ArrowRight size={20} />
+        </Link>
+
       </section>
+
     </main>
   );
 }

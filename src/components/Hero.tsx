@@ -1,138 +1,169 @@
+
 import Image from "next/image";
 
-const benefits = [
+const featuredCards = [
   {
-    icon: "✧",
-    text: "Full, stage-ready volume",
+    image: "/Bulidforteams/Lilylocks_Teams2.jpg",
+    imageAlt: "Cheer athlete wearing a LilyLocks competition ponytail",
+    eyebrow: "COMPETITION HAIR",
+    title: (
+      <>
+        The Ponytail
+        <br />
+        Your Team Will
+        <br />
+        Compete In.
+      </>
+    ),
+    description:
+      "Premium competition ponytails made for cheer teams, dancers & performance programs.",
+    button: "Shop Ponytails",
+    href: "/ponytails",
+    theme: "dark",
+    imagePosition: "object-[62%_center]",
   },
   {
-    icon: "♙",
-    text: "Team color matching",
+    image: "/bows/full-bling-ab-crystal-cheer-bow.jpg",
+    imageAlt: "LilyLocks rhinestone cheer bow",
+    eyebrow: "CHEER BOWS",
+    title: (
+      <>
+        Finish Your
+        <br />
+        Competition
+        <br />
+        Look.
+      </>
+    ),
+    description:
+      "Statement bows designed to bring your team's colors and personality to the mat.",
+    button: "Shop Cheer Bows",
+    href: "/cheer-bows",
+    theme: "pink",
+    imagePosition: "object-contain",
   },
   {
-    icon: "◉",
-    text: "Secure through every routine",
-  },
-  {
-    icon: "♜",
-    text: "Built for repeat performances",
+    image: "/Bulidforteams/Lilylocks_Teams6.jpg",
+    imageAlt: "LilyLocks back to cheer collection",
+    eyebrow: "BACK TO CHEER",
+    title: (
+      <>
+        20% Off
+        <br />
+        Your Cheer
+        <br />
+        Essentials.
+      </>
+    ),
+    description:
+      "Get competition-ready for the new season with 20% off select LilyLocks styles.",
+    button: "Shop the Sale",
+    href: "https://lilylocksshop.square.site/sale",
+    theme: "lime",
+    imagePosition: "object-top",
   },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-black">
-      {/* Hero height */}
-      <div className="relative min-h-[620px] md:min-h-[650px] lg:h-[650px]">
-        
-        {/* Background Image */}
-        <Image
-          src="/Hero-New-Cheer2.jpg"
-          alt="Cheer athlete wearing a LilyLocks competition ponytail"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[62%_center]"
-        />
+    <section className="w-full bg-black px-3 py-3 sm:px-4 sm:py-4">
+      <div className="mx-auto grid max-w-[1350px] grid-cols-1 gap-2.5 md:grid-cols-3">
 
-        {/* Overall darkening */}
-        <div className="absolute inset-0 bg-black/0" />
+        {featuredCards.map((card) => (
+          <article
+            key={card.eyebrow}
+            className="group flex flex-col overflow-hidden rounded-[3px] bg-white"
+          >
+            {/* IMAGE */}
+            <div className="relative h-[260px] w-full overflow-hidden bg-neutral-100 sm:h-[285px] md:h-[275px] lg:h-[295px]">
+              <Image
+                src={card.image}
+                alt={card.imageAlt}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className={`object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] ${card.imagePosition}`}
+              />
 
-        {/* Strong left-side gradient for text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 via-45% to-black/10" />
+              {/* LilyLocks Badge */}
+              {/* <div className="absolute left-3 top-3">
+                <span className="inline-flex items-center rounded-full bg-black px-2.5 py-1 text-[8px] font-bold uppercase tracking-[0.15em] text-white">
+                  LilyLocks
+                </span>
+              </div> */}
 
-        {/* Additional bottom gradient */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent" />
-
-        {/* Content */}
-        <div className="relative z-10 mx-auto flex h-full min-h-[620px] max-w-[1400px] items-center px-6 md:min-h-[650px] md:px-10 lg:px-14">
-          <div className="w-full max-w-[620px] pt-4 lg:max-w-[590px]">
-            
-            {/* Heading */}
-            <h1 className="heading-font text-[42px] font-holtwood uppercase leading-[0.94] tracking-tight text-white sm:text-[50px] md:text-[58px] lg:text-[62px]">
-              The Ponytail
-              <br />
-              <span className="text-[#ff0a8a]">Your Team</span>
-              <br />
-              Will Compete In.
-            </h1>
-
-            {/* Description */}
-            <p className="mt-5 max-w-[500px] text-lg leading-relaxed text-white/85 sm:text-lg">
-              Premium competition ponytails made for cheer teams, dancers &
-              performance programs.
-            </p>
-
-            {/* Benefits */}
-            {/* <div className="mt-5 grid max-w-[520px] grid-cols-2 gap-x-6 gap-y-3">
-              {benefits.map((benefit) => (
-                <div
-                  key={benefit.text}
-                  className="flex items-center gap-2.5"
-                >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center text-lg text-[#ff0a8a]">
-                    {benefit.icon}
-                  </span>
-
-                  <span className="text-[11px] font-medium leading-tight text-white sm:text-xs">
-                    {benefit.text}
+              {/* Sale Badge */}
+              {card.theme === "lime" && (
+                <div className="absolute right-3 top-3">
+                  <span className="inline-flex items-center rounded-full bg-[#ff0a8a] px-2.5 py-1 text-[18px] font-black uppercase tracking-[0.08em] text-white">
+                    20% OFF
                   </span>
                 </div>
-              ))}
-            </div> */}
-
-            {/* CTA Buttons */}
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/ponytails"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#ff0a8a] px-7 text-xs font-bold uppercase tracking-wide text-white transition-all duration-200 hover:scale-[1.03] hover:bg-[#ff2497]"
-              >
-                Shop Ponytails
-              </a>
-
-              <a
-                href="/team-orders"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#dfff00] px-7 text-xs font-bold uppercase tracking-wide text-black transition-all duration-200 hover:scale-[1.03] hover:bg-[#edff45]"
-              >
-                Shop for My Team
-              </a>
+              )}
             </div>
 
-            {/* Trusted By */}
-            <div className="mt-6">
-              <p className="mb-2 text-[12 px] font-bold uppercase font-holtwood tracking-[0.15em] text-white/60 font-holtwood">
-                Trusted by teams across the country
-              </p>
-
-              <div className="flex items-center gap-3">
-                {/* Replace these with actual team/customer images */}
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4, 5, 6, 11, 12, 13, 14].map((item) => (
-                    <div
-                      key={item}
-                      className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-black bg-white/10"
-                    >
-                      <Image
-                        src={`/teamsupport/teamsupport-${item}.jpg`}
-                        alt=""
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* <a
-                  href="#teams"
-                  className="text-[9px] font-bold uppercase tracking-wide text-[#dfff00] transition hover:text-white"
+            {/* CONTENT */}
+            <div
+              className={`flex min-h-[210px] flex-1 flex-col justify-between px-5 py-5 sm:min-h-[215px] sm:px-6 sm:py-5 ${
+                card.theme === "dark"
+                  ? "bg-[#181818] text-white"
+                  : card.theme === "pink"
+                    ? "bg-[#ff0a8a] text-white"
+                    : "bg-[#dfff00] text-black"
+              }`}
+            >
+              <div>
+                {/* Eyebrow */}
+                <p
+                  className={`mb-2 text-[8px] font-black uppercase tracking-[0.18em] ${
+                    card.theme === "lime"
+                      ? "text-black/60"
+                      : "text-white/65"
+                  }`}
                 >
-                  See the teams →
-                </a> */}
+                  {card.eyebrow}
+                </p>
+
+                {/* Heading */}
+                <h2 className="heading-font text-[25px] uppercase leading-[0.94] tracking-tight sm:text-[27px] lg:text-[29px]">
+                  {card.title}
+                </h2>
+
+                {/* Description */}
+                <p
+                  className={`mt-3 max-w-[360px] text-[14px] leading-[1.45] sm:text-sm ${
+                    card.theme === "lime"
+                      ? "text-black/75"
+                      : "text-white/80"
+                  }`}
+                >
+                  {card.description}
+                </p>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-5">
+                <a
+                  href={card.href}
+                  className={`inline-flex items-center gap-1.5 text-[14px] font-black uppercase tracking-[0.12em] transition-all duration-200 ${
+                    card.theme === "dark"
+                      ? "text-[#dfff00] hover:text-white"
+                      : card.theme === "pink"
+                        ? "text-white hover:text-black"
+                        : "text-black hover:text-[#ff0a8a]"
+                  }`}
+                >
+                  {card.button}
+                  <span className="text-xs leading-none transition-transform duration-200 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
               </div>
             </div>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
     </section>
   );
 }
+

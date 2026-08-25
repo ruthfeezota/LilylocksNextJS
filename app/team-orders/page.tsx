@@ -61,27 +61,51 @@ const ponytails = [
 const cheerBows = [
   {
     id: 1,
-    name: "Custom Team Glitter Cheer Bow",
-    subtitle:
-      "Premium competition bow personalized with your team colors and wording.",
+    handle: "classic-glitter",
+    name: "Classic Glitter",
+    subtitle: "A bold competition bow with premium glitter sparkle.",
     bestFor: "Competition",
-    price: "Custom",
     image: "/competition-cheer-bow.jpg",
     badge: "Best Seller",
-    rating: "5.0",
-    href: "https://lilylocksshop.square.site/product/custom-team-glitter-cheer-bow/DXOTKPZKB3DEH4X4Q5LR3L7B?cs=true&cst=custom",
   },
   {
     id: 2,
-    name: "Custom Collegiate Cheer Bow",
-    subtitle:
-      "Classic collegiate-style bow customized with team colors, mascot, athlete name, or school logo.",
-    bestFor: "Game Day",
-    price: "Custom",
+    handle: "collegiate",
+    name: "Collegiate",
+    subtitle: "A classic team bow customized with your school or mascot.",
+    bestFor: "School & Game Day",
     image: "/collegiate-cheer-bow.jpg",
+    badge: "Custom",
+  },
+  {
+    id: 3,
+    handle: "rhinestone",
+    name: "Rhinestone",
+    subtitle:
+      "Extra sparkle for teams that want maximum shine on the floor.",
+    bestFor: "Competition",
+    image: "/bows/rhinestone-cheer-bow.jpg",
     badge: "New",
-    rating: "5.0",
-    href: "https://lilylocksshop.square.site/product/custom-collegiate-cheer-bow/NBQF3GCPA4OCC24XPHWK2CSU?cs=true&cst=custom",
+  },
+  {
+    id: 4,
+    handle: "full-bling-ab-crystal",
+    name: "Full Bling AB Crystal Cheer Bow",
+    subtitle:
+      "A dimensional color blend designed to make your team stand out.",
+    bestFor: "Custom Teams",
+    image: "/bows/full-bling-ab-crystal-cheer-bow.jpg",
+    badge: "Statement",
+  },
+  {
+    id: 5,
+    handle: "personalized",
+    name: "Pointy Tail AB Crystal Cheer Bow",
+    subtitle:
+      "Add your team name, athlete name, mascot, or custom wording.",
+    bestFor: "Team Orders",
+    image: "/bows/pointy-tail-ab-crystal-cheer-bow.jpg",
+    badge: "New",
   },
 ];
 
@@ -227,6 +251,7 @@ export default function ShopPage() {
 
   const formTopRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const bowSuccessRef = useRef<HTMLDivElement>(null);
 
   const [form, setForm] = useState({
     teamName: "",
@@ -241,6 +266,23 @@ export default function ShopPage() {
     notes: "",
   });
 
+  const [bowSubmitted, setBowSubmitted] = useState(false);
+  const [isBowSubmitting, setIsBowSubmitting] = useState(false);
+
+  const [bowForm, setBowForm] = useState({
+    selectedBows: [] as string[],
+    quantities: {} as Record<string, string>,
+    teamName: "",
+    customerName: "",
+    email: "",
+    phone: "",
+    athleteCount: "",
+    teamColors: "",
+    personalization: "",
+    neededBy: "",
+    notes: "",
+  });
+
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveReview(
@@ -251,9 +293,6 @@ export default function ShopPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // After a successful submission, automatically bring the
-  // thank-you message into view so the user never has to scroll
-  // back down to find it.
   useEffect(() => {
     if (!submitted) return;
 
@@ -265,6 +304,17 @@ export default function ShopPage() {
     });
   }, [submitted]);
 
+  useEffect(() => {
+    if (!bowSubmitted) return;
+
+    requestAnimationFrame(() => {
+      bowSuccessRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }, [bowSubmitted]);
+
   const updateForm = (
     field: keyof typeof form,
     value: string
@@ -273,6 +323,146 @@ export default function ShopPage() {
       ...current,
       [field]: value,
     }));
+  };
+
+  const updateBowForm = (
+    field: keyof typeof bowForm,
+    value: string | string[] | Record<string, string>
+  ) => {
+    setBowForm((current) => ({
+      ...current,
+      [field]: value,
+    }));
+  };
+
+  const toggleBow = (handle: string) => {
+    setBowForm((current) => {
+      const alreadySelected =
+        current.selectedBows.includes(handle);
+
+      if (alreadySelected) {
+        const {
+          [handle]: _removedQuantity,
+          ...remainingQuantities
+        } = current.quantities;
+
+        return {
+          ...current,
+          selectedBows: current.selectedBows.filter(
+            (bow) => bow !== handle
+          ),
+          quantities: remainingQuantities,
+        };
+      }
+
+      return {
+        ...current,
+        selectedBows: [
+          ...current.selectedBows,
+          handle,
+        ],
+        quantities: {
+          ...current.quantities,
+          [handle]: "1",
+        },
+      };
+    });
+  };
+
+  const handleBowSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    if (bowForm.selectedBows.length === 0) {
+      alert("Please select at least one bow style.");
+      return;
+    }
+
+    setIsBowSubmitting(true);
+
+    try {
+      const serviceId =
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+
+      const templateId =
+        process.env.NEXT_PUBLIC_EMAILJS_BOW_TEMPLATE_ID;
+
+      const publicKey =
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          "EmailJS bow form environment variables are missing."
+        );
+      }
+
+      const selectedBowDetails = bowForm.selectedBows
+        .map((handle) => {
+          const bow = cheerBows.find(
+            (item) => item.handle === handle
+          );
+
+          if (!bow) return "";
+
+          const quantity =
+            bowForm.quantities[handle] || "1";
+
+          return `${bow.name} — ${quantity} bow(s)`;
+        })
+        .filter(Boolean)
+        .join("\n");
+
+      const templateParams = {
+        bow_styles: selectedBowDetails,
+        team_name: bowForm.teamName,
+        customer_name: bowForm.customerName,
+        email: bowForm.email,
+        phone: bowForm.phone,
+        athlete_count: bowForm.athleteCount,
+        team_colors: bowForm.teamColors,
+        personalization: bowForm.personalization,
+        needed_by: bowForm.neededBy,
+        notes: bowForm.notes,
+      };
+
+      console.log(
+        "Sending LilyLocks cheer bow request:",
+        templateParams
+      );
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        {
+          publicKey,
+        }
+      );
+
+      setBowSubmitted(true);
+    } catch (error: any) {
+      console.error(
+        "========== BOW EMAILJS ERROR =========="
+      );
+      console.error("Status:", error?.status);
+      console.error("Text:", error?.text);
+      console.error("Message:", error?.message);
+      console.error("Full error:", error);
+      console.error(
+        "======================================"
+      );
+
+      alert(
+        `We couldn't submit your bow request.\n\n${
+          error?.text ||
+          error?.message ||
+          "Please try again."
+        }`
+      );
+    } finally {
+      setIsBowSubmitting(false);
+    }
   };
 
   /*
@@ -315,15 +505,20 @@ export default function ShopPage() {
    * NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
    * NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
    */
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
     setIsSubmitting(true);
 
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      const serviceId =
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId =
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey =
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
       if (!serviceId || !templateId || !publicKey) {
         throw new Error(
@@ -339,7 +534,8 @@ export default function ShopPage() {
         phone: form.phone,
         ponytail_level: form.level,
         team_colors: form.teamColors,
-        competition_deadline: form.competitionDeadline,
+        competition_deadline:
+          form.competitionDeadline,
         ordering_method: form.orderingMethod,
         notes: form.notes,
       };
@@ -396,11 +592,6 @@ export default function ShopPage() {
 
       <section className="relative min-h-[88vh] overflow-hidden">
 
-        {/*
-          The hero image is intentionally oversized slightly so any
-          built-in black edges/padding in the source photo are cropped
-          out. The section itself remains full-bleed.
-        */}
         <div className="absolute -inset-[4%]">
           <Image
             src="/Bulidforteams/Lilylocks_Teams6.jpg"
@@ -445,15 +636,15 @@ export default function ShopPage() {
                 href="/team-orders#team-order"
                 className="inline-flex items-center gap-3 rounded-full bg-[#ff0a8a] px-8 py-4 text-lg font-bold transition hover:scale-105"
               >
-                Start A Team Order
+                Start A Team Ponytail Order
                 <ArrowRight size={20} />
               </Link>
 
               <Link
-                href="#ponytails"
+                href="/team-orders#cheer-bows-team-orders"
                 className="rounded-full bg-white px-8 py-4 text-lg font-bold text-black transition hover:scale-105"
               >
-                Shop Ponytails
+                Start A Team Cheer Bow Order
               </Link>
 
             </div>
@@ -489,7 +680,6 @@ export default function ShopPage() {
           </div>
 
         </div>
-
       </section>
 
 
@@ -507,11 +697,11 @@ export default function ShopPage() {
           <div className="mx-auto max-w-3xl text-center">
 
             <p className="heading-font text-sm uppercase tracking-[0.3em] text-[#E8FF00]">
-              The LilyLocks Team Order Machine
+              The LilyLocks Team Order
             </p>
 
             <h2 className="heading-font mt-4 text-5xl uppercase leading-tight md:text-7xl">
-              Start A Team Order
+              Start A Team Ponytail Order
             </h2>
 
             <p className="mt-6 text-lg leading-relaxed text-white/90 md:text-xl">
@@ -611,10 +801,6 @@ export default function ShopPage() {
           <div className="mx-auto mt-8 max-w-5xl">
 
             {submitted ? (
-
-              /* =================================================
-                 SUCCESS STATE
-              ================================================= */
 
               <div
                 ref={successRef}
@@ -749,8 +935,6 @@ export default function ShopPage() {
                       <div className="mt-10 grid gap-6 md:grid-cols-2">
 
 
-                        {/* TEAM NAME */}
-
                         <label className="md:col-span-2">
 
                           <span className="mb-2 block text-sm font-semibold text-white">
@@ -773,8 +957,6 @@ export default function ShopPage() {
 
                         </label>
 
-
-                        {/* ATHLETE COUNT */}
 
                         <label>
 
@@ -801,8 +983,6 @@ export default function ShopPage() {
                         </label>
 
 
-                        {/* COACH */}
-
                         <label>
 
                           <span className="mb-2 block text-sm font-semibold text-white">
@@ -825,8 +1005,6 @@ export default function ShopPage() {
 
                         </label>
 
-
-                        {/* EMAIL */}
 
                         <label>
 
@@ -851,8 +1029,6 @@ export default function ShopPage() {
 
                         </label>
 
-
-                        {/* PHONE */}
 
                         <label>
 
@@ -905,16 +1081,12 @@ export default function ShopPage() {
                       </p>
 
 
-                      {/* Hidden EmailJS field for ponytail */}
-
                       <input
                         type="hidden"
                         name="ponytail_level"
                         value={form.level}
                       />
 
-
-                      {/* PONYTAIL OPTIONS */}
 
                       <div className="mt-10 grid gap-5 md:grid-cols-3">
 
@@ -1011,8 +1183,6 @@ export default function ShopPage() {
                       </div>
 
 
-                      {/* TEAM COLORS */}
-
                       <label className="mt-8 block">
 
                         <span className="mb-2 block text-sm font-semibold text-white">
@@ -1036,8 +1206,6 @@ export default function ShopPage() {
 
                       </label>
 
-
-                      {/* COLOR NOTE */}
 
                       <div className="mt-6 rounded-3xl border border-[#E8FF00]/20 bg-[#E8FF00]/5 p-6">
 
@@ -1093,8 +1261,6 @@ export default function ShopPage() {
                       </p>
 
 
-                      {/* DEADLINE */}
-
                       <label className="mt-10 block">
 
                         <span className="mb-2 block text-sm font-semibold text-white">
@@ -1129,8 +1295,6 @@ export default function ShopPage() {
                       </label>
 
 
-                      {/* ORDERING METHOD */}
-
                       <div className="mt-8">
 
                         <h4 className="text-sm font-semibold text-white">
@@ -1143,8 +1307,6 @@ export default function ShopPage() {
                         </p>
 
 
-                        {/* Hidden EmailJS field */}
-
                         <input
                           type="hidden"
                           name="ordering_method"
@@ -1154,8 +1316,6 @@ export default function ShopPage() {
 
                         <div className="mt-5 grid gap-5 md:grid-cols-2">
 
-
-                          {/* COACH ORDERS */}
 
                           <button
                             type="button"
@@ -1203,8 +1363,6 @@ export default function ShopPage() {
 
                           </button>
 
-
-                          {/* PARENTS ORDER */}
 
                           <button
                             type="button"
@@ -1257,8 +1415,6 @@ export default function ShopPage() {
                       </div>
 
 
-                      {/* NOTES */}
-
                       <label className="mt-8 block">
 
                         <span className="mb-2 block text-sm font-semibold text-white">
@@ -1281,8 +1437,6 @@ export default function ShopPage() {
 
                       </label>
 
-
-                      {/* WHAT HAPPENS NEXT */}
 
                       <div className="mt-7 rounded-3xl bg-[#E8FF00]/10 p-6">
 
@@ -1385,60 +1539,69 @@ export default function ShopPage() {
 
       </section>
 
+{/* =========================================================
+    SHOP BY NEED
+========================================================= */}
 
-      {/* =========================================================
-          SHOP BY NEED
-      ========================================================= */}
+<section className="bg-black px-6 py-24">
 
-      <section className="bg-black px-6 py-24">
+  <div className="mx-auto max-w-7xl">
 
-        <div className="mx-auto max-w-7xl">
+    <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
+      Shop By Need
+    </h2>
 
-          <h2 className="heading-font text-center text-4xl uppercase md:text-6xl">
-            Shop By Need
-          </h2>
+    <div className="mt-14 grid gap-8 md:grid-cols-3">
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+      {[
+        {
+          title: "Competition",
+          text: "Competition-ready cheer accessories designed to complete your team's look.",
+          href: "/team-orders/shop-by-need#competition-teams",
+        },
+        {
+          title: "High School Teams",
+          text: "Team accessories for high school programs, game day, performances, and competition.",
+          href: "/team-orders/shop-by-need#high-school-teams",
+        },
+        {
+          title: "Cheer Gyms Bulk Orders",
+          text: "Bulk cheer accessories for gyms, programs, and teams ordering for multiple athletes.",
+          href: "/team-orders/shop-by-need#cheer-gyms",
+        },
+      ].map((item) => (
 
-            {[
-              {
-                title: "Sporty Ponytails",
-                text: "Lightweight styles built for training, youth, and everyday wear.",
-                
-              },
-              {
-                title: "Competition Ponytails",
-                text: "Fuller density built for movement, volume, and impact.",
-              },
-              {
-                title: "Big Statements",
-                text: "High-volume premium looks made to stand out.",
-              },
-            ].map((item) => (
+        <Link
+          key={item.title}
+          href={item.href}
+          className="group rounded-[36px] border border-white/10 bg-white/5 p-10 transition duration-300 hover:-translate-y-1 hover:border-[#ff0a8a] hover:bg-white/10"
+        >
 
-              <div
-                key={item.title}
-                className="rounded-[36px] border border-white/10 bg-white/5 p-10"
-              >
+          <h3 className="heading-font text-3xl uppercase text-[#E8FF00] transition group-hover:text-[#ff0a8a]">
+            {item.title}
+          </h3>
 
-                <h3 className="heading-font text-3xl uppercase text-[#E8FF00]">
-                  {item.title}
-                </h3>
+          <p className="mt-5 text-lg leading-relaxed text-white/80">
+            {item.text}
+          </p>
 
-                <p className="mt-5 text-lg leading-relaxed text-white/80">
-                  {item.text}
-                </p>
-
-              </div>
-
-            ))}
-
+          <div className="mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white transition group-hover:text-[#E8FF00]">
+            Shop Now
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
           </div>
 
-        </div>
+        </Link>
 
-      </section>
+      ))}
 
+    </div>
+
+  </div>
+
+</section>
 
       {/* =========================================================
           PONYTAILS
@@ -1521,6 +1684,7 @@ export default function ShopPage() {
                     />
 
                     <span>{product.rating}</span>
+
                     <span>
                       ({product.reviews} reviews)
                     </span>
@@ -1557,11 +1721,13 @@ export default function ShopPage() {
       ========================================================= */}
 
       <section
-        className="bg-black px-6 py-24"
-        id="cheer-bows"
+        className="bg-black px-6 py-24 mt-6"
+        id="cheer-bows-team-orders"
       >
 
         <div className="mx-auto max-w-7xl">
+
+          {/* SECTION HEADER */}
 
           <div className="mb-16 text-center">
 
@@ -1574,81 +1740,524 @@ export default function ShopPage() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-lg text-white/85 md:text-xl">
-              Custom cheer bows designed to coordinate with
-              your ponytail, team colors, mascot, school, or
-              athlete name.
+              Choose your bow style, tell us about your team,
+              and we'll help create the perfect bows for your
+              competition look.
             </p>
 
           </div>
 
 
-          <div className="grid gap-10 md:grid-cols-2">
+          {bowSubmitted ? (
 
-            {cheerBows.map((product) => (
+            <div
+              ref={bowSuccessRef}
+              className="scroll-mt-8 mx-auto max-w-4xl rounded-[40px] bg-[#0052cc] p-10 text-center md:p-20"
+            >
 
-              <div
-                key={product.id}
-                className="group overflow-hidden rounded-[40px] bg-[#0052cc]"
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#E8FF00] text-black">
+                <Check size={40} />
+              </div>
+
+              <p className="mt-8 text-sm uppercase tracking-[0.25em] text-[#ff0a8a]">
+                Request Received
+              </p>
+
+              <h3 className="heading-font mt-3 text-4xl uppercase md:text-6xl">
+                Your Bow Request Is In
+              </h3>
+
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+                Thank you! LilyLocks has received your cheer bow
+                request. We'll review your styles, quantities,
+                colors, and personalization details and follow up
+                with your quote.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setBowSubmitted(false);
+
+                  setBowForm({
+                    selectedBows: [],
+                    quantities: {},
+                    teamName: "",
+                    customerName: "",
+                    email: "",
+                    phone: "",
+                    athleteCount: "",
+                    teamColors: "",
+                    personalization: "",
+                    neededBy: "",
+                    notes: "",
+                  });
+                }}
+                className="mt-10 rounded-full bg-[#ff0a8a] px-8 py-4 font-bold transition hover:scale-[1.02]"
               >
+                Submit Another Bow Request
+              </button>
 
-                <div className="relative h-[520px] overflow-hidden">
+            </div>
 
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
+          ) : (
 
-                  <span className="absolute left-5 top-5 rounded-full bg-[#E8FF00] px-4 py-2 text-xs font-bold uppercase text-black">
-                    {product.badge}
-                  </span>
+            <form
+              onSubmit={handleBowSubmit}
+              className="mx-auto max-w-6xl overflow-hidden rounded-[40px] bg-[#0052cc]"
+            >
+
+              <div className="p-6 md:p-12">
+
+                {/* =================================================
+                    BOW SELECTION
+                ================================================= */}
+
+                <div>
+
+                  <p className="text-sm uppercase tracking-[0.2em] text-[#E8FF00]">
+                    01 • Choose Your Bow
+                  </p>
+
+                  <h3 className="heading-font mt-3 text-4xl uppercase text-white md:text-6xl">
+                    Pick Your Styles
+                  </h3>
+
+                  <p className="mt-4 max-w-2xl text-white/80">
+                    Select one or multiple bow styles for your team.
+                    You can choose the quantity for each style after
+                    selecting it.
+                  </p>
 
                 </div>
 
 
-                <div className="p-8">
+                {/* BOW CARDS */}
 
-                  <h3 className="heading-font text-3xl uppercase text-white">
-                    {product.name}
-                  </h3>
+                <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
-                  <p className="mt-3 text-white/85">
-                    {product.subtitle}
+                  {cheerBows.map((product) => {
+
+                    const selected =
+                      bowForm.selectedBows.includes(
+                        product.handle
+                      );
+
+                    return (
+
+                      <div
+                        key={product.handle}
+                        className={`overflow-hidden rounded-[28px] border-2 transition ${
+                          selected
+                            ? "border-[#E8FF00] bg-[#E8FF00]/10"
+                            : "border-white/10 bg-black/20 hover:border-white/30"
+                        }`}
+                      >
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            toggleBow(product.handle)
+                          }
+                          className="block w-full text-left"
+                        >
+
+                          <div className="relative h-64 overflow-hidden">
+
+                            <Image
+                              src={product.image}
+                              alt={product.name}
+                              fill
+                              className="object-cover transition duration-500 hover:scale-105"
+                            />
+
+                            <span className="absolute left-4 top-4 rounded-full bg-[#E8FF00] px-3 py-1.5 text-xs font-bold uppercase text-black">
+                              {product.badge}
+                            </span>
+
+                            {selected && (
+
+                              <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#E8FF00] text-black">
+                                <Check size={20} />
+                              </div>
+
+                            )}
+
+                          </div>
+
+
+                          <div className="p-6">
+
+                            <p className="text-xs font-bold uppercase tracking-wider text-[#ff0a8a]">
+                              {product.bestFor}
+                            </p>
+
+                            <h4 className="heading-font mt-2 text-3xl uppercase text-white">
+                              {product.name}
+                            </h4>
+
+                            <p className="mt-3 text-sm leading-relaxed text-white/75">
+                              {product.subtitle}
+                            </p>
+
+                          </div>
+
+                        </button>
+
+
+                        {selected && (
+
+                          <div className="border-t border-white/10 px-6 pb-6 pt-5">
+
+                            <label className="block">
+
+                              <span className="mb-2 block text-sm font-semibold text-white">
+                                Quantity
+                              </span>
+
+                              <input
+                                type="number"
+                                min="1"
+                                required
+                                value={
+                                  bowForm.quantities[
+                                    product.handle
+                                  ] || "1"
+                                }
+                                onChange={(e) =>
+                                  setBowForm((current) => ({
+                                    ...current,
+                                    quantities: {
+                                      ...current.quantities,
+                                      [product.handle]:
+                                        e.target.value,
+                                    },
+                                  }))
+                                }
+                                className="w-full rounded-2xl border border-white/15 bg-[#111111] px-5 py-3 text-white outline-none transition focus:border-[#ff0a8a]"
+                              />
+
+                            </label>
+
+                          </div>
+
+                        )}
+
+                      </div>
+
+                    );
+
+                  })}
+
+                </div>
+
+
+                {/* =================================================
+                    TEAM INFORMATION
+                ================================================= */}
+
+                <div className="mt-14 border-t border-white/10 pt-12">
+
+                  <p className="text-sm uppercase tracking-[0.2em] text-[#E8FF00]">
+                    02 • Team Information
                   </p>
 
-                  <div className="mt-5 flex items-center gap-2 text-sm text-white/80">
+                  <h3 className="heading-font mt-3 text-4xl uppercase text-white md:text-5xl">
+                    Tell Us About Your Team
+                  </h3>
 
-                    <Star
-                      size={16}
-                      className="fill-[#E8FF00] text-[#E8FF00]"
-                    />
 
-                    {product.rating}
+                  <div className="mt-8 grid gap-6 md:grid-cols-2">
+
+                    <label>
+
+                      <span className="mb-2 block text-sm font-semibold text-white">
+                        Team Name *
+                      </span>
+
+                      <input
+                        required
+                        value={bowForm.teamName}
+                        onChange={(e) =>
+                          updateBowForm(
+                            "teamName",
+                            e.target.value
+                          )
+                        }
+                        placeholder="Example: North Texas Elite"
+                        className="w-full rounded-2xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                      />
+
+                    </label>
+
+
+                    <label>
+
+                      <span className="mb-2 block text-sm font-semibold text-white">
+                        Number of Athletes *
+                      </span>
+
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        value={bowForm.athleteCount}
+                        onChange={(e) =>
+                          updateBowForm(
+                            "athleteCount",
+                            e.target.value
+                          )
+                        }
+                        placeholder="Example: 24"
+                        className="w-full rounded-2xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                      />
+
+                    </label>
+
+
+                    <label>
+
+                      <span className="mb-2 block text-sm font-semibold text-white">
+                        Your Name *
+                      </span>
+
+                      <input
+                        required
+                        value={bowForm.customerName}
+                        onChange={(e) =>
+                          updateBowForm(
+                            "customerName",
+                            e.target.value
+                          )
+                        }
+                        placeholder="Coach, parent, or team contact"
+                        className="w-full rounded-2xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                      />
+
+                    </label>
+
+
+                    <label>
+
+                      <span className="mb-2 block text-sm font-semibold text-white">
+                        Email *
+                      </span>
+
+                      <input
+                        required
+                        type="email"
+                        value={bowForm.email}
+                        onChange={(e) =>
+                          updateBowForm(
+                            "email",
+                            e.target.value
+                          )
+                        }
+                        placeholder="coach@example.com"
+                        className="w-full rounded-2xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                      />
+
+                    </label>
+
+
+                    <label>
+
+                      <span className="mb-2 block text-sm font-semibold text-white">
+                        Phone
+                      </span>
+
+                      <input
+                        type="tel"
+                        value={bowForm.phone}
+                        onChange={(e) =>
+                          updateBowForm(
+                            "phone",
+                            e.target.value
+                          )
+                        }
+                        placeholder="(555) 555-5555"
+                        className="w-full rounded-2xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                      />
+
+                    </label>
+
+
+                    <label>
+
+                      <span className="mb-2 block text-sm font-semibold text-white">
+                        Needed-By Date *
+                      </span>
+
+                      <input
+                        required
+                        type="date"
+                        value={bowForm.neededBy}
+                        onChange={(e) =>
+                          updateBowForm(
+                            "neededBy",
+                            e.target.value
+                          )
+                        }
+                        className="w-full rounded-2xl border border-white/15 bg-[#111111] px-5 py-4 text-white outline-none transition focus:border-[#ff0a8a]"
+                      />
+
+                    </label>
 
                   </div>
 
-                  <p className="mt-5 font-semibold text-[#E8FF00]">
-                    Best For: {product.bestFor}
+
+                  {/* <label className="mt-6 block">
+
+                    <span className="mb-2 block text-sm font-semibold text-white">
+                      Team Colors *
+                    </span>
+
+                    <textarea
+                      required
+                      rows={3}
+                      value={bowForm.teamColors}
+                      onChange={(e) =>
+                        updateBowForm(
+                          "teamColors",
+                          e.target.value
+                        )
+                      }
+                      placeholder="Example: Royal blue, neon pink, white and silver glitter"
+                      className="w-full rounded-3xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                    />
+
+                  </label> */}
+
+                </div>
+
+
+                {/* =================================================
+                    CUSTOMIZATION
+                ================================================= */}
+
+                <div className="mt-14 border-t border-white/10 pt-12">
+
+                  <p className="text-sm uppercase tracking-[0.2em] text-[#E8FF00]">
+                    03 • Customization
                   </p>
 
-                  <Link
-                    href={product.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-8 flex items-center justify-center gap-2 rounded-full bg-[#ff0a8a] py-4 font-bold transition hover:scale-[1.02]"
+                  <h3 className="heading-font mt-3 text-4xl uppercase text-white md:text-5xl">
+                    Make It Yours
+                  </h3>
+
+
+                  <label className="mt-8 block">
+
+                    <span className="mb-2 block text-sm font-semibold text-white">
+                      What Should Be On The Bow?
+                    </span>
+
+                    <textarea
+                      rows={4}
+                      value={bowForm.personalization}
+                      onChange={(e) =>
+                        updateBowForm(
+                          "personalization",
+                          e.target.value
+                        )
+                      }
+                      placeholder="Team name, mascot, athlete name, school, logo, wording, rhinestones, etc."
+                      className="w-full rounded-3xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                    />
+
+                  </label>
+
+
+                  {/* <label className="mt-6 block">
+
+                    <span className="mb-2 block text-sm font-semibold text-white">
+                      Anything Else We Should Know?
+                    </span>
+
+                    <textarea
+                      rows={4}
+                      value={bowForm.notes}
+                      onChange={(e) =>
+                        updateBowForm(
+                          "notes",
+                          e.target.value
+                        )
+                      }
+                      placeholder="Special requirements, competition dates, design ideas, or other details."
+                      className="w-full rounded-3xl border border-white/15 bg-[#111111] px-5 py-4 text-white placeholder:text-white/40 outline-none transition focus:border-[#ff0a8a]"
+                    />
+
+                  </label> */}
+
+                </div>
+
+
+                {/* =================================================
+                    WHAT HAPPENS NEXT
+                ================================================= */}
+
+                <div className="mt-10 rounded-3xl bg-[#E8FF00]/10 p-6">
+
+                  <div className="flex gap-4">
+
+                    <Sparkles
+                      size={24}
+                      className="shrink-0 text-[#E8FF00]"
+                    />
+
+                    <div>
+
+                      <h4 className="font-bold text-[#E8FF00]">
+                        What happens next?
+                      </h4>
+
+                      <p className="mt-2 text-sm leading-relaxed text-white/75">
+                        We'll review your selected bows, quantities,
+                        team colors, personalization, and deadline,
+                        then contact you with pricing and next steps.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                {/* =================================================
+                    SUBMIT
+                ================================================= */}
+
+                <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 sm:flex-row">
+
+                  <p className="text-sm text-white/60">
+                    Select at least one bow style to submit your request.
+                  </p>
+
+                  <button
+                    type="submit"
+                    disabled={isBowSubmitting}
+                    className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#E8FF00] px-9 py-4 font-bold text-black transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                   >
-                    Customize Your Bow
-                    <ArrowRight size={18} />
-                  </Link>
+
+                    {isBowSubmitting ? (
+                      "Sending Request..."
+                    ) : (
+                      <>
+                        Request My Bow Quote
+                        <Send size={18} />
+                      </>
+                    )}
+
+                  </button>
 
                 </div>
 
               </div>
 
-            ))}
+            </form>
 
-          </div>
+          )}
 
         </div>
 
@@ -1829,15 +2438,20 @@ export default function ShopPage() {
             we'll help you find the closest match.
           </p>
 
+
           {/* SHADE SWATCHES */}
+
           <div className="mx-auto mt-12 grid max-w-5xl grid-cols-5 gap-x-4 gap-y-8 sm:grid-cols-5 md:gap-x-8">
 
             {shades.map((shade) => (
+
               <div
                 key={shade.name}
                 className="flex flex-col items-center"
               >
+
                 <div className="relative h-16 w-16 overflow-hidden rounded-full border-4 border-black/15 bg-white shadow-lg transition duration-300 hover:scale-110 sm:h-20 sm:w-20">
+
                   <Image
                     src={shade.image}
                     alt={`${shade.name} LilyLocks hair color`}
@@ -1845,21 +2459,25 @@ export default function ShopPage() {
                     sizes="80px"
                     className="object-cover"
                   />
+
                 </div>
 
                 <p className="mt-3 text-xs font-bold leading-tight sm:text-sm">
                   {shade.name}
                 </p>
+
               </div>
+
             ))}
 
           </div>
 
+
           <Link
-            href="#team-order-machine"
+            href="/color-match"
             className="mt-12 inline-flex items-center gap-3 rounded-full bg-black px-10 py-4 text-lg font-bold text-white transition hover:scale-105"
           >
-            Tell Us Your Team Colors
+           Match Your Team Colors
             <ArrowRight size={18} />
           </Link>
 

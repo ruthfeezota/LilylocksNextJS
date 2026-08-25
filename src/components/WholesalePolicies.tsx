@@ -42,7 +42,7 @@ export default function WholesalePolicies() {
   ];
 
   return (
-    <section className="bg-black px-6 py-24 text-white">
+    <section className="bg-black px-6 py-24 text-white" id="wholesale-policies">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
           <p className="mb-4 uppercase tracking-[0.25em] text-[#E8FF00]">

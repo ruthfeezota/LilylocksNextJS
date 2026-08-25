@@ -16,11 +16,15 @@ export default function Home() {
     <main>
 
       <Hero/>
-      <ShopByNeed/>
+       <BestSellers/>
+        {/* <ShopByNeed/> */}
+
       <PerformanceSection/>
-      <BestSellers/>
+     
       <TeamPackages/>
       <PartnershipProgram/>
+
+     
       {/* <VideoShowcase/> */}
       <Testimonials/>
       <FinalCTA/>

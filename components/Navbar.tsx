@@ -13,13 +13,14 @@ const navLinks = [
     href: "/ponytails",
   },
   {
-    label: "Team Orders",
-    href: "/team-orders",
-  },
-  {
     label: "Team Cheer Bows",
     href: "/cheer-bows",
   },
+  {
+    label: "Team Orders",
+    href: "/team-orders",
+  },
+
   {
     label: "Color Matching",
     href: "/color-match",
@@ -108,7 +109,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <Link
-              href="/team-partnership/#team-order"
+              href="/team-orders#team-order"
               target="_blank"
               rel="noopener noreferrer"
               className="

@@ -5,7 +5,7 @@ export default function FinalCTA() {
     <section className="relative overflow-hidden py-24 text-white sm:py-28">
       {/* Background Image */}
       <Image
-        src="/Bulidforteams/Lilylocks_Teams2.jpg"
+        src="/Hero-New-Cheer.jpg"
         alt="Cheer team wearing LilyLocks competition accessories"
         fill
         className="object-cover"
@@ -13,7 +13,7 @@ export default function FinalCTA() {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[560px] max-w-6xl flex-col items-center justify-center px-6 text-center">
