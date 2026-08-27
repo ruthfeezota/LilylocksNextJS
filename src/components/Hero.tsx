@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 const featuredCards = [
@@ -23,24 +22,21 @@ const featuredCards = [
     imagePosition: "object-[62%_center]",
   },
   {
-    image: "/bows/full-bling-ab-crystal-cheer-bow.jpg",
-    imageAlt: "LilyLocks rhinestone cheer bow",
-    eyebrow: "CHEER BOWS",
+    image: "/team-cheer-bows/Teamcheerbows3.jpeg",
+    imageAlt: "Custom LilyLocks team glitter cheer bow",
+    eyebrow: "CUSTOM TEAM BOWS",
     title: (
       <>
-        Finish Your
-        <br />
-        Competition
-        <br />
-        Look.
+        {" "}
+        Custom Team <br /> Bows Starting <br /> at $7.99.{" "}
       </>
     ),
     description:
-      "Statement bows designed to bring your team's colors and personality to the mat.",
-    button: "Shop Cheer Bows",
-    href: "/cheer-bows",
-    theme: "pink",
-    imagePosition: "object-contain",
+      "Custom team cheer bows at special sale pricing. Choose your colors, personalize your design, and outfit your whole team.",
+    button: "Shop the Bow Sale",
+    href: "/team-cheer-bow-sale",
+    theme: "lime",
+    imagePosition: "object-cover",
   },
   {
     image: "/Bulidforteams/Lilylocks_Teams6.jpg",
@@ -59,7 +55,7 @@ const featuredCards = [
       "Get competition-ready for the new season with 20% off select LilyLocks styles.",
     button: "Shop the Sale",
     href: "https://lilylocksshop.square.site/sale",
-    theme: "lime",
+    theme: "pink",
     imagePosition: "object-top",
   },
 ];
@@ -68,7 +64,6 @@ export default function Hero() {
   return (
     <section className="w-full bg-black px-3 py-3 sm:px-4 sm:py-4">
       <div className="mx-auto grid max-w-[1350px] grid-cols-1 gap-2.5 md:grid-cols-3">
-
         {featuredCards.map((card) => (
           <article
             key={card.eyebrow}
@@ -93,10 +88,18 @@ export default function Hero() {
               </div> */}
 
               {/* Sale Badge */}
-              {card.theme === "lime" && (
+              {card.theme === "pink" && (
                 <div className="absolute right-3 top-3">
                   <span className="inline-flex items-center rounded-full bg-[#ff0a8a] px-2.5 py-1 text-[18px] font-black uppercase tracking-[0.08em] text-white">
                     20% OFF
+                  </span>
+                </div>
+              )}
+              {/* Sale Badge */}
+              {card.theme === "lime" && (
+                <div className="absolute right-3 top-3">
+                  <span className="inline-flex items-center rounded-full bg-[#ff0a8a] px-2.5 py-1 text-[18px] font-black uppercase tracking-[0.08em] text-white">
+                    FAST SHIPPING
                   </span>
                 </div>
               )}
@@ -116,9 +119,7 @@ export default function Hero() {
                 {/* Eyebrow */}
                 <p
                   className={`mb-2 text-[8px] font-black uppercase tracking-[0.18em] ${
-                    card.theme === "lime"
-                      ? "text-black/60"
-                      : "text-white/65"
+                    card.theme === "lime" ? "text-black/60" : "text-white/65"
                   }`}
                 >
                   {card.eyebrow}
@@ -132,9 +133,7 @@ export default function Hero() {
                 {/* Description */}
                 <p
                   className={`mt-3 max-w-[360px] text-[14px] leading-[1.45] sm:text-sm ${
-                    card.theme === "lime"
-                      ? "text-black/75"
-                      : "text-white/80"
+                    card.theme === "lime" ? "text-black/75" : "text-white/80"
                   }`}
                 >
                   {card.description}
@@ -166,4 +165,3 @@ export default function Hero() {
     </section>
   );
 }
-

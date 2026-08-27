@@ -1,5 +1,6 @@
 import BestSellers from "@/src/components/BestSellers";
 import ColorMatching from "@/src/components/ColorMatching";
+import CustomTeamBowSale from "@/src/components/CustomTeamBowSale";
 import FinalCTA from "@/src/components/FinalCTA";
 import Hero from "@/src/components/Hero";
 import PartnershipProgram from "@/src/components/PartnershipProgram";
@@ -17,6 +18,7 @@ export default function Home() {
 
       <Hero/>
        <BestSellers/>
+       <CustomTeamBowSale/>
         {/* <ShopByNeed/> */}
 
       <PerformanceSection/>
