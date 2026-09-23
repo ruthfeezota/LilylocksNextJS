@@ -1,5 +1,3 @@
-// components/LilyLocksPopup.tsx
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -19,27 +17,31 @@ export default function LilyLocksPopup() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    const lastShown =
-      localStorage.getItem("LilyLocksPopupDate");
+    // Check if device is mobile
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
 
+    // Never run popup logic on mobile
+    if (mobileQuery.matches) {
+      return;
+    }
+
+    const lastShown = localStorage.getItem("LilyLocksPopupDate");
     const today = new Date().toDateString();
 
     if (lastShown !== today) {
       const timer = setTimeout(() => {
-        setShowPopup(true);
-        localStorage.setItem(
-          "LilyLocksPopupDate",
-          today
-        );
+        // Double-check before displaying
+        if (!window.matchMedia("(max-width: 767px)").matches) {
+          setShowPopup(true);
+          localStorage.setItem("LilyLocksPopupDate", today);
+        }
       }, 5000);
 
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleSubmit = async (
-    e: React.FormEvent
-  ) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formRef.current) return;
@@ -68,13 +70,14 @@ export default function LilyLocksPopup() {
   if (!showPopup) return null;
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-4">
+    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-4 max-md:hidden">
       <div className="relative w-full max-w-4xl overflow-hidden rounded-[40px] bg-black shadow-2xl">
 
         {/* Close */}
         <button
           onClick={() => setShowPopup(false)}
           className="absolute right-4 top-4 z-20 text-white transition hover:text-[#ff0a8a]"
+          aria-label="Close popup"
         >
           <X size={28} />
         </button>
@@ -104,8 +107,8 @@ export default function LilyLocksPopup() {
             </h2>
 
             <p className="mt-4 text-base leading-relaxed text-white/80">
-              Join the LilyLocks VIP list and get
-              15% OFF your first competition-ready ponytail.
+              Join the LilyLocks VIP list and get 15% OFF your first
+              competition-ready ponytail.
             </p>
 
             <div className="mt-5 space-y-2 text-sm text-white">
@@ -117,8 +120,7 @@ export default function LilyLocksPopup() {
 
             {submitted ? (
               <div className="mt-6 rounded-[24px] bg-[#E8FF00] p-5 text-center font-bold text-black">
-                🎉 You&#39;re in! Check your inbox for your 
-                discount code.
+                🎉 You&apos;re in! Check your inbox for your discount code.
               </div>
             ) : (
               <form
@@ -147,9 +149,7 @@ export default function LilyLocksPopup() {
                   disabled={isSending}
                   className="w-full rounded-full bg-[#E8FF00] px-6 py-4 text-base font-bold text-black transition hover:scale-[1.02] disabled:opacity-60"
                 >
-                  {isSending
-                    ? "JOINING..."
-                    : "GET MY 15% OFF"}
+                  {isSending ? "JOINING..." : "GET MY 15% OFF"}
                 </button>
               </form>
             )}

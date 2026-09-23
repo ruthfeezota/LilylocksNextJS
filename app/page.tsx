@@ -14,23 +14,17 @@ import VideoShowcase from "@/src/components/VideoShowcase";
 
 export default function Home() {
   return (
-    <main>
-
-      <Hero/>
-       <BestSellers/>
-       <CustomTeamBowSale/>
-        {/* <ShopByNeed/> */}
-
-      <PerformanceSection/>
-     
-      <TeamPackages/>
-      <PartnershipProgram/>
-
-     
-      {/* <VideoShowcase/> */}
-      <Testimonials/>
-      <FinalCTA/>
-      <TeamGallery/>
+    <main className="w-full max-w-[100vw] min-w-0 overflow-x-hidden">
+      <Hero />
+      <BestSellers />
+      {/* <ShopByNeed /> */}
+      <PerformanceSection />
+      <TeamPackages />
+      <PartnershipProgram />
+      {/* <VideoShowcase /> */}
+      <Testimonials />
+      <FinalCTA />
+      <TeamGallery />
     </main>
   );
 }
