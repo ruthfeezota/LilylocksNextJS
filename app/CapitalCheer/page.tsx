@@ -23,8 +23,8 @@ const approvedPonytail = {
   image: "/teams/CapitalCheer/16inPonytailLilylocks.png",
   length: "16 Inches",
   bunOptions: "Small / Medium / Large",
-  tease: "Medium Tease",
-  style: "Curly Units",
+  tease: "Extra Large Tease",
+  style: "Curly",
   vibe: "Capital Cheer-approved competition styling.",
   link: "https://lilylocksshop.square.site/product/the-varsity-pro-16-cheerleading-ponytail/EUJRQVY6V6PAU37BA5Q4J6GK",
 };
@@ -39,6 +39,8 @@ const requirements = [
 export default function TeamPage() {
   return (
     <main className="overflow-hidden bg-black text-white">
+
+
       {/* HERO */}
       <section className="relative isolate min-h-[680px] overflow-hidden md:min-h-[760px]">
         <Image
@@ -88,17 +90,36 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* QUICK REQUIREMENTS STRIP */}
-      <section id="requirements" className="relative z-10 mx-auto -mt-8 max-w-7xl px-5 sm:px-8">
-        <div className="grid overflow-hidden rounded-[28px] shadow-2xl sm:grid-cols-2 lg:grid-cols-4">
-          {requirements.map((item, index) => (
-            <div key={item.label} className={`p-6 sm:p-7 ${index !== 0 ? "border-white/10 sm:border-l" : ""} ${index > 1 ? "lg:border-l" : ""}`}>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#E8FF00]">{item.label}</p>
-              <p className="mt-2 text-lg font-semibold sm:text-xl">{item.value}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+
+
+      
+
+
+
+{/* CAPITAL CHEER TEAM DISCOUNT */}
+<section className="bg-[#00C5E8] px-5 py-7 text-black sm:px-8">
+  <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 text-center sm:flex-row sm:gap-8">
+    <p className="text-sm font-bold uppercase tracking-[0.2em]">
+      Capital Cheer
+    </p>
+
+    <span className="hidden h-8 w-px bg-black/30 sm:block" />
+
+    <p className="heading-font text-4xl uppercase sm:text-5xl">
+      20% Off Ponytails
+    </p>
+
+    <div className="flex items-center gap-2 text-xl">
+      <span className="text-black/70">Use code</span>
+      <span className="border-2 border-dashed border-white px-3 py-2 font-bold tracking-wider">
+        CAPITALCHEER
+      </span>
+    </div>
+  </div>
+</section>
+
+
+
 
       {/* ABOUT TEAM */}
       <section className="px-5 py-20 sm:px-8 md:py-28">
@@ -121,7 +142,7 @@ export default function TeamPage() {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#ff0a8a]">The Team Behind the Look</p>
             <h2 className="heading-font text-4xl uppercase leading-tight sm:text-5xl md:text-6xl">About the <span className="text-[#0052cc]">Team</span></h2>
             <p className="mt-7 text-base leading-8 text-white/75 sm:text-lg">
-              Capital Cheer All Stars Booster Club (CCABC) is a 501 (c) (3) organization, ran by cheer parents who volunteer their time and talents in supporting Capital Cheer athletes. Your donations are tax deductible and go directly to the activities managed by the Booster Club that help each athlete build a: Strong Body, Strong Mind, Strong Self.
+              Capital Cheer All Stars Booster Club (CCABC) is a 501 (c) (3) organization, ran by cheer parents who volunteer their time and talents in supporting Capital Cheer athletes.
             </p>
             <div className="mt-8 rounded-[24px] border-l-4 border-[#E8FF00] bg-[#111111] p-6 sm:p-8">
               <h3 className="heading-font text-2xl uppercase text-[#E8FF00]">Capital Cheer Mission</h3>
@@ -133,101 +154,146 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* APPROVED PONYTAIL PRODUCT */}
-      <section className="bg-[#0052cc] px-5 py-20 sm:px-8 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#E8FF00]">Made for Your Team</p>
-            <h2 className="heading-font text-4xl uppercase leading-tight sm:text-5xl md:text-6xl">Capital Cheer Approved Ponytail</h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
-              Capital Cheer athletes should order the team&apos;s approved 16-inch ponytail with the required bun and styling options below.
-            </p>
-          </div>
+ 
 
-          <div className="mx-auto mt-12 grid max-w-5xl overflow-hidden rounded-[30px] bg-black text-white shadow-2xl md:grid-cols-2">
-            <div className="relative min-h-[380px] bg-white/5 sm:min-h-[540px]">
-              <Image
-                src={approvedPonytail.image}
-                alt={approvedPonytail.name}
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-contain p-5 sm:p-8"
-              />
-              <div className="absolute left-5 top-5 rounded-full bg-[#E8FF00] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-black">
-                Team Approved
-              </div>
+
+{/* APPROVED PONYTAIL PRODUCT */}
+<section id="requirements" className="bg-[#0052cc] px-5 py-16 sm:px-8 md:py-20">
+  <div className="mx-auto max-w-6xl">
+    <div className="mb-8">
+      <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#E8FF00]">
+        Official Team Style
+      </p>
+      <h2 className="heading-font mt-2 text-3xl uppercase sm:text-4xl md:text-5xl">
+        Approved Ponytail
+      </h2>
+    </div>
+
+    <div className="grid overflow-hidden rounded-2xl border border-white/10 bg-black md:grid-cols-[0.9fr_1.1fr]">
+      {/* PRODUCT IMAGE */}
+      <div className="relative min-h-[300px] bg-white/[0.03] sm:min-h-[400px]">
+        <Image
+          src={approvedPonytail.image}
+          alt={approvedPonytail.name}
+          fill
+          sizes="(min-width: 768px) 45vw, 100vw"
+          className="object-contain p-6 sm:p-8"
+        />
+        <span className="absolute left-4 top-4 rounded-full bg-[#E8FF00] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-black">
+          Team Approved
+        </span>
+      </div>
+
+      {/* PRODUCT INFORMATION */}
+      <div className="flex flex-col justify-center p-6 sm:p-8 md:p-10">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff0a8a]">
+          {approvedPonytail.subtitle}
+        </p>
+
+        <h3 className="heading-font mt-2 text-3xl uppercase sm:text-4xl">
+          {approvedPonytail.name}
+        </h3>
+
+        <p className="mt-3 text-sm leading-6 text-white/65">
+          {approvedPonytail.vibe}
+        </p>
+ <div className="mt-3 flex items-center gap-3">
+  <p className="text-lg text-white/50 line-through">
+    $159.99
+  </p>
+  <p className="text-2xl font-bold text-white">
+    $127.99
+  </p>
+  <span className="rounded bg-[#E8FF00] px-2 py-1 text-xs font-bold text-black">
+    20% OFF
+  </span>
+</div>
+
+        {/* REQUIREMENTS */}
+        <div className="mt-6 border-t border-white/15">
+          {[
+            ["Length", approvedPonytail.length],
+            ["Bun Size", approvedPonytail.bunOptions],
+            ["Tease", approvedPonytail.tease],
+            ["Texture", approvedPonytail.style],
+          ].map(([label, value]) => (
+            <div
+              key={label}
+              className="flex items-center justify-between gap-4 border-b border-white/10 py-3"
+            >
+              <span className="text-sm text-white/55">{label}</span>
+              <span className="text-right text-sm font-semibold">
+                {value}
+              </span>
             </div>
-
-            <div className="flex flex-col justify-center p-6 sm:p-10 md:p-12">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff0a8a]">{approvedPonytail.subtitle}</p>
-              <h3 className="heading-font mt-3 text-4xl uppercase leading-tight sm:text-5xl">{approvedPonytail.name}</h3>
-              <p className="mt-4 leading-7 text-white/70">{approvedPonytail.vibe}</p>
-
-              <div className="mt-8 space-y-0 divide-y divide-white/10 rounded-2xl border border-white/10 px-5">
-                {[
-                  ["Length", approvedPonytail.length],
-                  ["Bun Options", approvedPonytail.bunOptions],
-                  ["Tease", approvedPonytail.tease],
-                  ["Style", approvedPonytail.style],
-                ].map(([label, value]) => (
-                  <div key={label} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-                    <span className="text-sm text-white/55">{label}</span>
-                    <span className="font-semibold sm:text-right">{value}</span>
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-6 text-sm leading-6 text-white/65">
-                Important: Athletes should order the Capital Cheer-approved 16-inch ponytail and select the required bun and styling options for a consistent team look.
-              </p>
-              <Link
-                href={approvedPonytail.link}
-                className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-[#ff0a8a] px-7 py-4 font-bold transition hover:scale-[1.02] hover:bg-[#e90079]"
-              >
-                Order 16&quot; Ponytail <ArrowUpRight size={18} />
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
 
-      {/* COLOR MATCH */}
-      <section className="px-5 py-20 sm:px-8 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#ff0a8a]">Find Your Shade</p>
-              <h2 className="heading-font text-4xl uppercase leading-tight sm:text-5xl md:text-6xl">Find the Best Color Match</h2>
-            </div>
-            <p className="max-w-lg leading-7 text-white/65">Select the shade closest to your athlete&apos;s natural hair color. When in doubt, compare the swatches in natural lighting.</p>
-          </div>
+        <Link
+          href={approvedPonytail.link}
+          className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[#ff0a8a] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#e90079]"
+        >
+          Shop Approved Ponytail
+          <ArrowUpRight size={17} />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 md:gap-5">
-            {shades.map((shade) => (
-              <div key={shade.name} className="group overflow-hidden rounded-[22px] border border-white/10 bg-[#101010] transition duration-300 hover:-translate-y-1 hover:border-[#E8FF00]/60">
-                <div className="relative aspect-square overflow-hidden bg-white/5">
-                  <Image
-                    src={shade.image1}
-                    alt={`${shade.name} hair color swatch`}
-                    fill
-                    sizes="(min-width: 768px) 20vw, 50vw"
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-3 text-center sm:p-4">
-                  <p className="font-semibold">{shade.name}</p>
-                  <p className="mt-1 hidden text-xs leading-5 text-white/55 sm:block">{shade.bestFor}</p>
-                </div>
-              </div>
-            ))}
+
+
+
+
+  
+{/* COLOR MATCH */}
+<section className="px-5 py-16 sm:px-8 md:py-20">
+  <div className="mx-auto max-w-7xl">
+    <div className="mb-10">
+      <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#ff0a8a]">
+        Find Your Shade
+      </p>
+      <h2 className="heading-font text-3xl uppercase leading-tight sm:text-4xl md:text-5xl">
+        Find the Best Color Match
+      </h2>
+      <p className="mt-3 max-w-xl text-sm leading-6 text-white/65">
+        Select the shade closest to your athlete&apos;s natural hair color.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 md:grid-cols-5 md:gap-x-6">
+      {shades.map((shade) => (
+        <div key={shade.name} className="group flex flex-col items-center text-center">
+          <div className="relative aspect-square w-full max-w-[150px] overflow-hidden rounded-full border-2 border-white/10 transition duration-300 group-hover:border-[#E8FF00] group-hover:scale-[1.03]">
+            <Image
+              src={shade.image1}
+              alt={`${shade.name} hair color`}
+              fill
+              sizes="(min-width: 768px) 150px, 40vw"
+              className="object-cover"
+            />
           </div>
-          <div className="mt-9 text-center">
-            <Link href="/color-match" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ff0a8a] px-7 py-3.5 font-bold transition hover:bg-[#ff0a8a]">
-              View Full Color Guide <ArrowUpRight size={18} />
-            </Link>
-          </div>
+          <p className="mt-3 text-sm font-semibold sm:text-base">
+            {shade.name}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+
+    <div className="mt-10 text-center">
+      <Link
+        href="/color-match"
+        className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ff0a8a] px-7 py-3 font-bold transition hover:bg-[#ff0a8a]"
+      >
+        View Full Color Guide <ArrowUpRight size={18} />
+      </Link>
+    </div>
+  </div>
+</section>
+
+
+
+
 
       {/* TEAM GALLERY */}
       <section className="bg-[#ff0a8a] px-5 py-20 sm:px-8 md:py-24">
@@ -261,12 +327,15 @@ export default function TeamPage() {
             <p className="mt-4 max-w-lg leading-7 text-white/85">
               Contact the Capital Cheer coaching staff for questions regarding team requirements and ordering.
             </p>
+            
           </div>
           <div className="flex flex-col justify-center rounded-[28px] bg-[#E8FF00] p-8 text-black sm:p-10 md:flex-row md:items-center md:justify-between md:gap-8">
             <div>
               <Trophy size={34} />
               <h2 className="heading-font mt-5 text-3xl uppercase sm:text-4xl">Ready to Order?</h2>
-              <p className="mt-3 max-w-xl leading-7 text-black/75">Purchase your approved competition ponytail before the ordering deadline.</p>
+              <p className="mt-3 max-w-xl leading-7 text-black/75">
+  Get your Capital Cheer-approved ponytail and save 20% with code CAPITALCHEER.
+</p>
             </div>
             <Link
               href={approvedPonytail.link}
