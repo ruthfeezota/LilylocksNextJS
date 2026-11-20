@@ -14,7 +14,7 @@ const bestSellers = [
     price: "$179.99",
     reviews: 124,
     button: "Shop Now",
-    href: "https://lilylocksshop.square.site/product/the-elite-18-cheerleading-ponytail/HUKTERVGHR63X3TIPTCCRJUY?cs=true&cst=custom",
+    href: "https://shop.lilylocks.com/products/elite",
   },
   {
     name: "Varsity™",
@@ -25,7 +25,7 @@ const bestSellers = [
     price: "$149.99",
     reviews: 98,
     button: "Shop Now",
-    href: "https://lilylocksshop.square.site/product/the-varsity-14-cheerleading-ponytail/C6H4NRCQ3THABDAAG3ZBIGNX?cs=true&cst=custom",
+    href: "https://shop.lilylocks.com/products/varsity",
   },
   {
     name: "Signature™",
@@ -47,7 +47,7 @@ const bestSellers = [
     price: "$99.99",
     reviews: 86,
     button: "Shop Now",
-    href: "https://lilylocksshop.square.site/product/the-rookie-10-cheerleading-ponytail/HFG4573Z54THUPEGNMAYM6JN?cs=true&cst=custom",
+    href: "https://shop.lilylocks.com/products/rookie",
   },
 ];
 

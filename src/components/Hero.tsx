@@ -54,7 +54,7 @@ const featuredCards = [
     description:
       "Get competition-ready for the new season with 20% off select LilyLocks styles.",
     button: "Shop the Sale",
-    href: "https://lilylocksshop.square.site/sale",
+    href: "https://shop.lilylocks.com/",
     theme: "pink",
     imagePosition: "object-top",
   },

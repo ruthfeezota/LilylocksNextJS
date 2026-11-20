@@ -400,7 +400,7 @@ export default function ContactPage() {
         </p>
 
         <Link
-          href="https://lilylocksshop.square.site/"
+          href="https://shop.lilylocks.com/"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
         >
           Shop LilyLocks Ponytails & Bows

@@ -43,7 +43,7 @@ const ponytails = {
       "The gateway to big hair energy. Perfect for girls stepping into bold hair without committing to full stadium glam.",
 
     buyUrl:
-      "https://lilylocksshop.square.site/product/the-starter-spark-10-cheerleading-ponytail/HFG4573Z54THUPEGNMAYM6JN?cs=true&cst=custom",
+      "https://shop.lilylocks.com/products/rookie",
 
     images: [
       "/ponytails/rookie.jpg",
@@ -76,7 +76,7 @@ const ponytails = {
       "Defined Waves / Loose Curls / Straight",
 
     buyUrl:
-      "https://lilylocksshop.square.site/product/the-extra-bounce-14-cheerleading-ponytail/C6H4NRCQ3THABDAAG3ZBIGNX?cs=true&cst=custom",
+      "https://shop.lilylocks.com/products/varsity",
 
     description:
       "This pony moves. You see it from the sidelines, on video, and under lights.",
@@ -112,7 +112,7 @@ const ponytails = {
       "Bold Curls / Glam Waves / Sleek Straight",
 
     buyUrl:
-      "https://lilylocksshop.square.site/product/the-main-character-18-cheerleading-ponytail/HUKTERVGHR63X3TIPTCCRJUY?cs=true&cst=custom",
+      "https://shop.lilylocks.com/products/elite",
 
     description:
       "The pony that turns stunts into slow-motion moments.",

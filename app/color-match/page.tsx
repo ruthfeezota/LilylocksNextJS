@@ -160,7 +160,7 @@ export default function ColorMatchPage() {
             <p className="mt-5 max-w-xl text-xl leading-relaxed text-white/90">
               {shade.bestFor}
             </p>
-            <a href="https://lilylocksshop.square.site">
+            <a href="https://shop.lilylocks.com/">
             <button className="mt-10 rounded-full bg-[#ff0a8a] px-10 py-5 text-xl font-bold transition hover:scale-105">
               Shop This Match
             </button>

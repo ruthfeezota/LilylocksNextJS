@@ -724,7 +724,7 @@ export default function HairCareGuidePage() {
           <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row">
 
             <Link
-              href="https://lilylocksshop.square.site/"
+              href="https://shop.lilylocks.com/"
               className="inline-flex items-center gap-3 rounded-full bg-black px-10 py-5 text-lg font-bold text-white transition hover:scale-105"
             >
               Shop Ponytails
