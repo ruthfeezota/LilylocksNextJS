@@ -26,7 +26,7 @@ const approvedPonytail = {
   tease: "Extra Large Tease",
   style: "Curly",
   vibe: "Capital Cheer-approved competition styling.",
-  link: "https://lilylocksshop.square.site/product/the-varsity-pro-16-cheerleading-ponytail/EUJRQVY6V6PAU37BA5Q4J6GK",
+  link: "https://shop.lilylocks.com/products/varsitypro",
 };
 
 const requirements = [

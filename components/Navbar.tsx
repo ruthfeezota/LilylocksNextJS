@@ -109,7 +109,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <Link
-              href="/team-orders#team-order"
+              href="https://shopify.com/66851471426/account"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -204,7 +204,7 @@ export default function Navbar() {
 
             {/* MOBILE CTA */}
             <Link
-              href="team-partnership/#team-order"
+              href="https://shopify.com/66851471426/account"
               target="_blank"
               rel="noopener noreferrer"
               className="
