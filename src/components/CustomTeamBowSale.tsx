@@ -60,7 +60,7 @@ export default function CustomTeamBowSale() {
               Custom Cheer Bows
               <br />
               <span className="text-[#E8FF00]">
-                Starting at $7.99
+                Starting at $24.99
               </span>
             </h3>
 
@@ -99,7 +99,7 @@ export default function CustomTeamBowSale() {
                   </span>
 
                   <span className="text-3xl font-black text-[#ff0a8a]">
-                    $7.99
+                    $24.99
                   </span>
                 </div>
               </div>

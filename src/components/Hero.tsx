@@ -2,6 +2,26 @@ import Image from "next/image";
 
 const featuredCards = [
   {
+    image: "/Bulidforteams/Lilylocks_Teams26.png",
+    imageAlt: "LilyLocks back to cheer collection",
+    eyebrow: "NEW ARRIVAL",
+    title: (
+      <>
+        THE PERFECT
+        <br />
+         PONYTAIL.
+        <br />
+        NOW IN PIGTAILS.
+      </>
+    ),
+    description:
+      "Double the volume. Double the fun. Meet the LilyLocks Pigtails — designed for standout cheer looks, competition days, and picture-perfect performances.",
+    button: "SHOP PIGTAILS",
+    href: "https://shop.lilylocks.com/products/pigtails",
+    theme: "pink",
+    imagePosition: "object-top",
+  },
+  {
     image: "/Bulidforteams/Lilylocks_Teams2.jpg",
     imageAlt: "Cheer athlete wearing a LilyLocks competition ponytail",
     eyebrow: "COMPETITION HAIR",
@@ -28,7 +48,7 @@ const featuredCards = [
     title: (
       <>
         {" "}
-        Custom Team <br /> Bows Starting <br /> at $7.99.{" "}
+        Custom Team <br /> Bows Starting <br /> at $24.99.{" "}
       </>
     ),
     description:
@@ -38,26 +58,7 @@ const featuredCards = [
     theme: "lime",
     imagePosition: "object-cover",
   },
-  {
-    image: "/Bulidforteams/Lilylocks_Teams6.jpg",
-    imageAlt: "LilyLocks back to cheer collection",
-    eyebrow: "BACK TO CHEER",
-    title: (
-      <>
-        20% Off
-        <br />
-        Your Cheer
-        <br />
-        Essentials.
-      </>
-    ),
-    description:
-      "Get competition-ready for the new season with 20% off select LilyLocks styles.",
-    button: "Shop the Sale",
-    href: "https://shop.lilylocks.com/",
-    theme: "pink",
-    imagePosition: "object-top",
-  },
+  
 ];
 
 export default function Hero() {

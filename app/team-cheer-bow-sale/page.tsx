@@ -26,7 +26,7 @@ const saleProducts = [
   {
     name: "Custom Collegiate Cheer Bow",
     oldPrice: "$9.99",
-    salePrice: "$7.99",
+    salePrice: "$24.99",
     savings: "SAVE $2.00",
     image: "/collegiate-cheer-bow.jpg",
     href: "https://lilylocksshop.square.site/product/custom-collegiate-cheer-bow/NBQF3GCPA4OCC24XPHWK2CSU?cs=true&cst=custom",
@@ -92,7 +92,7 @@ export default function TeamCheerBowSale() {
 
           <div className="flex items-baseline gap-3">
             <span className="heading-font text-6xl leading-none text-[#E8FF00] sm:text-7xl md:text-8xl">
-              $7.99
+              $24.99
             </span>
 
             <span className="text-sm font-bold uppercase text-white/50 sm:text-base">
