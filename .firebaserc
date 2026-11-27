@@ -1,16 +1,5 @@
 {
   "projects": {
-    "default": "lilylockswebsite",
-    "lilylockswebsite": "lilylockswebsite"
-  },
-  "targets": {
-    "lilylockswebsite": {
-      "hosting": {
-        "lilylockswebsite": [
-          "lilylockswebsite"
-        ]
-      }
-    }
-  },
-  "etags": {}
+    "default": "lilylockswebsite"
+  }
 }

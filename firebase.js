@@ -5,13 +5,13 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage"; 
 
 const firebaseConfig = {
- apiKey: "AIzaSyCJgwdqnSr4JkGslMnzfNSGwsQDf11JJ3c",
-  authDomain: "lilylockswebsite.firebaseapp.com",
-  projectId: "lilylockswebsite",
-  storageBucket: "lilylockswebsite.firebasestorage.app",
-  messagingSenderId: "170663434526",
-  appId: "1:170663434526:web:6b45f6e6df9a2e4f8e510f",
-  measurementId: "G-1VBRLV7851"
+  apiKey: "AIzaSyAvobcqAbBG_1WPwdF2Hu964RE1_iCFzRg",
+  authDomain: "lilylocks-main-website.firebaseapp.com",
+  projectId: "lilylocks-main-website",
+  storageBucket: "lilylocks-main-website.firebasestorage.app",
+  messagingSenderId: "283211065148",
+  appId: "1:283211065148:web:39d4433dc7255f684ee039",
+  measurementId: "G-MB9567XP1P"
   
 };
 
