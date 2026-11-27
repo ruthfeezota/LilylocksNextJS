@@ -11,12 +11,16 @@ import TeamGallery from "@/src/components/TeamGallery";
 import TeamPackages from "@/src/components/TeamPackages";
 import Testimonials from "@/src/components/Testimonials";
 import VideoShowcase from "@/src/components/VideoShowcase";
+import WinterSaleBanner from "@/src/components/WinterSaleBanner";
+
 
 export default function Home() {
   return (
     <main className="w-full max-w-[100vw] min-w-0 overflow-x-hidden">
       <Hero />
+      
       <BestSellers />
+      <WinterSaleBanner/>
       {/* <ShopByNeed /> */}
       <PerformanceSection />
       <TeamPackages />
